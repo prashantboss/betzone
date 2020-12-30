@@ -1,0 +1,57 @@
+1. "composer require bitfumes/laravel-multiauth"
+localhost/project_name/admin
+
+#views for admin login, register
+php artisan vendor:publish --tag="multiauth:views"
+
+
+2. "php artisan multiauth:install"
+-Publishing Configurations
+-Publishing Migrations
+-Running Migrations
+-Seeding New Super Admin
+	This also create a role called super
+	Create permissions for CRUD of Admin and Role
+-So you will have a super admin with email as super@admin.com and password as secret123
+
+3. If you want to change localhost/rishi_project/admin to localhost/rishi_project/master
+got to config > multiauth
+prefix => 'master'
+
+super@admin.com to master.com
+php artisan migrate:fresh
+php artisan multiauth:seed --role=super
+
+
+4. How to publish routes
+php artisan vendor:publish --tag="multiauth:routes"
+
+5. Apply Filter
+use middleware
+//New Routes
+Route::get('posts', function(){
+	return "Check";
+})->middleware('role:moderator');
+
+6. Use in blade for role filter
+@admin('moderator')
+	<button>Only for moderartot</button>
+@endadmin
+
+7. Create another auth
+php artisan multiauth:make {guard}
+php artisan multiauth:make user
+after that run
+php artisan migrate:fresh
+php artisan multiauth:seed --role=super
+
+8. If you want to admin deactivate
+Go to config>multiauth 
+'admin_active' => false
+
+9. if you spell mistake in ( php artisan multiauth:make pltyerd )
+so you can roll back guard
+php artisan multiauth:rollback pltyerd
+result : pltyerd no longer available
+
+
