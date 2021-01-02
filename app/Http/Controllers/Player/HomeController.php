@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Player;
 
 use App\Http\Controllers\Controller;
+use DB;
 
 class HomeController extends Controller
 {
@@ -25,7 +26,11 @@ class HomeController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index() {
-        return view('player.home');
+        // return view('player.home');
+        $data = DB::table('markets')->get();
+        return view('player.dashboard')
+                            ->with('live_result', $data)
+                            ->with('title', 'Dashboard');
     }
 
 }
