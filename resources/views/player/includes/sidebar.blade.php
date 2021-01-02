@@ -44,11 +44,11 @@
                                 <i class="fas fa-bell"></i>Notice</a>
                         </li>
                         <li>
-                            <a href="https://wa.me/{{$siteSetting['site_phone_primary']}}?text=Sir I want to deposite money ">
+                            <a href="https://api.whatsapp.com/send?phone={{$siteSetting['site_phone_primary']}}&text=Sir I want to deposite money ">
                                 <i class="fas fa-inr"></i>Deposite</a>
                         </li>
                         <li>
-                            <a href="https://wa.me/{{$siteSetting['site_phone_primary']}}?text=Sir I want to withdrawl money ">
+                            <a href="https://api.whatsapp.com/send?phone={{$siteSetting['site_phone_primary']}}&text=Sir I want to withdrawl money ">
                                 <i class="fas fa-inr"></i>Withdrawl</a>
                         </li>
                         <li>
@@ -151,11 +151,11 @@
                                 <i class="fas fa-bell"></i>Notice</a>
                         </li>
                         <li>
-                            <a href="https://wa.me/{{$siteSetting['site_phone_primary']}}?text=Sir I want to deposite money">
+                            <a href="https://api.whatsapp.com/send?phone={{$siteSetting['site_phone_primary']}}&text=Sir I want to deposite money">
                                 <i class="fas fa-inr"></i>Deposite</a>
                         </li>
                         <li>
-                            <a href="https://wa.me/{{$siteSetting['site_phone_primary']}}?text=Sir I want to withdrawl money">
+                            <a href="https://api.whatsapp.com/send?phone={{$siteSetting['site_phone_primary']}}&text=Sir I want to withdrawl money">
                                 <i class="fas fa-inr"></i>Withdrawl</a>
                         </li>
                         <li>
