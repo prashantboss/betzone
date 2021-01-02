@@ -55,7 +55,7 @@ class TransactionController extends Controller
         return $this->live_result($request->id);
     }
 
-    public function holiday($game_id){
+    public function holiday($game_id, $game_name){
         $data = DB::table('markets')->get();
         // $data1 = DB::table('market_holiday')
         //                     ->where('market_holiday.game_id',$game_id)
@@ -66,7 +66,8 @@ class TransactionController extends Controller
                             ->with('markets', $data)
                             // ->with('holiday_data', $data1)
                             ->with('game_id', $game_id)
-                            ->with('title', 'Holiday');
+                            ->with('game_name', $game_name)
+                            ->with('title', 'Holiday/'.$game_name);
     }
 
     public function holiday_update(Request $request){

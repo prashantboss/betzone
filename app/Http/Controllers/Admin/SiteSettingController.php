@@ -10,7 +10,7 @@ class SiteSettingController extends Controller
 {
     public function editSiteSetting()
     {
-        $id = 1272;
+        $id = 1;
         $siteSetting = SiteSetting::findOrFail($id);
         return view('vendor.multiauth.admin.site_setting.edit')
                             ->with('siteSetting', $siteSetting)

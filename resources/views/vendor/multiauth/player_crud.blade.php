@@ -4,63 +4,6 @@
 @include('multiauth::includes.header')
 @include('multiauth::includes.page_title')
 <div class="main-content-inner">
-    <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
-        <div class="container">
-            <a class="navbar-brand" href="{{ route('admin.home') }}">
-                {{ config('app.name', 'Laravel') }} {{ ucfirst(config('multiauth.prefix')) }}
-            </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse"
-                data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="{{ __('Toggle navigation') }}">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <!-- Left Side Of Navbar -->
-                <ul class="navbar-nav mr-auto">
-
-                </ul>
-
-                <!-- Right Side Of Navbar -->
-                <ul class="navbar-nav ml-auto">
-                    <!-- Authentication Links -->
-                    @guest('admin')
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{route('admin.login')}}">{{ ucfirst(config('multiauth.prefix'))
-                            }} Login</a>
-                    </li>
-                    @else
-                    <li class="nav-item dropdown">
-                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                            {{ auth('admin')->user()->name }} <span class="caret"></span>
-                        </a>
-
-                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                            @admin('super')
-                            <a class="dropdown-item" href="{{ route('admin.show') }}">{{
-                                ucfirst(config('multiauth.prefix')) }}</a>
-                            @permitToParent('Role')
-                            <a class="dropdown-item" href="{{ route('admin.roles') }}">Roles</a>
-                            @endpermitToParent
-                            @endadmin
-                            <a class="dropdown-item" href="{{ route('admin.password.change') }}">Change Password</a>
-                            <a class="dropdown-item" href="/admin/logout" onclick="event.preventDefault();
-                                                    document.getElementById('logout-form').submit();">
-                                {{ __('Logout') }}
-                            </a>
-                            <form id="logout-form" action="{{ route('admin.logout') }}" method="POST"
-                                style="display: none;">
-                                @csrf
-                            </form>
-                        </div>
-                    </li>
-                    @endguest
-                </ul>
-            </div>
-        </div>
-    </nav>
-
     <!-- Dark table start -->
     <div class="col-12 mt-5">
         <div class="card">
@@ -73,6 +16,8 @@
                                 <th>Id</th>
                                 <th>Name</th>
                                 <th>Email</th>
+                                <th>Mobile</th>
+                                <td>Account Detail</td>
                                 <th>Date</th>
                                 <th>Actions</th>
                                 <th>Wallet</th>
@@ -84,6 +29,14 @@
                                     <td>{{$row->id}}</td>
                                     <td>{{$row->name}}</td>
                                     <td>{{$row->email}}</td>
+                                    <td>{{$row->mobile}}</td>
+                                    <td>
+                                        @if($row->account_detail == "Bank")
+                                            <a href="" onclick="get_detail('{{$row->bank_name}}', '{{$row->bank_ifsc}}', '{{$row->bank_holder_name}}', '{{$row->account_number}}')" >Bank</a>
+                                        @else
+                                            {{$row->account_detail}}
+                                        @endif
+                                    </td>
                                     <td>{{$row->created_at}}</td>
                                     <td>
                                         <ul class="d-flex justify-content-center">
@@ -111,7 +64,7 @@
 @include('multiauth::includes.footer')
 @endsection
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script>
+<!-- <script>
     $(document).ready(function () {
         function delete_player(id){
             $.ajaxSetup({
@@ -130,4 +83,9 @@
             });
         }
     });
+</script> -->
+<script>
+    function get_detail(bank_name, bank_ifsc, bank_holder_name, account_number){
+        alert("Bank Name  : "+bank_name+"\n Bank IFSC  :  "+bank_ifsc+"\n Bank Holder Name  :  "+bank_holder_name+"\n Bank Account Number  :  "+account_number);
+    }
 </script>
