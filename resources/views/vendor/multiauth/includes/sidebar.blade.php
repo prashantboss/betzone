@@ -11,7 +11,7 @@
     <div class="sidebar-menu">
         <div class="sidebar-header">
             <div class="logo">
-                <a href="index.html"><img src="{{asset('/')}}admin_assets/images/icon/logo.png" alt="logo"></a>
+                <a href="index.html"><img src="{{asset('/')}}logo/{{$siteSetting['site_logo']}}" style="width:120px;height:38px" alt="logo"></a>
             </div>
         </div>
         <div class="main-menu">
@@ -23,7 +23,7 @@
                     @endphp
                     <ul class="metismenu" id="menu">
                         <li class="active">
-                            <a href="" aria-expanded="true"><i class="ti-dashboard"></i><span>dashboard</span></a>
+                            <a href="#" aria-expanded="true"><i class="ti-dashboard"></i><span>dashboard</span></a>
                         </li>
                         <li>
                             <a href="javascript:void(0)" aria-expanded="true"><i class="ti-layout-sidebar-left"></i><span>static Content</span></a>
@@ -45,8 +45,6 @@
                         <li>
                             <a href="javascript:void(0)" aria-expanded="true"><i class="ti-palette"></i><span>Live Result</span></a>
                             <ul class="collapse">
-                                
-
                                 @foreach($markets as $row)
                                     <li><a href="{{ route('admin.live_result', ['id'=>$row->id]) }}">{{$row->name}}</a></li>
                                 @endforeach
@@ -56,11 +54,13 @@
                             <a href="javascript:void(0)" aria-expanded="true"><i class="ti-slice"></i><span>Game Holiday</span></a>
                             <ul class="collapse">
                                 @foreach($games as $row)
-                                    <li><a href="{{ route('admin.holiday', ['id'=>$row->id]) }}">{{$row->game_name}}</a></li>
+                                    <li><a href="{{ route('admin.holiday', ['id'=>$row->id, 'game_name' => $row->game_name]) }}">{{$row->game_name}}</a></li>
                                 @endforeach
                             </ul>
                         </li>
-                        <li>
+                        <li><a href="{{ route('admin.player.index') }}"><i class="ti-map-alt"></i> <span>Players</span></a></li>
+                        <li><a href="#"><i class="ti-receipt"></i> <span>Game Timings</span></a></li>
+                        <!-- <li>
                             <a href="javascript:void(0)" aria-expanded="true"><i class="fa fa-table"></i>
                                 <span>Tables</span></a>
                             <ul class="collapse">
@@ -68,10 +68,9 @@
                                 <li><a href="table-layout.html">table layout</a></li>
                                 <li><a href="datatable.html">datatable</a></li>
                             </ul>
-                        </li>
-                        <li><a href="{{ route('admin.player.index') }}"><i class="ti-map-alt"></i> <span>Players</span></a></li>
-                        <li><a href="invoice.html"><i class="ti-receipt"></i> <span>Invoice Summary</span></a></li>
-                        <li>
+                        </li> -->
+                        
+                        <!-- <li>
                             <a href="javascript:void(0)" aria-expanded="true"><i class="ti-layers-alt"></i> <span>Pages</span></a>
                             <ul class="collapse">
                                 <li><a href="login.html">Login</a></li>
@@ -86,8 +85,8 @@
                                 <li><a href="reset-pass.html">reset password</a></li>
                                 <li><a href="pricing.html">Pricing</a></li>
                             </ul>
-                        </li>
-                        <li>
+                        </li> -->
+                        <!-- <li>
                             <a href="javascript:void(0)" aria-expanded="true"><i class="fa fa-exclamation-triangle"></i>
                                 <span>Error</span></a>
                             <ul class="collapse">
@@ -95,8 +94,8 @@
                                 <li><a href="403.html">Error 403</a></li>
                                 <li><a href="500.html">Error 500</a></li>
                             </ul>
-                        </li>
-                        <li>
+                        </li> -->
+                        <!-- <li>
                             <a href="javascript:void(0)" aria-expanded="true"><i class="fa fa-align-left"></i> <span>Multi
                                     level menu</span></a>
                             <ul class="collapse">
@@ -111,7 +110,7 @@
                                 </li>
                                 <li><a href="#">Item level (1)</a></li>
                             </ul>
-                        </li>
+                        </li> -->
                         <li><a href="{{ route('admin.edit.site.setting') }}"><i class="fa fa-cog"></i> <span>Settings</span></a></li>
                     </ul>
                 </nav>

@@ -2,7 +2,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="copyright">
-                            <p>Copyright © 2021 xbet. All rights reserved.</p>
+                            <p>Copyright © 2021 betzone. All rights reserved.</p>
                         </div>
                     </div>
                 </div>

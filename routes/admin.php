@@ -56,7 +56,7 @@
     // })->middleware('role:manager');
     
 /* * ******  SiteSetting Start ********** */
-    Route::get('/edit/site/setting', '\App\Http\Controllers\Admin\SiteSettingController@editsiteSetting')->name('admin.edit.site.setting')->middleware('role:super');
+    Route::get('/edit/site/setting', '\App\Http\Controllers\Admin\SiteSettingController@editSiteSetting')->name('admin.edit.site.setting')->middleware('role:super');
     Route::put('/update/site/setting', '\App\Http\Controllers\Admin\SiteSettingController@updatesiteSetting')->name('admin.update.site.setting')->middleware('role:super');
 /* * ****** End SiteSetting ********** */
 
@@ -92,5 +92,5 @@
     Route::post('/update_live_result','\App\Http\Controllers\Admin\TransactionController@update_live_result')->name('admin.update_live_result')->middleware('role:super');
 
     //Holiday
-    Route::get('/holiday/{id}','\App\Http\Controllers\Admin\TransactionController@holiday')->name('admin.holiday')->middleware('role:super');
+    Route::get('/holiday/{id}/{game_name}','\App\Http\Controllers\Admin\TransactionController@holiday')->name('admin.holiday')->middleware('role:super');
     Route::post('/holiday/update','\App\Http\Controllers\Admin\TransactionController@holiday_update')->name('admin.holiday_update')->middleware('role:super');

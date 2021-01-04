@@ -4,7 +4,7 @@
 @include('multiauth::includes.header')
 @include('multiauth::includes.page_title')
 <div class="main-content-inner">
-    <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
+    <!-- <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
         <div class="container">
             <a class="navbar-brand" href="{{ route('admin.home') }}">
                 {{ config('app.name', 'Laravel') }} {{ ucfirst(config('multiauth.prefix')) }}
@@ -16,14 +16,14 @@
             </button>
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <!-- Left Side Of Navbar -->
+
                 <ul class="navbar-nav mr-auto">
 
                 </ul>
 
-                <!-- Right Side Of Navbar -->
+           
                 <ul class="navbar-nav ml-auto">
-                    <!-- Authentication Links -->
+             
                     @guest('admin')
                     <li class="nav-item">
                         <a class="nav-link" href="{{route('admin.login')}}">{{ ucfirst(config('multiauth.prefix'))
@@ -59,10 +59,10 @@
                 </ul>
             </div>
         </div>
-    </nav>
+    </nav> -->
 
     <!-- main content area start -->
-    <div class="main-content">
+    <!-- <div class="main-content">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-md-8">
@@ -76,7 +76,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
     <!-- main content area end -->
 
 </div>

@@ -4,8 +4,8 @@
             <div class="header-mobile__bar">
                 <div class="container-fluid">
                     <div class="header-mobile-inner">
-                        <a class="logo" href="index.html">
-                            <img src="{{asset('/')}}player_assets/images/icon/logo.png" alt="CoolAdmin" />
+                        <a class="logo" href="{{ route('player.dashboard')}}">
+                            <img src="{{asset('/')}}logo/{{$siteSetting['site_logo']}}" alt="CoolAdmin" />
                         </a>
                         <button class="hamburger hamburger--slider" type="button">
                             <span class="hamburger-box">
@@ -29,35 +29,35 @@
                         </li>
                         <li>
                             <a href="{{ route('player.game_rate_static')}}">
-                                <i class="fas fa-chart-bar"></i>Game rate</a>
+                                <i class="fas fa-tag"></i>Game rate</a>
                         </li>
                         <li>
                             <a href="{{ route('player.game_ledger')}}">
-                                <i class="fas fa-chart-bar"></i>Game Ledger</a>
+                                <i class="fas fa-file"></i>Game Ledger</a>
                         </li>
                         <li>
                             <a href="{{ route('player.balance.enquiry')}}">
-                                <i class="fas fa-chart-bar"></i>Played Game</a>
+                                <i class="fas fa-history"></i>Played Game</a>
                         </li>
                         <li>
                             <a href="{{ route('player.notice_static')}}">
-                                <i class="fas fa-chart-bar"></i>Notice</a>
+                                <i class="fas fa-bell"></i>Notice</a>
                         </li>
                         <li>
-                            <a href="https://wa.me/9993613331?text=Sir I want to deposite money ">
-                                <i class="fas fa-table"></i>Deposite</a>
+                            <a href="https://api.whatsapp.com/send?phone={{$siteSetting['site_phone_primary']}}&text=Sir I want to deposite money ">
+                                <i class="fas fa-inr"></i>Deposite</a>
                         </li>
                         <li>
-                            <a href="https://wa.me/9993613331?text=Sir I want to withdrawl money ">
-                                <i class="fas fa-table"></i>Withdrawl</a>
+                            <a href="https://api.whatsapp.com/send?phone={{$siteSetting['site_phone_primary']}}&text=Sir I want to withdrawl money ">
+                                <i class="fas fa-inr"></i>Withdrawl</a>
                         </li>
                         <li>
                             <a href="{{ route('player.game_timing_static')}}">
-                                <i class="fas fa-table"></i>Game Timing</a>
+                                <i class="fas fa-clock-o"></i>Game Timing</a>
                         </li>
                         <li class="has-sub">
                             <a class="js-arrow" href="#">
-                                <i class="fas fa-copy"></i>Games</a>
+                                <i class="fas fa-play"></i>Games</a>
                             <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
                                 @foreach($game as $row)
                                 <li>
@@ -68,7 +68,7 @@
                         </li>
                         <li>
                             <a href="{{ route('player.how_to_play_static')}}">
-                                <i class="fas fa-calendar-alt"></i>How To Play</a>
+                                <i class="fas fa-info"></i>How To Play</a>
                         </li>
                         <!-- <li class="has-sub">
                             <a class="js-arrow" href="#">
@@ -118,8 +118,8 @@
         <!-- MENU SIDEBAR-->
         <aside class="menu-sidebar d-none d-lg-block">
             <div class="logo">
-                <a href="#">
-                    <img src="{{asset('/')}}player_assets/images/icon/logo.png" alt="Cool Admin" />
+                <a href="{{ route('player.dashboard')}}">
+                    <img src="{{asset('/')}}logo/{{$siteSetting['site_logo']}}" style="width:179px;height:52px" alt="Cool Admin" />
                 </a>
             </div>
             <div class="menu-sidebar__content js-scrollbar1">
@@ -136,35 +136,35 @@
                         </li>
                         <li>
                             <a href="{{ route('player.game_rate_static')}}">
-                                <i class="fas fa-chart-bar"></i>Game rate</a>
+                                <i class="fas fa-tag"></i>Game rate</a>
                         </li>
                         <li>
                             <a href="{{ route('player.game_ledger')}}">
-                                <i class="fas fa-chart-bar"></i>Game Ledger</a>
+                                <i class="fas fa-file"></i>Game Ledger</a>
                         </li>
                         <li>
                             <a href="{{ route('player.balance.enquiry')}}">
-                                <i class="fas fa-chart-bar"></i>Played Game</a>
+                                <i class="fas fa-history"></i>Played Game</a>
                         </li>
                         <li>
                             <a href="{{ route('player.notice_static')}}">
-                                <i class="fas fa-chart-bar"></i>Notice</a>
+                                <i class="fas fa-bell"></i>Notice</a>
                         </li>
                         <li>
-                            <a href="https://wa.me/7000032998?text=Sir I want to deposite money">
-                                <i class="fas fa-table"></i>Deposite</a>
+                            <a href="https://api.whatsapp.com/send?phone={{$siteSetting['site_phone_primary']}}&text=Sir I want to deposite money">
+                                <i class="fas fa-inr"></i>Deposite</a>
                         </li>
                         <li>
-                            <a href="https://wa.me/7000032998?text=Sir I want to withdrawl money">
-                                <i class="fas fa-table"></i>Withdrawl</a>
+                            <a href="https://api.whatsapp.com/send?phone={{$siteSetting['site_phone_primary']}}&text=Sir I want to withdrawl money">
+                                <i class="fas fa-inr"></i>Withdrawl</a>
                         </li>
                         <li>
                             <a href="{{ route('player.game_timing_static')}}">
-                                <i class="fas fa-table"></i>Game Timing</a>
+                                <i class="fas fa-clock-o"></i>Game Timing</a>
                         </li>
                         <li class="has-sub">
                             <a class="js-arrow" href="#">
-                                <i class="fas fa-copy"></i>Games</a>
+                                <i class="fas fa-play"></i>Games</a>
                             <ul class="list-unstyled navbar__sub-list js-sub-list">
                                 @foreach($game as $row)
                                 <li>
@@ -175,7 +175,7 @@
                         </li>
                         <li>
                             <a href="{{ route('player.how_to_play_static')}}">
-                                <i class="fas fa-calendar-alt"></i>How To Play</a>
+                                <i class="fas fa-info"></i>How To Play</a>
                         </li>
                         <!-- <li class="has-sub">
                             <a class="js-arrow" href="#">

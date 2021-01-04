@@ -43,4 +43,9 @@ Route::group(['namespace' => 'Player'], function() {
 
     Route::get('profile_show','GamesController@profile')->name('player.profile');
     Route::get('profile_update','GamesController@profile_update')->name('player.update');
+
+
+    //Change Password
+    Route::get('update_password','HomeController@change_password')->name('player.change_pass');
+    Route::get('update_password_process','HomeController@change_password_process')->name('player.change_password_process');
 });

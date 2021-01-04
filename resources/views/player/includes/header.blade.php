@@ -67,7 +67,7 @@
                                 <div class="account-dropdown js-dropdown">
                                     <div class="info clearfix">
                                         <div class="image">
-                                            <a href="#">
+                                            <a href="{{ route('player.dashboard')}}">
                                                 <img src="{{asset('/')}}player_assets/images/profile.png" alt="John Doe" />
                                             </a>
                                         </div>
@@ -84,13 +84,13 @@
                                                 <i class="zmdi zmdi-account"></i>Account</a>
                                         </div>
                                         <div class="account-dropdown__item">
-                                            <a href="#">
-                                                <i class="zmdi zmdi-settings"></i>Setting</a>
+                                            <a href="{{ route('player.change_pass') }}">
+                                                <i class="zmdi zmdi-settings"></i>Change Password</a>
                                         </div>
-                                        <div class="account-dropdown__item">
+                                        <!-- <div class="account-dropdown__item">
                                             <a href="#">
                                                 <i class="zmdi zmdi-money-box"></i>Billing</a>
-                                        </div>
+                                        </div> -->
                                     </div>
                                     <div class="account-dropdown__footer">
                                         <a href="{{ route('player.logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
