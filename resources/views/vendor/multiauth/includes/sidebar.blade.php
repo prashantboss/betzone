@@ -59,7 +59,16 @@
                             </ul>
                         </li>
                         <li><a href="{{ route('admin.player.index') }}"><i class="ti-map-alt"></i> <span>Players</span></a></li>
-                        <li><a href="#"><i class="ti-receipt"></i> <span>Game Timings</span></a></li>
+                        <li>
+                            <a href="javascript:void(0)" aria-expanded="true"><i class="ti-receipt"></i><span>Game Timings</span></a>
+                            <ul class="collapse">
+                                @foreach($markets as $row)
+                                    <li><a href="{{ route('admin.live_result', ['id'=>$row->id]) }}">{{$row->name}}</a></li>
+                                @endforeach
+                            </ul>
+                        </li>
+                        
+                        <!-- <li><a href="#"><i class="ti-receipt"></i> <span>Game Timings</span></a></li> -->
                         <!-- <li>
                             <a href="javascript:void(0)" aria-expanded="true"><i class="fa fa-table"></i>
                                 <span>Tables</span></a>
