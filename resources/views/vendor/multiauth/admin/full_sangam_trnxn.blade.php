@@ -16,7 +16,8 @@
                                 <th>Name</th>
                                 <th>Email</th>
                                 <th>Mobile</th>
-                                <th>Number</th>
+                                <th>Open Patti</th>
+                                <th>Close Patti</th>
                                 <th>Amount</th>
                                 <th>Date</th>
                                 <th>Market | Game Name</th>
@@ -30,7 +31,8 @@
                                     <td>{{$row->name}}</td>
                                     <td>{{$row->email}}</td>
                                     <td>{{$row->mobile}}</td>
-                                    <td>{{$row->number}}</td>
+                                    <td>{{$row->open_patti}}</td>
+                                    <td>{{$row->close_patti}}</td>
                                     <td>Rs. {{$row->amount}}</td>
                                     <td>
                                     {{ date('d/m/Y,  h:i:s a', strtotime($row->created_at)) }}

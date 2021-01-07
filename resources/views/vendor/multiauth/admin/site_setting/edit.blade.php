@@ -16,7 +16,9 @@
                             <form>
                                 <div class="form-group">
                                     <label for="site-name" class="col-form-label">Site Logo</label>
-                                    <img class="form-control" style="width: 100px;"  href="{{$siteSetting['site_logo']}}" id="site_logo" />
+                                    <div class="logo">
+                                        <a href=""><img src="{{asset('/')}}logo/{{$siteSetting['site_logo']}}" alt="logo"></a>
+                                    </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="site-name" class="col-form-label">Site Name</label>

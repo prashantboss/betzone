@@ -11,7 +11,7 @@
     <div class="sidebar-menu">
         <div class="sidebar-header">
             <div class="logo">
-                <a href="index.html"><img src="{{asset('/')}}logo/{{$siteSetting['site_logo']}}" style="width:120px;height:38px" alt="logo"></a>
+                <a href="{{ route('admin.home') }}"><img src="{{asset('/')}}logo/{{$siteSetting['site_logo']}}" alt="logo"></a>
             </div>
         </div>
         <div class="main-menu">
@@ -23,7 +23,7 @@
                     @endphp
                     <ul class="metismenu" id="menu">
                         <li class="active">
-                            <a href="#" aria-expanded="true"><i class="ti-dashboard"></i><span>dashboard</span></a>
+                            <a href="{{ route('admin.home') }}" aria-expanded="true"><i class="ti-dashboard"></i><span>dashboard</span></a>
                         </li>
                         <li>
                             <a href="javascript:void(0)" aria-expanded="true"><i class="ti-layout-sidebar-left"></i><span>static Content</span></a>
@@ -63,7 +63,7 @@
                             <a href="javascript:void(0)" aria-expanded="true"><i class="ti-receipt"></i><span>Game Timings</span></a>
                             <ul class="collapse">
                                 @foreach($markets as $row)
-                                    <li><a href="{{ route('admin.live_result', ['id'=>$row->id]) }}">{{$row->name}}</a></li>
+                                    <li><a href="{{ route('admin.game_time_show', ['id'=>$row->id]) }}">{{$row->name}}</a></li>
                                 @endforeach
                             </ul>
                         </li>

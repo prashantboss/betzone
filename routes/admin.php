@@ -94,3 +94,8 @@
     //Holiday
     Route::get('/holiday/{id}/{game_name}','\App\Http\Controllers\Admin\TransactionController@holiday')->name('admin.holiday')->middleware('role:super');
     Route::post('/holiday/update','\App\Http\Controllers\Admin\TransactionController@holiday_update')->name('admin.holiday_update')->middleware('role:super');
+
+    //Game Timing
+    Route::get('/game_time/{id}','\App\Http\Controllers\Admin\TransactionController@game_time')->name('admin.game_time_show')->middleware('role:super');
+    Route::post('/update_game_time','\App\Http\Controllers\Admin\TransactionController@update_game_time')->name('admin.update_game_time')->middleware('role:super');
+

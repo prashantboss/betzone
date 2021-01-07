@@ -79,6 +79,8 @@
     </div> -->
     <!-- main content area end -->
 
+    <h1>Welcome to dashboard</h1>
+
 </div>
 @include('multiauth::includes.footer')
 @endsection

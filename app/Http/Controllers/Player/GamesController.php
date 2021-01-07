@@ -53,22 +53,20 @@ class GamesController extends Controller
     }
 
     public function create_game_market(Request $request){
-        // echo count(array_values($request->amount));
-        // echo $request->open_close;
-        // exit;
         if($request->game == "Single" || $request->game == "Single Patti" || $request->game == "Double Patti" || $request->game == "Jodi" || $request->game == "Triple Patti"){
             $array = array();
             if (strlen(implode($request->amount)) == 0){
                 Session::flash('flash_message', 'Please Enter Minimum One Betting Number');
                 Session::flash('flash_type', 'alert-danger');
-                return $this->market_number($request->game, $request->market);
+                // return $this->market_number($request->game, $request->market);
+                return redirect()->route('player.market.number', [$request->game, $request->market]);
             }
             for($i=0;$i<count(array_keys($request->amount));$i++){
                 if($request->amount[array_keys($request->amount)[$i]] != ''){
                     if($request->amount[array_keys($request->amount)[$i]]<10){
                         Session::flash('flash_message', 'Minimum play amount Rs.10');
                         Session::flash('flash_type', 'alert-danger');
-                        return $this->market_number($request->game, $request->market);
+                        return redirect()->route('player.market.number', [$request->game, $request->market]);
                     }
                 }  
             }
