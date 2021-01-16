@@ -11,6 +11,7 @@ use Session;
 class TransactionController extends Controller
 {
     public function half_sangam_traxn(){
+        // DB::enableQueryLog(); // Enable query log
         $data = DB::table('player_betting_data_half_sangam')
             ->join('markets', 'player_betting_data_half_sangam.market_id', '=', 'markets.id')
             ->join('games', 'player_betting_data_half_sangam.game_id', '=', 'games.id')
@@ -18,10 +19,10 @@ class TransactionController extends Controller
             ->select('players.email','players.name','players.mobile',
             'player_betting_data_half_sangam.id','player_betting_data_half_sangam.ank_patti','player_betting_data_half_sangam.ank','player_betting_data_half_sangam.patti','player_betting_data_half_sangam.amount','player_betting_data_half_sangam.bet_date','player_betting_data_half_sangam.created_at', 
             'games.game_name', 'markets.name as market_name')
-            ->orderBy('player_betting_data_half_sangam.bet_date', 'DESC')
+            ->orderBy('player_betting_data_half_sangam.created_at', 'DESC')
             ->get();
-        // echo "<pre>";
-        // print_r($data);
+        // dd($data);
+        // dd(DB::getQueryLog()); // Show results of log
         return view('vendor.multiauth.admin.half_sangam_trnxn')
                             ->with('data', $data)
                             ->with('title', 'Rest Transaction');
@@ -35,7 +36,7 @@ class TransactionController extends Controller
             ->select('players.email','players.name','players.mobile',
             'player_betting_data_full_sangam.id','player_betting_data_full_sangam.open_patti','player_betting_data_full_sangam.close_patti','player_betting_data_full_sangam.amount','player_betting_data_full_sangam.bet_date','player_betting_data_full_sangam.created_at', 
             'games.game_name', 'markets.name as market_name')
-            ->orderBy('player_betting_data_full_sangam.bet_date', 'DESC')
+            ->orderBy('player_betting_data_full_sangam.created_at', 'DESC')
             ->get();
         // echo "<pre>";
         // print_r($data);
@@ -51,10 +52,11 @@ class TransactionController extends Controller
             ->join('players', 'player_betting_data.player_id', '=', 'players.id')
             ->select('players.mobile','players.email','players.name','player_betting_data.id','player_betting_data.number','player_betting_data.amount','player_betting_data.bet_date','player_betting_data.created_at', 
             'games.game_name', 'markets.name as market_name')
-            ->orderBy('player_betting_data.bet_date', 'DESC')
+            ->orderBy('player_betting_data.created_at', 'DESC')
             ->get();
         // echo "<pre>";
         // print_r($data);
+        // exit;
         return view('vendor.multiauth.admin.rest_trnxn')
                             ->with('data', $data)
                             ->with('title', 'Rest Transaction');
@@ -145,10 +147,11 @@ class TransactionController extends Controller
         $request->validate([
             'open_time' => 'required',
             'close_time' => 'required',
+            'name' => 'required',
         ]);
         DB::table('markets')
                 ->where('id', $request->id)
-                ->update(['open_time' => $request->open_time, 'close_time' => $request->close_time]);
+                ->update(['open_time' => $request->open_time, 'close_time' => $request->close_time, 'name'=>$request->name]);
         Session::flash('flash_message', 'Game time update successfully.');
         Session::flash('flash_type', 'alert-success');
         return redirect()->route('admin.game_time_show', [$request->id]);

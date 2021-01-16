@@ -27,9 +27,6 @@
                         }else{ 
                     @endphp -->
                         @foreach($data as $row)
-                
-                    
-                    
                         <tr>
                             <td>{{$i}}</td>
                             <td>Rs. {{$row->amount}}</td>

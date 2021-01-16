@@ -71,16 +71,16 @@
 
     // Static
     Route::get('/game_rate','\App\Http\Controllers\Admin\AStaticController@admin_game_rate_static')->name('admin.game_rate')->middleware('role:super');
-    Route::get('/game_rate_update','\App\Http\Controllers\Admin\AStaticController@admin_game_rate_static_update')->name('admin.game_rate_update')->middleware('role:super');
+    Route::post('/game_rate_update','\App\Http\Controllers\Admin\AStaticController@admin_game_rate_static_update')->name('admin.game_rate_update')->middleware('role:super');
     
     Route::get('/game_timing','\App\Http\Controllers\Admin\AStaticController@admin_game_timing_static')->name('admin.game_timing')->middleware('role:super');
-    Route::get('/game_timing_update','\App\Http\Controllers\Admin\AStaticController@admin_game_timing_static_update')->name('admin.game_timing_update')->middleware('role:super');
+    Route::post('/game_timing_update','\App\Http\Controllers\Admin\AStaticController@admin_game_timing_static_update')->name('admin.game_timing_update')->middleware('role:super');
 
     Route::get('/notice','\App\Http\Controllers\Admin\AStaticController@admin_notice_static')->name('admin.notice')->middleware('role:super');
-    Route::get('/notice_update','\App\Http\Controllers\Admin\AStaticController@admin_notice_static_update')->name('admin.notice_update')->middleware('role:super');
+    Route::post('/notice_update','\App\Http\Controllers\Admin\AStaticController@admin_notice_static_update')->name('admin.notice_update')->middleware('role:super');
 
     Route::get('/how_to_play','\App\Http\Controllers\Admin\AStaticController@how_to_play_static')->name('admin.how_to_play')->middleware('role:super');
-    Route::get('/how_to_play_update','\App\Http\Controllers\Admin\AStaticController@admin_how_to_play_static_update')->name('admin.how_to_play_update')->middleware('role:super');
+    Route::post('/how_to_play_update','\App\Http\Controllers\Admin\AStaticController@admin_how_to_play_static_update')->name('admin.how_to_play_update')->middleware('role:super');
 
     //Transactions
     Route::get('/rest_trnxn','\App\Http\Controllers\Admin\TransactionController@all_rest_traxn')->name('admin.rest_trnxn')->middleware('role:super');
@@ -98,4 +98,11 @@
     //Game Timing
     Route::get('/game_time/{id}','\App\Http\Controllers\Admin\TransactionController@game_time')->name('admin.game_time_show')->middleware('role:super');
     Route::post('/update_game_time','\App\Http\Controllers\Admin\TransactionController@update_game_time')->name('admin.update_game_time')->middleware('role:super');
+
+    //Today game
+    Route::get('/today_game/{id}/{game_name}','\App\Http\Controllers\Admin\TodayGameController@index')->name('admin.today_game_index')->middleware('role:super');
+    Route::post('today_game_search','\App\Http\Controllers\Admin\TodayGameController@search')->name('admin.today_game_search')->middleware('role:super');
+    Route::post('today_game_submit','\App\Http\Controllers\Admin\TodayGameController@final_submit')->name('admin.today_game_submit')->middleware('role:super');
+
+
 

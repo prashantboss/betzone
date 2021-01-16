@@ -43,7 +43,8 @@
                     <div class="login-content">
                         <div class="login-logo">
                             <a href="#">
-                                <img src="{{asset('/')}}player_assets/images/icon/logo.png" alt="CoolAdmin">
+                                <!-- <img src="{{asset('/')}}player_assets/images/icon/logo.png" alt="CoolAdmin"> -->
+                                <img src="{{asset('/')}}logo/{{$siteSetting['site_logo']}}" alt="CoolAdmin">
                             </a>
                         </div>
                         <div class="login-form">
@@ -76,11 +77,11 @@
                                         </label>
                                     </label> -->
 
-                                    <label>
+                                    <!-- <label>
                                     <a class="btn btn-link" href="{{ route('player.password.request') }}">
                                         {{ __('Forgot Your Password?') }}
                                     </a>
-                                    </label>
+                                    </label> -->
                                 </div>
                                 <button type="submit" class="btn btn-primary au-btn au-btn--block au-btn--green m-b-20">
                                                 {{ __('Login') }}

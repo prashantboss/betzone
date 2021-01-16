@@ -18,7 +18,7 @@ class PlayersController extends Controller
      */
     public function index()
     {
-        $cruds = Player::all()->where('is_deleted', 0);
+        $cruds = Player::all()->where('is_deleted', 0)->sortByDesc("created_at");
         return view('vendor.multiauth.player_crud')
                             ->with('cruds', $cruds)
                             ->with('title', "Player Crud");

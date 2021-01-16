@@ -69,15 +69,15 @@
                         </li>
                         
                         <!-- <li><a href="#"><i class="ti-receipt"></i> <span>Game Timings</span></a></li> -->
-                        <!-- <li>
+                        <li>
                             <a href="javascript:void(0)" aria-expanded="true"><i class="fa fa-table"></i>
-                                <span>Tables</span></a>
+                                <span>Today Game</span></a>
                             <ul class="collapse">
-                                <li><a href="table-basic.html">basic table</a></li>
-                                <li><a href="table-layout.html">table layout</a></li>
-                                <li><a href="datatable.html">datatable</a></li>
+                                @foreach($games as $row)
+                                    <li><a href="{{ route('admin.today_game_index', ['id'=>$row->id, 'game_name' => $row->game_name]) }}">{{$row->game_name}}</a></li>
+                                @endforeach
                             </ul>
-                        </li> -->
+                        </li>
                         
                         <!-- <li>
                             <a href="javascript:void(0)" aria-expanded="true"><i class="ti-layers-alt"></i> <span>Pages</span></a>

@@ -5,11 +5,12 @@
         <div class="section__content section__content--p30">
             <div class="container-fluid">
                 <div class="header-wrap">
-                    <form class="form-header" action="" method="POST" style="visibility: hidden;">
-                        <input class="au-input au-input--xl" type="text" name="search" placeholder="Search for datas &amp; reports..." />
+                    <form class="form-header" action="" method="POST">
+                        <!-- <input class="au-input au-input--xl" type="text" name="search" placeholder="Search for datas &amp; reports..." />
                         <button class="au-btn--submit" type="submit">
                             <i class="zmdi zmdi-search"></i>
-                        </button>
+                        </button> -->
+                        <span id="span" style="color: red;font-size: 25px;"></span>
                     </form>
                     <div class="header-button">
                         <div class="noti-wrap">
@@ -127,3 +128,12 @@
     @endif
     <div class="main-content m-content">
     <!-- HEADER DESKTOP-->
+
+    <script>
+        window.onload = displayClock();
+        function displayClock(){
+        var display = new Date().toLocaleTimeString();
+        document.getElementById('span').innerHTML = display;
+        setTimeout(displayClock, 1000); 
+        }
+    </script>

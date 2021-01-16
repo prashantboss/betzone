@@ -198,7 +198,7 @@ class GamesController extends Controller
     }
 
     public function game_ledger(){
-        $data_game_ledger = DB::table('game_ledger')->where('player_id', Auth::guard('player')->user()->id)->get();
+        $data_game_ledger = DB::table('game_ledger')->where('player_id', Auth::guard('player')->user()->id)->orderBy('created_at', 'DESC')->get();
         return view('player.game_ledger')->with('data', $data_game_ledger)
                                             ->with('title', 'Game Ledger');
     }

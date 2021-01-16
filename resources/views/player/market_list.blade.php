@@ -2,14 +2,15 @@
 @section('content')
 @include('player.includes.sidebar')
 @include('player.includes.header')
+
 <div class="section__content section__content--p30">
     <div class="container-fluid">
         @php
             date_default_timezone_set('Asia/Kolkata');
             $currentTime_h = date( 'h:i:s A', time () );
-            echo $currentTime_h;
         @endphp
         <div class="row m-t-25">
+            
             @if($game_name == "Jodi" || $game_name == "Half Sangam" || $game_name == "Full Sangam")
                 @foreach($market_list as $row)
                     @php

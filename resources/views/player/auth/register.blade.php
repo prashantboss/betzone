@@ -59,7 +59,7 @@
                                         </span>
                                     @endif
                                 </div>
-                                <div class="form-group">
+                                <!-- <div class="form-group">
                                     <label>Username</label>
                                     <input id="username" type="text" class="au-input au-input--full form-control{{ $errors->has('username') ? ' is-invalid' : '' }}" name="username" value="{{ old('username') }}" required>
                                     @if ($errors->has('username'))
@@ -67,7 +67,7 @@
                                             <strong>{{ $errors->first('username') }}</strong>
                                         </span>
                                     @endif
-                                </div>
+                                </div> -->
                                 <div class="form-group">
                                     <label>Email Address</label>
                                     <input id="email" type="email" class="au-input au-input--full form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required>

@@ -11,8 +11,20 @@
                 <form action="{{route('admin.update_game_time')}}" method="post">
                     @csrf
                     <input type="hidden" name="id" value="{{$data->id}}" class="form-control col-md-6" id="role">
-                    <input type="hidden" name="name" value="{{$data->name}}" class="form-control col-md-6" id="role">
+                    <!-- <input type="hidden" name="name" value="{{$data->name}}" class="form-control col-md-6" id="role"> -->
                     <div class="form-row align-items-center">
+                        <div class="col-sm-3 my-1">
+                            <label class="sr-only" for="inlineFormInputGroupUsername">Name</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">Name</div>
+                                </div>
+                                <input type="text" name="name" value="{{$data->name}}" class="@error('name') is-invalid @enderror num_disable form-control" id="inlineFormInputGroupUsername" placeholder="Name">
+                                @error('name')
+                                    <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
+                            </div>
+                        </div>
                         <div class="col-sm-3 my-1">
                             <label class="sr-only" for="inlineFormInputGroupUsername">Open Time</label>
                             <div class="input-group">

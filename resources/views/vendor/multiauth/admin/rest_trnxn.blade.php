@@ -24,9 +24,10 @@
                             </tr>
                         </thead>
                         <tbody>
+                            @php  $i=1; @endphp
                             @foreach($data as $row)
                                 <tr>
-                                    <td>{{$row->id}}</td>
+                                    <td>{{$i}}</td>
                                     <td>{{$row->name}}</td>
                                     <td>{{$row->email}}</td>
                                     <td>{{$row->mobile}}</td>
@@ -43,6 +44,7 @@
                                         </ul>
                                     </td> -->
                                 </tr>
+                                @php  $i++; @endphp
                             @endforeach
                         </tbody>
                     </table>

@@ -7,7 +7,7 @@
     <!-- Dark table start -->
     <div class="row">
         <div class="col-6 mt-5">
-            <h4 class="header-title">Add Amount in wallet</h4>
+            <h4 class="header-title">+ Amount in wallet</h4>
             <div class="card">
                 <div class="card-body">
                     <form action="{{ route('admin.player.update') }}" method="get" class="form-horizontal">
@@ -21,7 +21,7 @@
         </div>
 
         <div class="col-6 mt-5">
-            <h4 class="header-title">Minus amount from wallet</h4>
+            <h4 class="header-title">- amount from wallet</h4>
             <div class="card">
                 <div class="card-body">
                     <form action="{{ route('admin.player.update') }}" method="get" class="form-horizontal">

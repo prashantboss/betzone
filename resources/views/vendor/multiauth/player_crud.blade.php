@@ -8,7 +8,7 @@
     <div class="col-12 mt-5">
         <div class="card">
             <div class="card-body">
-                <h4 class="header-title">Data Table Dark</h4>
+                <h4 class="header-title">Players Details</h4>
                 <div class="data-tables datatable-dark">
                     <table id="dataTable3" class="text-center">
                         <thead class="text-capitalize">
@@ -24,9 +24,10 @@
                             </tr>
                         </thead>
                         <tbody>
+                            @php  $i=1; @endphp
                             @foreach($cruds as $row)
                                 <tr>
-                                    <td>{{$row->id}}</td>
+                                    <td>{{$i}}</td>
                                     <td>{{$row->name}}</td>
                                     <td>{{$row->email}}</td>
                                     <td>{{$row->mobile}}</td>
@@ -37,7 +38,7 @@
                                             {{$row->account_detail}}
                                         @endif
                                     </td>
-                                    <td>{{$row->created_at}}</td>
+                                    <td>{{date('d/m/Y,  h:i:s a', strtotime($row->created_at))}}</td>
                                     <td>
                                         <ul class="d-flex justify-content-center">
                                             <li class="mr-3">
@@ -51,6 +52,7 @@
                                     </td>
                                     <td>{{$row->wallet}}</td>
                                 </tr>
+                                @php  $i++; @endphp
                             @endforeach
                         </tbody>
                     </table>

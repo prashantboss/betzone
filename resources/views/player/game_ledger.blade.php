@@ -24,7 +24,7 @@
                             <td>{{$i}}</td>
                             <td>Rs. {{$row->amount}}</td>
                             <td>{{$row->status}}</td>
-                            <td>{{$row->created_at}}</td>
+                            <td>{{date('d/m/Y,  h:i:s a', strtotime($row->created_at))}}</td>
                         </tr>
                         @php
                             $i+=1

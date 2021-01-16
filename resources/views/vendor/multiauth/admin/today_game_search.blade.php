@@ -8,48 +8,49 @@
         <div class="card">
             <div class="card-body">
                 <h4 class="header-title">Data Table Dark</h4>
-                <div class="data-tables datatable-dark">
-                    <table id="dataTable3" class="text-center">
+                <div class="table-responsive">
+                    <form method="post" action="{{route('admin.today_game_submit')}}">
+                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                    <table class="table table-hover progress-table text-center">
                         <thead class="text-capitalize">
                             <tr>
                                 <th>Id</th>
                                 <th>Name</th>
                                 <th>Email</th>
                                 <th>Mobile</th>
-                                <th>Ank Patti</th>
-                                <th>Ank | Patti</th>
+                                <th>Number</th>
                                 <th>Amount</th>
                                 <th>Date</th>
                                 <th>Market | Game Name</th>
-                                <!-- <th>Actions</th> -->
+                                <th>Actions</th>
                             </tr>
                         </thead>
                         <tbody>
                             @php  $i=1; @endphp
-                            @foreach($data as $row)
+                            @foreach($bet_data as $row)
                                 <tr>
-                                    <!-- <td>{{$row->id}}</td> -->
                                     <td>{{$i}}</td>
+                                    <td>{{$row->name}}</td>
                                     <td>{{$row->email}}</td>
                                     <td>{{$row->mobile}}</td>
-                                    <td>{{$row->ank_patti}}</td>
-                                    <td>{{$row->ank}}  |  {{$row->patti}}</td>
+                                    <td>{{$row->number}}</td>
                                     <td>Rs. {{$row->amount}}</td>
                                     <td>
                                     {{ date('d/m/Y,  h:i:s a', strtotime($row->created_at)) }}
                                     <!-- {{$row->created_at}} -->
                                     </td>
                                     <td>{{$row->market_name}} | {{$row->game_name}}</td>
-                                    <!-- <td>
-                                        <ul class="d-flex justify-content-center">
-                                            <li class="mr-3"><a href="#" id="edit" class="text-secondary" data-toggle="modal" data-id="{{$row->id}}" data-wallet="{{$row->market_name}}" data-target="#edit-modal"><i class="fa fa-edit"></i></a></li>
-                                        </ul>
-                                    </td> -->
+                                    <td>
+                                        <!-- player_id, amount, game_id, market_id, wallet -->
+                                        <input type="checkbox" name="to_wallet[]" value="{{$row->player_id}}-{{$row->amount}}-{{$row->game_id}}-{{$row->market_id}}-{{$row->wallet}}">
+                                    </td>
                                 </tr>
                                 @php  $i++; @endphp
                             @endforeach
                         </tbody>
                     </table>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
                 </div>
             </div>
         </div>
