@@ -55,7 +55,7 @@ class TodayGameController extends Controller
             ->join('markets', 'player_betting_data.market_id', '=', 'markets.id')
             ->join('games', 'player_betting_data.game_id', '=', 'games.id')
             ->join('players', 'player_betting_data.player_id', '=', 'players.id')
-            ->select('players.wallet', 'players.mobile','players.email','players.name','player_betting_data.id as bet_id',
+            ->select('players.wallet', 'players.mobile','players.email','players.name','player_betting_data.id',
             'player_betting_data.number','player_betting_data.bet_date','player_betting_data.status',
             'player_betting_data.created_at', 
             'games.game_name', 'markets.name as market_name',
@@ -66,6 +66,7 @@ class TodayGameController extends Controller
             ->orderBy('player_betting_data.created_at', 'DESC')
             ->get();
         }
+
         return view('vendor.multiauth.admin.today_game_search')
                             ->with('bet_data', $bet_data)
                             ->with('game_id', $request->game_id)
