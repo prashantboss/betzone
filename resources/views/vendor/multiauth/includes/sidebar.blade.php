@@ -79,22 +79,14 @@
                             </ul>
                         </li>
                         
-                        <!-- <li>
-                            <a href="javascript:void(0)" aria-expanded="true"><i class="ti-layers-alt"></i> <span>Pages</span></a>
+                        <li>
+                            <a href="javascript:void(0)" aria-expanded="true"><i class="ti-layers-alt"></i> <span>Thela</span></a>
                             <ul class="collapse">
-                                <li><a href="login.html">Login</a></li>
-                                <li><a href="login2.html">Login 2</a></li>
-                                <li><a href="login3.html">Login 3</a></li>
-                                <li><a href="register.html">Register</a></li>
-                                <li><a href="register2.html">Register 2</a></li>
-                                <li><a href="register3.html">Register 3</a></li>
-                                <li><a href="register4.html">Register 4</a></li>
-                                <li><a href="screenlock.html">Lock Screen</a></li>
-                                <li><a href="screenlock2.html">Lock Screen 2</a></li>
-                                <li><a href="reset-pass.html">reset password</a></li>
-                                <li><a href="pricing.html">Pricing</a></li>
+                                @foreach($games as $row)
+                                    <li><a href="{{ route('admin.thela_index', ['id'=>$row->id, 'game_name' => $row->game_name]) }}">{{$row->game_name}}</a></li>
+                                @endforeach
                             </ul>
-                        </li> -->
+                        </li>
                         <!-- <li>
                             <a href="javascript:void(0)" aria-expanded="true"><i class="fa fa-exclamation-triangle"></i>
                                 <span>Error</span></a>

@@ -53,6 +53,7 @@ class GamesController extends Controller
     }
 
     public function create_game_market(Request $request){
+        // dd($request->all());
         if($request->game == "Single" || $request->game == "Single Patti" || $request->game == "Double Patti" || $request->game == "Jodi" || $request->game == "Triple Patti"){
             $array = array();
             if (strlen(implode($request->amount)) == 0){
@@ -71,14 +72,22 @@ class GamesController extends Controller
                 }  
             }
 
+            $total_amount = 0; // not for half and full sangam
+
 
             foreach($request->amount as $key => $value){
                 if(!empty($value)){
-                    if($request->game == "Single" || $request->game == "Single Patti" || $request->game == "Double Patti" || $request->game == "Jodi"){
-                        $number = (int)$key;
-
+                    if($request->game == "Single" || $request->game == "Single Patti" || $request->game == "Double Patti"){
+                        $number = $key;
+                    }else if($request->game == "Jodi"){
+                        if($key <= 9){
+                            $number = '0'.$key;
+                        }else{
+                            $number = $key;
+                        }
+                        
                     }else if($request->game == "Triple Patti"){
-                        $number = (int)($key.$key.$key);
+                        $number = $key.$key.$key;
                     }
                     $data = array(
                         array(
@@ -91,10 +100,7 @@ class GamesController extends Controller
                             'bet_date'=>date('Y-m-d')
                         ),
                     );
-                    $updated_wallet = Auth::guard('player')->user()->wallet - $value;
-                    DB::table('players')
-                        ->where('id', Auth::guard('player')->user()->id)
-                        ->update(['wallet' => $updated_wallet]);
+                    $total_amount+=$value;
                     PlayerBettingData::insert($data);
                 }
             }
@@ -145,6 +151,17 @@ class GamesController extends Controller
                 ->update(['wallet' => $updated_wallet]);
             PlayerBettingDataFullSangam::insert($data);
         }
+
+        //Wallet update not for half and full sangam
+        if($request->game != "Full Sangam" || $request->game != "Half Sangam"){
+            $updated_wallet = Auth::guard('player')->user()->wallet - $total_amount;
+            DB::table('players')
+                ->where('id', Auth::guard('player')->user()->id)
+                ->update(['wallet' => $updated_wallet]);
+
+        }
+        
+
         Session::flash('flash_message', 'Game Play Successfull.');
         Session::flash('flash_type', 'alert-success');
         return redirect()->route('player.dashboard');

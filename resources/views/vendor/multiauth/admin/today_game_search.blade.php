@@ -28,7 +28,12 @@
                         <tbody>
                             @php  $i=1; @endphp
                             @foreach($bet_data as $row)
+                                @if($row->status == 1)
+                                <tr style="background: #0080008a;">
+                                @else
                                 <tr>
+                                @endif
+                                
                                     <td>{{$i}}</td>
                                     <td>{{$row->name}}</td>
                                     <td>{{$row->email}}</td>
@@ -41,8 +46,13 @@
                                     </td>
                                     <td>{{$row->market_name}} | {{$row->game_name}}</td>
                                     <td>
-                                        <!-- player_id, amount, game_id, market_id, wallet -->
-                                        <input type="checkbox" name="to_wallet[]" value="{{$row->player_id}}-{{$row->amount}}-{{$row->game_id}}-{{$row->market_id}}-{{$row->wallet}}">
+                                        @if($row->status == 1)
+                                            <img src="{{asset('/')}}admin_assets/images/icon/paid_stamp.jpg" alt="CoolAdmin" />
+                                        @else
+                                            <!-- bet_id, player_id, amount, game_id, market_id, wallet -->
+                                            <input type="checkbox" name="to_wallet[]" value="{{$row->bet_id}}-{{$row->player_id}}-{{$row->amount}}-{{$row->game_id}}-{{$row->market_id}}-{{$row->wallet}}">
+                                        @endif
+                                        
                                     </td>
                                 </tr>
                                 @php  $i++; @endphp

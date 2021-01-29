@@ -33,7 +33,7 @@
                                     <td>{{$row->mobile}}</td>
                                     <td>
                                         @if($row->account_detail == "Bank")
-                                            <a href="" onclick="get_detail('{{$row->bank_name}}', '{{$row->bank_ifsc}}', '{{$row->bank_holder_name}}', '{{$row->account_number}}')" >Bank</a>
+                                            <a href="#" onclick="get_detail('{{$row->bank_name}}', '{{$row->bank_ifsc}}', '{{$row->bank_holder_name}}', '{{$row->account_number}}')" >Bank</a>
                                         @else
                                             {{$row->account_detail}}
                                         @endif

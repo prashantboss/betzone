@@ -104,5 +104,6 @@
     Route::post('today_game_search','\App\Http\Controllers\Admin\TodayGameController@search')->name('admin.today_game_search')->middleware('role:super');
     Route::post('today_game_submit','\App\Http\Controllers\Admin\TodayGameController@final_submit')->name('admin.today_game_submit')->middleware('role:super');
 
-
-
+    //Thela
+    Route::get('/game_thela/{id}/{game_name}','\App\Http\Controllers\Admin\TodayGameController@thela_index')->name('admin.thela_index')->middleware('role:super');
+    Route::post('thela_search','\App\Http\Controllers\Admin\TodayGameController@thela_search')->name('admin.thela_search')->middleware('role:super');

@@ -276,7 +276,7 @@
                                                 <option value="">Please select</option>
                                                 @php $i=0; @endphp
                                                 @foreach($game_numbers as $row)
-                                                    <option value="{{$row->number}}">{{$i}}</option>
+                                                    <!-- <option value="{{$row->number}}">{{$i}}</option> -->
                                                     @if($row->patti == 0)
                                                         @if($i == 0)
                                                             <optgroup label="-----0-----">
