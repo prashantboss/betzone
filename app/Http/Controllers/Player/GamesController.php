@@ -154,7 +154,7 @@ class GamesController extends Controller
 
         //Wallet update not for half and full sangam
         if($request->game != "Full Sangam" || $request->game != "Half Sangam"){
-            $updated_wallet = Auth::guard('player')->user()->wallet - $total_amount;
+            $updated_wallet = Auth::guard('player')->user()->wallet - $request->amount;
             DB::table('players')
                 ->where('id', Auth::guard('player')->user()->id)
                 ->update(['wallet' => $updated_wallet]);

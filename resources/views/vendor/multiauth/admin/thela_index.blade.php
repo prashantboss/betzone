@@ -8,7 +8,7 @@
         <div class="card">
             <div class="card-body">
                 <h4 class="header-title">Watch Today Game</h4>
-                @php $game_id_with_oc = array(1,2,3,4,5); @endphp
+                @php $game_id_with_oc = array(1,2,3,4,5,6,7); @endphp
                 @if(in_array($game_id,$game_id_with_oc))
                     <form action = "{{route('admin.thela_search')}}" method="post">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
@@ -32,8 +32,8 @@
                                     </select>
                                 </div>
                             </div>
-                            
-                            @if($game_id != 2)
+                            @php $game_id_with_oc = array(1,3,4,5); @endphp
+                            @if(in_array($game_id,$game_id_with_oc))
                             <div class="col-sm-3 my-1">
                                 <label class="sr-only" for="inlineFormInputGroupUsername">Open Close</label>
                                 <div class="input-group">
