@@ -7,7 +7,7 @@
     <div class="col-12 mt-5">
         <div class="card">
             <div class="card-body">
-                <h4 class="header-title">Data Table Dark</h4>
+                <h4 class="header-title">Data Table Dark @php print_r($bet_data) @endphp</h4>
                 <div class="table-responsive">
                     @php $game_id_with_oc = array(1,2,3,4,5); @endphp
                     @if(in_array($game_id,$game_id_with_oc))
@@ -28,7 +28,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @if($bet_data == null)
+                                    @if($bet_data != null)
                                         @php  $i=1; @endphp
                                         @foreach($bet_data as $row)
                                             @if($row->status == 1)
