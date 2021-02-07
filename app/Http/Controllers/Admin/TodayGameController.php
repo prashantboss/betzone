@@ -215,6 +215,7 @@ class TodayGameController extends Controller
             ->select('number','amount', DB::raw('SUM(amount) AS sum'), 'bet_date')
             ->where('bet_date', $request->date)
             ->where('market_id', $request->market_id)
+            ->where('game_id', $request->game_id)
             ->where('open_close', $request->oc)
             ->orderBy('number', 'ASC')
             ->groupBy('amount', 'number', 'bet_date')
@@ -230,6 +231,7 @@ class TodayGameController extends Controller
             ->select('number','amount', 'bet_date',  DB::raw('SUM(amount) AS sum'))
             ->where('bet_date', $request->date)
             ->where('market_id', $request->market_id)
+            ->where('game_id', $request->game_id)
             ->orderBy('number', 'ASC')
             ->groupBy('amount', 'number', 'bet_date')
             ->get();
@@ -244,6 +246,7 @@ class TodayGameController extends Controller
             ->select('amount', 'ank_patti', 'ank', 'patti', 'bet_date',  DB::raw('SUM(amount) AS sum'))
             ->where('bet_date', $request->date)
             ->where('market_id', $request->market_id)
+            ->where('game_id', $request->game_id)
             ->groupBy('amount', 'ank_patti', 'ank', 'patti', 'bet_date')
             ->get();
 
@@ -262,6 +265,7 @@ class TodayGameController extends Controller
             ->select('amount', 'close_patti', 'open_patti', 'bet_date',  DB::raw('SUM(amount) AS sum'))
             ->where('bet_date', $request->date)
             ->where('market_id', $request->market_id)
+            ->where('game_id', $request->game_id)
             ->groupBy('amount', 'close_patti', 'open_patti', 'bet_date')
             ->get();
 
