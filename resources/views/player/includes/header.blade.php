@@ -15,7 +15,7 @@
                     <div class="header-button">
                         <div class="noti-wrap">
                             <div class="noti__item js-item-menu">
-                                <strong>Balance : </strong><span>{{Auth::guard('player')->user()->wallet}}</span>
+                                <strong>Points : </strong><span>{{Auth::guard('player')->user()->wallet}}</span>
                             </div>
                             <!-- <div class="noti__item js-item-menu">
                                 <i class="zmdi zmdi-notifications"></i>
