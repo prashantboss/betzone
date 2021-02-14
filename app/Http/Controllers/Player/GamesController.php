@@ -218,7 +218,7 @@ class GamesController extends Controller
                                         g.id = dhs.game_id
                                         where dhs.player_id = '.Auth::guard('player')->user()->id.'
                                     ) a
-                                    where created_at between date_sub(date("Y-m-d H:i:s"),INTERVAL 1 WEEK) and date("Y-m-d H:i:s")
+                                    where created_at between date_sub(now(),INTERVAL 1 WEEK) and now()
                                     order by created_at desc'
                                 );
         // dd($balance_enq);
