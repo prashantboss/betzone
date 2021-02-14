@@ -186,6 +186,7 @@ class GamesController extends Controller
         //                             'UNION ALL
         //                             select * from player_betting_data_full_sangam where player_id = '.Auth::guard('player')->user()->id
         //                         );
+        date_default_timezone_set("Asia/Calcutta");   //India time (GMT+5:30)
         $balance_enq = DB::select('select *
                                     from (
                                         SELECT bt.open_close, bt.id, bt.table_name, bt.player_id, g.game_name, m.name as market_name, bt.amount, bt.created_at FROM player_betting_data as bt 
@@ -217,10 +218,10 @@ class GamesController extends Controller
                                         g.id = dhs.game_id
                                         where dhs.player_id = '.Auth::guard('player')->user()->id.'
                                     ) a
-                                    where created_at between date_sub(now(),INTERVAL 1 WEEK) and now()
+                                    where created_at between date_sub(date("Y-m-d H:i:s"),INTERVAL 1 WEEK) and date("Y-m-d H:i:s")
                                     order by created_at desc'
                                 );
-
+        // dd($balance_enq);
         return view('player.balance_enquiry')
                             ->with('data', $balance_enq)
                             ->with('title', 'Market List');
