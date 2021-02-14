@@ -15,13 +15,13 @@
                 <img class="avatar user-thumb" src="{{asset('/')}}admin_assets/images/author/avatar.png" alt="avatar">
                 <h4 class="user-name dropdown-toggle" data-toggle="dropdown">{{ auth('admin')->user()->name }} <i class="fa fa-angle-down"></i></h4>
                 <div class="dropdown-menu">
-                    @admin('super')
+                    <!-- @admin('super')
                     <a class="dropdown-item" href="{{ route('admin.show') }}">{{
                         ucfirst(config('multiauth.prefix')) }}</a>
                     @permitToParent('Role')
                     <a class="dropdown-item" href="{{ route('admin.roles') }}">Roles</a>
                     @endpermitToParent
-                    @endadmin
+                    @endadmin -->
                     <!-- <a class="dropdown-item" href="#">Message</a> -->
                     <a class="dropdown-item" href="{{ route('admin.edit.site.setting') }}">Settings</a>
                     <a class="dropdown-item" href="{{ route('admin.password.change') }}">Change Password</a>

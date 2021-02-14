@@ -54,6 +54,7 @@ class GamesController extends Controller
 
     public function create_game_market(Request $request){
         // dd($request->all());
+        date_default_timezone_set("Asia/Calcutta");   //India time (GMT+5:30)
         if($request->game == "Single" || $request->game == "Single Patti" || $request->game == "Double Patti" || $request->game == "Jodi" || $request->game == "Triple Patti"){
             $array = array();
             if (strlen(implode($request->amount)) == 0){
@@ -97,13 +98,21 @@ class GamesController extends Controller
                             'open_close'=> $request->open_close,
                             'amount'=> $value,
                             'number'=>$number,
-                            'bet_date'=>date('Y-m-d')
+                            'bet_date'=>date('Y-m-d'),
+                            'created_at'=>date('Y-m-d H:i:s'),
+                            'updated_at'=>date('Y-m-d H:i:s')
                         ),
                     );
                     $total_amount+=$value;
                     PlayerBettingData::insert($data);
                 }
             }
+
+            //Wallet update not for half and full sangam
+            $updated_wallet = Auth::guard('player')->user()->wallet-$total_amount;
+            DB::table('players')
+                ->where('id', Auth::guard('player')->user()->id)
+                ->update(['wallet' => $updated_wallet]);
         }else if($request->game == "Half Sangam"){
             $request->validate([
                 'ank_patti' => 'required',
@@ -120,7 +129,9 @@ class GamesController extends Controller
                     'ank'=> $request->ank,
                     'patti'=> $request->patti,
                     'amount'=> $request->amount,
-                    'bet_date'=>date('Y-m-d')
+                    'bet_date'=>date('Y-m-d'),
+                    'created_at'=>date('Y-m-d H:i:s'),
+                    'updated_at'=>date('Y-m-d H:i:s')
                 ),
             );
             $updated_wallet = Auth::guard('player')->user()->wallet - $request->amount;
@@ -142,7 +153,9 @@ class GamesController extends Controller
                     'open_patti'=> $request->open_patti,
                     'close_patti'=> $request->close_patti,
                     'amount'=> $request->amount,
-                    'bet_date'=>date('Y-m-d')
+                    'bet_date'=>date('Y-m-d'),
+                    'created_at'=>date('Y-m-d H:i:s'),
+                    'updated_at'=>date('Y-m-d H:i:s')
                 ),
             );
             $updated_wallet = Auth::guard('player')->user()->wallet - $request->amount;
@@ -153,13 +166,13 @@ class GamesController extends Controller
         }
 
         //Wallet update not for half and full sangam
-        if($request->game != "Full Sangam" || $request->game != "Half Sangam"){
-            $updated_wallet = Auth::guard('player')->user()->wallet-$total_amount;
-            DB::table('players')
-                ->where('id', Auth::guard('player')->user()->id)
-                ->update(['wallet' => $updated_wallet]);
+        // if($request->game != "Full Sangam" || $request->game != "Half Sangam"){
+        //     $updated_wallet = Auth::guard('player')->user()->wallet-$total_amount;
+        //     DB::table('players')
+        //         ->where('id', Auth::guard('player')->user()->id)
+        //         ->update(['wallet' => $updated_wallet]);
 
-        }
+        // }
         
 
         Session::flash('flash_message', 'Game Play Successfull.');
