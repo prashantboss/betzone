@@ -9,15 +9,15 @@
             <div class="col-md-6 d-block d-sm-none">
                 <div class="card">
                     <div class="card-body">
-                        <button href="https://wa.me/+919993613331?text=Sir I want to deposite money" type="button" class="btn btn-success btn-lg active">Deposite</button>
-                        <button href="https://wa.me/+919993613331?text=Sir I want to withdrawl money" style="float:right" type="button" class="btn btn-success btn-lg">Withdrawl</button>
+                        <a href="https://wa.me/919770155870?text=Sir I want to deposite money" type="button" class="btn btn-success btn-lg active">Deposite</a>
+                        <a href="https://wa.me/919770155870?text=Sir I want to withdrawl money" style="float:right" type="button" class="btn btn-success btn-lg">Withdrawl</a>
                     </div>
                 </div>
             </div>
             <div class="col-md-6 d-none d-sm-block d-sm-none d-md-block">
                 <div class="card">
                     <div class="card-body">
-                        <a href="https://wa.me/919993613331?text=Sir I want to deposite money" type="button" class="btn btn-outline-success btn-lg btn-block">Deposite</a>
+                        <a href="https://wa.me/919770155870?text=Sir I want to deposite money" type="button" class="btn btn-outline-success btn-lg btn-block">Deposite</a>
                     </div>
                 </div>
             </div>
@@ -25,7 +25,7 @@
                 <div class="card">
                     <div class="card-body">
                         
-                        <a href="https://wa.me/919993613331?text=Sir I want to withdrawl money" class="btn btn-outline-danger btn-lg btn-block">Withdrawl</a>
+                        <a href="https://wa.me/919770155870?text=Sir I want to withdrawl money" class="btn btn-outline-danger btn-lg btn-block">Withdrawl</a>
                     </div>
                 </div>
             </div>
