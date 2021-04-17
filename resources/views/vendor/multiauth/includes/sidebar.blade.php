@@ -11,7 +11,7 @@
     <div class="sidebar-menu">
         <div class="sidebar-header">
             <div class="logo">
-                <a href="{{ route('admin.home') }}"><img src="{{asset('/')}}logo/{{$siteSetting['site_logo']}}" alt="logo"></a>
+                <a href="{{ route('admin.home') }}"><img src="{{asset('/')}}logo/{{$siteSetting['site_admin_logo']}}" alt="logo"></a>
             </div>
         </div>
         <div class="main-menu">
