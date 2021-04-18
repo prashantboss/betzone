@@ -45,11 +45,11 @@
                                 <i class="fas fa-bell"></i>Notice</a>
                         </li>
                         <li>
-                            <a href="https://api.whatsapp.com/send?phone={{$siteSetting['site_phone_primary']}}&text=Sir I want to deposite money ">
+                            <a target="_blank" href="https://wa.me/{{$siteSetting['site_phone_primary']}}?text=Sir I want to deposite money">
                                 <i class="fas fa-inr"></i>Deposite</a>
                         </li>
                         <li>
-                            <a href="https://api.whatsapp.com/send?phone={{$siteSetting['site_phone_primary']}}&text=Sir I want to withdrawl money ">
+                            <a target="_blank" href="https://wa.me/{{$siteSetting['site_phone_primary']}}?text=Sir I want to withdrawl money">
                                 <i class="fas fa-inr"></i>Withdrawl</a>
                         </li>
                         <li>
@@ -70,6 +70,16 @@
                         <li>
                             <a href="{{ route('player.how_to_play_static')}}">
                                 <i class="fas fa-info"></i>How To Play</a>
+                        </li>
+                        <li>
+                            <a href="whatsapp://send?text=Hey, Betzone online has made betting from home easy for me. 
+                                You should try it too. It’s instant & 100% Safe. You can play betting in online market, 
+                                & do much more without stepping out.
+                                Click here & install Betzone Application - http://104.236.33.20/download/betzone.apk" 
+                                data-action="share/whatsapp/share"
+                                target="_blank">
+                                <i class="fa fa-share"></i>Share to whatsapp
+                            </a>
                         </li>
                         <!-- <li class="has-sub">
                             <a class="js-arrow" href="#">

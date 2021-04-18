@@ -3,29 +3,70 @@
 @include('player.includes.sidebar')
 @include('player.includes.header')
 
+<style>
+blink {
+  -webkit-animation: 2s linear infinite condemned_blink_effect; /* for Safari 4.0 - 8.0 */
+  animation: 2s linear infinite condemned_blink_effect;
+}
+
+/* for Safari 4.0 - 8.0 */
+@-webkit-keyframes condemned_blink_effect {
+  0% {
+    visibility: hidden;
+  }
+  50% {
+    visibility: hidden;
+  }
+  100% {
+    visibility: visible;
+  }
+}
+
+@keyframes condemned_blink_effect {
+  0% {
+    visibility: hidden;
+  }
+  50% {
+    visibility: hidden;
+  }
+  100% {
+    visibility: visible;
+  }
+}
+</style>
+
 <div class="section__content section__content--p30">
     <div class="container-fluid">
         <div class="row">
+            <div class="col-md-12">
+                <div class="card" >
+                    <div class="card-header" style="margin: auto;">
+                        <strong style="color:red;font-style: italic;"><blink>Download Our App</blink></strong><br/>
+                    </div>
+                    <div class="card-body" style="background: black;">
+                        <a href="{{asset('/')}}download/betzone.apk" class="btn btn-outline-warning btn-lg btn-block">Download</a>
+                    </div>
+                </div>
+            </div>
             <div class="col-md-6 d-block d-sm-none">
                 <div class="card">
                     <div class="card-body">
-                        <a href="https://wa.me/919770155870?text=Sir I want to deposite money" type="button" class="btn btn-success btn-lg active">Deposite</a>
-                        <a href="https://wa.me/919770155870?text=Sir I want to withdrawl money" style="float:right" type="button" class="btn btn-success btn-lg">Withdrawl</a>
+                        <a target="_blank" href="https://wa.me/{{$siteSetting['site_phone_primary']}}?text=Sir I want to deposite money" type="button" class="btn btn-success btn-lg active">Deposite</a>
+                        <a target="_blank" href="https://wa.me/{{$siteSetting['site_phone_primary']}}?text=Sir I want to withdrawl money" style="float:right" type="button" class="btn btn-success btn-lg">Withdrawl</a>
                     </div>
                 </div>
             </div>
             <div class="col-md-6 d-none d-sm-block d-sm-none d-md-block">
                 <div class="card">
                     <div class="card-body">
-                        <a href="https://wa.me/919770155870?text=Sir I want to deposite money" type="button" class="btn btn-outline-success btn-lg btn-block">Deposite</a>
+                        <a target="_blank" href="https://wa.me/{{$siteSetting['site_phone_primary']}}?text=Sir I want to deposite money" type="button" class="btn btn-outline-success btn-lg btn-block">Deposite</a>
                     </div>
                 </div>
             </div>
             <div class="col-md-6 d-none d-sm-block d-sm-none d-md-block">
                 <div class="card">
                     <div class="card-body">
-                        
-                        <a href="https://wa.me/919770155870?text=Sir I want to withdrawl money" class="btn btn-outline-danger btn-lg btn-block">Withdrawl</a>
+                        <a target="_blank" href="https://wa.me/{{$siteSetting['site_phone_primary']}}?text=Sir I want to withdrawl money" class="btn btn-outline-danger btn-lg btn-block">Withdrawl</a>
                     </div>
                 </div>
             </div>
