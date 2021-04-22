@@ -52,7 +52,7 @@
                                 @csrf
                                 <div class="form-group">
                                     <label>Email Address</label>
-                                    <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }} au-input au-input--full" name="email" value="{{ old('email') }}" required autofocus>
+                                    <input id="email" type="text" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }} au-input au-input--full" name="email" value="{{ old('email') }}" required autofocus>
 
                                     @if ($errors->has('email'))
                                         <span class="invalid-feedback" role="alert">
