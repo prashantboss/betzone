@@ -61,6 +61,7 @@
         </div>
     </div>
     <!-- Dark table end -->
+</div>
 
 
 @include('multiauth::includes.footer')
