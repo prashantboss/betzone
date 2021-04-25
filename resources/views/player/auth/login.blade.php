@@ -51,7 +51,7 @@
                             <form method="POST" action="{{ route('player.login') }}" aria-label="{{ __('Login') }}">
                                 @csrf
                                 <div class="form-group">
-                                    <label>Email Address</label>
+                                    <label>Mobile Number</label>
                                     <input id="email" type="text" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }} au-input au-input--full" name="email" value="{{ old('email') }}" required autofocus>
 
                                     @if ($errors->has('email'))

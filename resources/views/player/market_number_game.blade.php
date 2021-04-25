@@ -19,7 +19,7 @@
                         </div>
                     @endif -->
                     <div class="card-body card-block">
-                        <form action="{{ route('player.create.game.market') }}" method="POST">
+                        <form id="form_id" action="{{ route('player.create.game.market') }}" method="POST">
                             @csrf
                             <div class="row">
                                 @php if($game_name == "Single" || $game_name == "Triple Patti"){ @endphp
@@ -441,7 +441,7 @@
                                 <input type="hidden" id="market" name="market" value="{{ $market }}" class="form-control">
                             </div>
                             <div class="form-actions form-group">
-                                <input type="submit" class="btn btn-success btn-sm" value="Submit" />
+                                <input id="btn_sbmt" onclick="submit_function()" class="btn btn-success btn-sm" value="Submit" />
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Total Amount</b> :  <input type="text" id='sum1' name="input" />
                             </div>
                         </form>
@@ -449,29 +449,23 @@
                 </div>
             </div>
         </div>
-
     </div>
 </div>
 
 @include('player.includes.footer')
 @endsection
 
-
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
     // disable alphabets on input field
     $(document).ready(function () {
         $(".num_disable").keypress(function (e) {
-            
             if (String.fromCharCode(e.keyCode).match(/[^0-9]/g)){
                 return false;
-            }
-                
+            } 
         });
     });
     
-
-
     $(document).ready(function() {
     //this calculates values automatically 
     calculateSum();
@@ -497,6 +491,11 @@ function calculateSum() {
  
 	$("input#sum1").val(sum.toFixed(2));
 }
+
+function submit_function(){
+        $('#btn_sbmt').prop('disabled',true)
+        $('#form_id').submit()
+    }
 </script>
 
 

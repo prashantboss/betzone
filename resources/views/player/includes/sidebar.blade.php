@@ -21,7 +21,7 @@
                     <ul class="navbar-mobile__list list-unstyled">
                         <li class="has-sub">
                             <a class="js-arrow" href="{{ route('player.dashboard')}}">
-                                <i class="fas fa-tachometer-alt"></i>Dashboard</a>
+                                <i class="fas fa-tachometer-alt"></i>Home Page</a>
                             <!-- <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
                                 <li>
                                     <a href="{{ route('player.dashboard')}}">Dashboard</a>
@@ -72,15 +72,16 @@
                                 <i class="fas fa-info"></i>How To Play</a>
                         </li>
                         <li>
-                            <a href="whatsapp://send?text=Hey, Betzone online has made betting from home easy for me. 
-                                You should try it too. It’s instant & 100% Safe. You can play betting in online market, 
-                                & do much more without stepping out.
-                                Click here & install Betzone Application - http://104.236.33.20/download/betzone.apk" 
+                            <a href="{{asset('/')}}download/betzone.apk">
+                                <i class="fas fa-download"></i>Download</a>
+                        </li>
+                        <!-- <li>
+                            <a href="whatsapp://send?text=Hey, Betzone online has made betting from home easy for me. You should try it too. It’s instant & 100% Safe. You can play betting in online market, & do much more without stepping out. Click here & install Betzone Application - http://betzone.online/download/betzone.apk" 
                                 data-action="share/whatsapp/share"
                                 target="_blank">
                                 <i class="fa fa-share"></i>Share to whatsapp
                             </a>
-                        </li>
+                        </li> -->
                         <!-- <li class="has-sub">
                             <a class="js-arrow" href="#">
                                 <i class="fas fa-desktop"></i>UI Elements</a>
@@ -138,7 +139,7 @@
                     <ul class="list-unstyled navbar__list">
                         <li class="active has-sub">
                             <a class="js-arrow" href="{{ route('player.dashboard')}}">
-                                <i class="fas fa-tachometer-alt"></i>Dashboard</a>
+                                <i class="fas fa-tachometer-alt"></i>Home Page</a>
                             <!-- <ul class="list-unstyled navbar__sub-list js-sub-list">
                                 <li>
                                 <a href="{{ route('player.dashboard')}}">Dashboard</a>

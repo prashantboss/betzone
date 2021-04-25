@@ -68,7 +68,7 @@
                                         </span>
                                     @endif
                                 </div> -->
-                                <div class="form-group">
+                                <!-- <div class="form-group">
                                     <label>Email Address</label>
                                     <input id="email" type="email" class="au-input au-input--full form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required>
                                     @if ($errors->has('email'))
@@ -76,7 +76,7 @@
                                             <strong>{{ $errors->first('email') }}</strong>
                                         </span>
                                     @endif
-                                </div>
+                                </div> -->
                                 <div class="form-group">
                                     <label>Mobile Number</label>
                                     <input id="mobile" type="tel" class="au-input au-input--full form-control{{ $errors->has('mobile') ? ' is-invalid' : '' }}" name="mobile" value="{{ old('mobile') }}" pattern="[6-9]{1}[0-9]{9}" required>

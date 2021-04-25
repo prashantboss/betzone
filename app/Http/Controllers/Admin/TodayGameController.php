@@ -146,13 +146,13 @@ class TodayGameController extends Controller
             if($game_id == 1){
                 $rate = 9.5;
             }elseif($game_id == 2){
-                $rate = 90;
+                $rate = 95;
             }elseif($game_id == 3){
-                $rate = 140;
+                $rate = 150;
             }elseif($game_id == 4){
-                $rate = 250;
+                $rate = 300;
             }elseif($game_id == 5){
-                $rate = 500;
+                $rate = 600;
             }elseif($game_id == 6){
                 $rate = 1000;
             }elseif($game_id == 7){

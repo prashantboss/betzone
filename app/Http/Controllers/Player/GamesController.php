@@ -242,8 +242,8 @@ class GamesController extends Controller
     public function profile_update(Request $request){
         $request->validate([
             'name' => 'required',
-            'username' => 'required',
-            'email' => 'required',
+            // 'username' => 'required',
+            // 'email' => 'required',
             'mobile' => 'required',
             'account_detail' => 'required',
         ]);
@@ -251,9 +251,9 @@ class GamesController extends Controller
         // exit;
         $data = array(
                 'name'=>$request->name, 
-                'username'=>$request->username,
-                'email'=>$request->email,
-                'mobile'=> $request->mobile,
+                // 'username'=>$request->username,
+                'email'=>$request->mobile,
+                // 'mobile'=> $request->mobile,
                 'account_detail'=> $request->account_detail,
                 'bank_name'=> $request->bank_name,
                 'bank_ifsc'=>$request->bank_ifsc,

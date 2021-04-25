@@ -11,7 +11,7 @@
                 <div class="table-responsive">
                     @php $game_id_with_oc = array(1,2,3,4,5); @endphp
                     @if(in_array($game_id,$game_id_with_oc))
-                        <form method="post" action="{{route('admin.today_game_submit')}}">
+                        <form id="form1" method="post" action="{{route('admin.today_game_submit')}}">
                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
                             <table class="table table-hover progress-table text-center">
                                 <thead class="text-capitalize">
@@ -67,12 +67,12 @@
                                     @endif
                                 </tbody>
                             </table>
-                            <button type="submit" class="btn btn-primary">Submit</button>
+                            <button id="btn_sbmt1" onclick="submit_function1()" class="btn btn-primary">Submit</button>
                         </form>
                     @endif
 
                     @if($game_id == 6)
-                        <form method="post" action="{{route('admin.today_game_submit')}}">
+                        <form id="form2" method="post" action="{{route('admin.today_game_submit')}}">
                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
                             <table class="table table-hover progress-table text-center">
                                 <thead class="text-capitalize">
@@ -132,12 +132,12 @@
                                     @endif
                                 </tbody>
                             </table>
-                            <button type="submit" class="btn btn-primary">Submit</button>
+                            <button  id="btn_sbmt2" onclick="submit_function2()" class="btn btn-primary">Submit</button>
                         </form>
                     @endif
 
                     @if($game_id == 7)
-                    <form method="post" action="{{route('admin.today_game_submit')}}">
+                    <form id="form3" method="post" action="{{route('admin.today_game_submit')}}">
                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
                             <table class="table table-hover progress-table text-center">
                                 <thead class="text-capitalize">
@@ -195,7 +195,7 @@
                                     @endif
                                 </tbody>
                             </table>
-                            <button type="submit" class="btn btn-primary">Submit</button>
+                            <button  id="btn_sbmt3" onclick="submit_function3()" class="btn btn-primary">Submit</button>
                         </form>
                     @endif
                 </div>
@@ -207,3 +207,18 @@
 @endsection
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script>
+    function submit_function1(){
+        $('#btn_sbmt1').prop('disabled',true)
+        $('#form1').submit()
+    }
+    function submit_function2(){
+        $('#btn_sbmt2').prop('disabled',true)
+        $('#form2').submit()
+    }
+    function submit_function3(){
+        $('#btn_sbmt3').prop('disabled',true)
+        $('#form3').submit()
+    }
+</script>

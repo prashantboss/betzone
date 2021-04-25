@@ -1,3 +1,16 @@
+<style>
+    @media only screen and (max-width: 600px) {
+        .header-button {
+            margin-top: 0px;
+        }
+        .py-4 {
+            padding-top: 0 !important;
+        }
+        .header-desktop {
+            height: 100px;
+        }
+    }
+</style>
 <!-- PAGE CONTAINER-->
 <div class="page-container"><!-- End in footer-->
     <!-- HEADER DESKTOP-->
@@ -6,11 +19,11 @@
             <div class="container-fluid">
                 <div class="header-wrap">
                     <form class="form-header" action="" method="POST">
-                        <!-- <input class="au-input au-input--xl" type="text" name="search" placeholder="Search for datas &amp; reports..." />
-                        <button class="au-btn--submit" type="submit">
-                            <i class="zmdi zmdi-search"></i>
-                        </button> -->
-                        <span id="span" style="color: red;font-size: 25px;"></span>
+                        <!-- <input class="au-input au-input--xl" type="text" name="search" placeholder="Search for datas &amp; reports..." /> -->
+                        <span style="color: black;" class="btn btn-outline-warning" onclick="location.reload();">Refresh</span>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <span id="span" style="color: red;font-size: 18px;"></span>
                     </form>
                     <div class="header-button">
                         <div class="noti-wrap">
