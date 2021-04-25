@@ -32,7 +32,18 @@
 
     <!-- Main CSS-->
     <link href="{{asset('/')}}player_assets/css/theme.css" rel="stylesheet" media="all">
-
+    <style>
+        .btn-outline-success {
+            color: #ffc107;
+            border-color: #ffc107;
+            background: black
+        }
+        .btn-outline-success:hover {
+            color: black;
+            background-color: #ffc107;
+            border-color: #ffc107;
+        }
+    </style>
 </head>
 
 <body class="animsition">
@@ -44,7 +55,7 @@
                         <div class="login-logo">
                             <a href="#">
                                 <!-- <img src="{{asset('/')}}player_assets/images/icon/logo.png" alt="CoolAdmin"> -->
-                                <img src="{{asset('/')}}logo/{{$siteSetting['site_logo']}}" alt="CoolAdmin">
+                                <img src="{{asset('/')}}logo/{{$siteSetting['site_logo']}}" alt="LOGO_betzone">
                             </a>
                         </div>
                         <div class="login-form">
@@ -83,7 +94,7 @@
                                     </a>
                                     </label> -->
                                 </div>
-                                <button type="submit" class="btn btn-primary au-btn au-btn--block au-btn--green m-b-20">
+                                <button type="submit" class="btn btn-outline-success btn-lg btn-block">
                                                 {{ __('Login') }}
                                             </button>
                             </form>
