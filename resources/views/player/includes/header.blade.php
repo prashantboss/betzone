@@ -20,7 +20,7 @@
                 <div class="header-wrap">
                     <form class="form-header" action="" method="POST">
                         <!-- <input class="au-input au-input--xl" type="text" name="search" placeholder="Search for datas &amp; reports..." /> -->
-                        <span style="color: black;" class="btn btn-outline-warning" onclick="location.reload();">Refresh</span>
+                        <span style="color: #ffc107;background: black;" class="btn btn-outline-warning" onclick="location.reload();">Refresh</span>
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <span id="span" style="color: red;font-size: 18px;"></span>
