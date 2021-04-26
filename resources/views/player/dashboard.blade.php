@@ -110,7 +110,7 @@
             <div class="col-md-12">
                 <div class="card" >
                     <div class="card-body scroll_text" style="background:#ffc107">
-                        <p>money deposite and withdrawl - 9993613331.</p>
+                        <p style="text-transform: uppercase;">withdrawl Ya deposit karne ke liye.. 9993613331 WhatsApp message kare...</p>
                     </div>
                 </div>
             </div>

@@ -1,4 +1,9 @@
 <style>
+    .btn-outline-warning:hover {
+        color: #212529 !important;
+        background-color: #ffc107 !important;
+        border-color: #ffc107 o !important;
+    }
     @media only screen and (max-width: 600px) {
         .header-button {
             margin-top: 0px;
@@ -20,9 +25,8 @@
                 <div class="header-wrap">
                     <form class="form-header" action="" method="POST">
                         <!-- <input class="au-input au-input--xl" type="text" name="search" placeholder="Search for datas &amp; reports..." /> -->
-                        <span style="color: #ffc107;background: black;" class="btn btn-outline-warning" onclick="location.reload();">Refresh</span>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <span style="background: black;" class="btn btn-outline-warning btn-sm" onclick="location.reload();">Refresh</span>&nbsp;&nbsp;&nbsp;&nbsp;<a style="background: black;" class="btn btn-outline-warning btn-sm" href="{{ route('player.dashboard')}}">Home Page</a>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <span id="span" style="color: red;font-size: 18px;"></span>
                     </form>
                     <div class="header-button">

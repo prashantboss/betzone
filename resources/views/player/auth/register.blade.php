@@ -98,7 +98,7 @@
                                     @endif
                                 </div>
                                 <div class="form-group">
-                                    <label>Password</label>
+                                    <label>Password<small style="color: #808080de;"> (minimum should be 6 character)</small></label>
                                     <input id="password" type="password" class="au-input au-input--full form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
 
                                     @if ($errors->has('password'))

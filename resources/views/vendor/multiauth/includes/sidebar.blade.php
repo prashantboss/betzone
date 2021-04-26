@@ -23,10 +23,10 @@
                     @endphp
                     <ul class="metismenu" id="menu">
                         <li class="active">
-                            <a href="{{ route('admin.home') }}" aria-expanded="true"><i class="ti-dashboard"></i><span>dashboard</span></a>
+                            <a href="{{ route('admin.home') }}" aria-expanded="true"><i class="ti-dashboard"></i><span>Home Page</span></a>
                         </li>
                         <li>
-                            <a href="javascript:void(0)" aria-expanded="true"><i class="ti-layout-sidebar-left"></i><span>static Content</span></a>
+                            <a href="javascript:void(0)" aria-expanded="true"><i class="ti-layout-sidebar-left"></i><span>Static Content</span></a>
                             <ul class="collapse">
                                 <li><a href="{{ route('admin.game_rate') }}">Game Rate</a></li>
                                 <li><a href="{{ route('admin.notice') }}">Notice</a></li>

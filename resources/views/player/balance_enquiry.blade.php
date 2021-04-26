@@ -30,7 +30,7 @@
                         <tr>
                             <td>{{$i}}</td>
                             <td>Rs. {{$row->amount}}</td>
-                            <td>Game play on Bazar : {{$row->game_name}} : {{$row->market_name}} : &nbsp;&nbsp;&nbsp;&nbsp;<b>{{$row->open_close?$row->open_close." Ank :" : "Ank :"}}</b>
+                            <td>{{$row->game_name}}&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;&nbsp;{{$row->market_name}} : &nbsp;&nbsp;&nbsp;&nbsp;<b>{{$row->open_close?$row->open_close." Ank :" : "Ank :"}}</b>
                             @php
                             
                                 if($row->table_name == "player_betting_data"){
