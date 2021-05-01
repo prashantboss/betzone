@@ -46,7 +46,7 @@
         <link href="{{asset('/')}}player_assets/vendor/slick/slick.css" rel="stylesheet" media="all">
         <link href="{{asset('/')}}player_assets/vendor/select2/select2.min.css" rel="stylesheet" media="all">
         <link href="{{asset('/')}}player_assets/vendor/perfect-scrollbar/perfect-scrollbar.css" rel="stylesheet" media="all">
-        <link rel="manifest" href="{{asset('/')}}homescreen_popup/manifest.json">
+        <link rel="manifest" href="/manifest.json">
     </head>
     <body class="animsition">
         <div id="app">
