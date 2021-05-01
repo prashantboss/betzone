@@ -7,14 +7,13 @@
     <div class="col-12 mt-5">
         <div class="card">
             <div class="card-body">
-                <h4 class="header-title">Data Table Dark</h4>
+                <h4 class="header-title">Single | Jodi | Single Patti | Double Patti | Triple Patti</h4>
                 <div class="data-tables datatable-dark">
                     <table id="dataTable3" class="text-center">
                         <thead class="text-capitalize">
                             <tr>
                                 <th>Id</th>
                                 <th>Name</th>
-                                <th>Email</th>
                                 <th>Mobile</th>
                                 <th>Number</th>
                                 <th>Amount</th>
@@ -30,7 +29,6 @@
                                     <td>{{$i}}</td>
                                     <td>{{$row->name}}</td>
                                     <td>{{$row->email}}</td>
-                                    <td>{{$row->mobile}}</td>
                                     <td>{{$row->number}}</td>
                                     <td>Rs. {{$row->amount}}</td>
                                     <td>

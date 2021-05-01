@@ -7,14 +7,13 @@
     <div class="col-12 mt-5">
         <div class="card">
             <div class="card-body">
-                <h4 class="header-title">Data Table Dark</h4>
+                <h4 class="header-title">Full Sangam</h4>
                 <div class="data-tables datatable-dark">
                     <table id="dataTable3" class="text-center">
                         <thead class="text-capitalize">
                             <tr>
                                 <th>Id</th>
                                 <th>Name</th>
-                                <th>Email</th>
                                 <th>Mobile</th>
                                 <th>Open Patti</th>
                                 <th>Close Patti</th>
@@ -31,7 +30,6 @@
                                     <td>{{$i}}</td>
                                     <td>{{$row->name}}</td>
                                     <td>{{$row->email}}</td>
-                                    <td>{{$row->mobile}}</td>
                                     <td>{{$row->open_patti}}</td>
                                     <td>{{$row->close_patti}}</td>
                                     <td>Rs. {{$row->amount}}</td>

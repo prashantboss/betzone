@@ -83,6 +83,7 @@ class PlayersController extends Controller
      */
     public function update(Request $request)
     {
+        date_default_timezone_set("Asia/Calcutta"); 
         $id = $request->id;
         $type = $request->type;
         $amount = $request->amount;
@@ -95,7 +96,8 @@ class PlayersController extends Controller
             DB::table('game_ledger')->insert([
                 'player_id' => $id,
                 'amount' => $amount,
-                'status' => "credit to wallet"
+                'status' => "credit to wallet",
+                'created_at' => date('Y-m-d H:i:s')
             ]);
         }else{
             $curr_wallet = DB::table('players')
@@ -106,7 +108,8 @@ class PlayersController extends Controller
             DB::table('game_ledger')->insert([
                 'player_id' => $id,
                 'amount' => $amount,
-                'status' => "transfer to bank"
+                'status' => "transfer to bank",
+                'created_at' => date('Y-m-d H:i:s')
             ]);
         }
         Session::flash('flash_message', 'Player wallet updated Successfully.');
@@ -138,5 +141,12 @@ class PlayersController extends Controller
         return json_encode(array('statusCode'=>200));
         // $crud=Player::find($id);  
         // $crud->delete(); 
+    }
+
+    public function wd_txn($id)
+    {
+        $data_game_ledger = DB::table('game_ledger')->where('player_id', $id)->orderBy('created_at', 'DESC')->get();
+        return view('vendor.multiauth.admin.wd_txn')->with('data', $data_game_ledger)
+                                            ->with('title', 'Withdrawl Deposite TXN');
     }
 }

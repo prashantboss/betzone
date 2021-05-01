@@ -85,6 +85,14 @@ class TransactionController extends Controller
         return redirect()->route('admin.live_result', [$request->id]);
     }
 
+    public function live_result_reset(){
+        DB::table('markets')
+                ->update(['open' => null, 'jodi' => null, 'close' => null]);
+        Session::flash('flash_message', 'Live result reset Successfully.');
+        Session::flash('flash_type', 'alert-success');
+        return redirect()->route('admin.home');
+    }
+
     public function holiday($game_id, $game_name){
         $data = DB::table('markets')->get();
         // $data1 = DB::table('market_holiday')

@@ -15,7 +15,6 @@
                             <tr>
                                 <th>Id</th>
                                 <th>Name</th>
-                                <th>Email</th>
                                 <th>Mobile</th>
                                 <td>Account Detail</td>
                                 <th>Date</th>
@@ -30,7 +29,6 @@
                                     <td>{{$i}}</td>
                                     <td>{{$row->name}}</td>
                                     <td>{{$row->email}}</td>
-                                    <td>{{$row->mobile}}</td>
                                     <td>
                                         @if($row->account_detail == "Bank")
                                             <a href="#" onclick="get_detail('{{$row->bank_name}}', '{{$row->bank_ifsc}}', '{{$row->bank_holder_name}}', '{{$row->account_number}}')" >Bank</a>
@@ -45,9 +43,10 @@
                                                 <a href="{{route('admin.player.edit', ['id' => $row->id])}}" id="edit" class="text-secondary"><i class="fa fa-money"></i></a>
                                             </li>
                                             <li class="mr-3">
-                                                <a href="{{route('admin.player.forgot_pass', ['id' => $row->id])}}" id="forgot_pass" class="text-secondary"><span class="fa-passwd-reset fa-stack"><i class="fa fa-undo fa-stack-2x"></i>  <i class="fa fa-lock fa-stack-1x"></i></span></a>
+                                                <a href="{{route('admin.player.forgot_pass', ['id' => $row->id])}}" id="forgot_pass" class="text-secondary"><i class="fa fa-key" aria-hidden="true"></i></a>
                                             </li>
-                                            <li><a href="" onclick="delete_player({{$row->id}})" class="text-danger"><i class="ti-trash"></i></a></li>
+                                            <li class="mr-3"><a href="" onclick="delete_player({{$row->id}})" class="text-danger"><i class="ti-trash"></i></a></li>
+                                            <li class="mr-3"><a href="{{route('admin.player.wd', ['id' => $row->id])}}" class="text-secondary"><i class="fa fa-bank"></i></a></li>
                                         </ul>
                                     </td>
                                     <td>{{$row->wallet}}</td>

@@ -67,6 +67,7 @@
     Route::get('/player/delete','\App\Http\Controllers\Admin\PlayersController@destroy')->name('admin.player.delete')->middleware('role:super');
     Route::get('/player/reset_pass/{id}','\App\Http\Controllers\Admin\PlayersController@forgot_pass')->name('admin.player.forgot_pass')->middleware('role:super');
     Route::get('/player/reset','\App\Http\Controllers\Admin\PlayersController@reset')->name('admin.player.reset')->middleware('role:super');
+    Route::get('/player/wd/{id}','\App\Http\Controllers\Admin\PlayersController@wd_txn')->name('admin.player.wd')->middleware('role:super');
     /* * ****** Player Crud End ********** */
 
     // Static
@@ -82,6 +83,9 @@
     Route::get('/how_to_play','\App\Http\Controllers\Admin\AStaticController@how_to_play_static')->name('admin.how_to_play')->middleware('role:super');
     Route::post('/how_to_play_update','\App\Http\Controllers\Admin\AStaticController@admin_how_to_play_static_update')->name('admin.how_to_play_update')->middleware('role:super');
 
+    Route::get('/home_notice','\App\Http\Controllers\Admin\AStaticController@home_notice')->name('admin.home_notice')->middleware('role:super');
+    Route::post('/home_notice_update','\App\Http\Controllers\Admin\AStaticController@home_notice_update')->name('admin.home_notice_update')->middleware('role:super');
+    
     //Transactions
     Route::get('/rest_trnxn','\App\Http\Controllers\Admin\TransactionController@all_rest_traxn')->name('admin.rest_trnxn')->middleware('role:super');
     Route::get('/half_sangam_traxn','\App\Http\Controllers\Admin\TransactionController@half_sangam_traxn')->name('admin.half_sangam_traxn')->middleware('role:super');
@@ -90,7 +94,7 @@
     //Live Result
     Route::get('/live_reslt/{id}','\App\Http\Controllers\Admin\TransactionController@live_result')->name('admin.live_result')->middleware('role:super');
     Route::post('/update_live_result','\App\Http\Controllers\Admin\TransactionController@update_live_result')->name('admin.update_live_result')->middleware('role:super');
-
+    Route::get('/live_reslt_reset','\App\Http\Controllers\Admin\TransactionController@live_result_reset')->name('admin.live_result_reset')->middleware('role:super');
     //Holiday
     Route::get('/holiday/{id}/{game_name}','\App\Http\Controllers\Admin\TransactionController@holiday')->name('admin.holiday')->middleware('role:super');
     Route::post('/holiday/update','\App\Http\Controllers\Admin\TransactionController@holiday_update')->name('admin.holiday_update')->middleware('role:super');

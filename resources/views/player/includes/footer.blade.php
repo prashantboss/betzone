@@ -38,6 +38,6 @@
         <script src="{{asset('/')}}player_assets/js/main.js"></script>
 
     </body>
-
+    <script src="{{asset('/')}}homescreen_popup/service-worker.js"></script>        
 </html>
 <!-- end document-->

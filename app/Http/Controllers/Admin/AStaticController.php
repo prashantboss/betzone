@@ -103,4 +103,24 @@ class AStaticController extends Controller
         Session::flash('flash_type', 'alert-success');
         return redirect()->route('admin.how_to_play');
     }
+
+
+    public function home_notice() {
+        $static_content = DB::table('static')->where('title', 'home_notice')->get();
+        return view('vendor.multiauth.astatic.home_notice')
+                            ->with('content', $static_content)
+                            ->with('title', 'Home Notice');
+    }
+    public function home_notice_update(Request $request){
+        $request->validate([
+            'id' => 'required',
+            'content' => 'required',
+        ]);
+        DB::table('static')
+                ->where('id', $request->id)
+                ->update(['content' => $request->content]);
+        Session::flash('flash_message', 'Home notice updated Successfully.');
+        Session::flash('flash_type', 'alert-success');
+        return redirect()->route('admin.home_notice');
+    }
 }

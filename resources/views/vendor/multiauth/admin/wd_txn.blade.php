@@ -13,14 +13,9 @@
                         <thead class="text-capitalize">
                             <tr>
                                 <th>Id</th>
-                                <th>Name</th>
-                                <th>Mobile</th>
-                                <th>Ank Patti</th>
-                                <th>Ank | Patti</th>
                                 <th>Amount</th>
+                                <th>Status</th>
                                 <th>Date</th>
-                                <th>Market | Game Name</th>
-                                <!-- <th>Actions</th> -->
                             </tr>
                         </thead>
                         <tbody>
@@ -29,21 +24,9 @@
                                 <tr>
                                     <!-- <td>{{$row->id}}</td> -->
                                     <td>{{$i}}</td>
-                                    <td>{{$row->name}}</td>
-                                    <td>{{$row->email}}</td>
-                                    <td>{{$row->ank_patti}}</td>
-                                    <td>{{$row->ank}}  |  {{$row->patti}}</td>
-                                    <td>Rs. {{$row->amount}}</td>
-                                    <td>
-                                    {{ date('d/m/Y,  h:i:s a', strtotime($row->created_at)) }}
-                                    <!-- {{$row->created_at}} -->
-                                    </td>
-                                    <td>{{$row->market_name}} | {{$row->game_name}}</td>
-                                    <!-- <td>
-                                        <ul class="d-flex justify-content-center">
-                                            <li class="mr-3"><a href="#" id="edit" class="text-secondary" data-toggle="modal" data-id="{{$row->id}}" data-wallet="{{$row->market_name}}" data-target="#edit-modal"><i class="fa fa-edit"></i></a></li>
-                                        </ul>
-                                    </td> -->
+                                    <td>{{$row->amount}}</td>
+                                    <td>{{$row->status}}</td>
+                                    <td>{{$row->created_at}}</td>
                                 </tr>
                                 @php  $i++; @endphp
                             @endforeach

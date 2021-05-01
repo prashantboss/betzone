@@ -32,6 +32,7 @@
                                 <li><a href="{{ route('admin.notice') }}">Notice</a></li>
                                 <li><a href="{{ route('admin.game_timing') }}">Game Timing</a></li>
                                 <li><a href="{{ route('admin.how_to_play') }}">How To Play</a></li>
+                                <li><a href="{{ route('admin.home_notice') }}">Home Notice</a></li>
                             </ul>
                         </li>
                         <li>
@@ -45,6 +46,7 @@
                         <li>
                             <a href="javascript:void(0)" aria-expanded="true"><i class="ti-palette"></i><span>Live Result</span></a>
                             <ul class="collapse">
+                                <li><a style="color:red;" href="{{ route('admin.live_result_reset') }}">~~All Reset~~ </a></li>
                                 @foreach($markets as $row)
                                     <li><a href="{{ route('admin.live_result', ['id'=>$row->id]) }}">{{$row->name}}</a></li>
                                 @endforeach
