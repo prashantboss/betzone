@@ -110,7 +110,7 @@
             <div class="col-md-12">
                 <div class="card" >
                     <div class="card-body scroll_text" style="background:#ffc107;text-transform: uppercase;">
-                        {!! $home_notice !!}
+                        {!! $home_notice ?? '' !!}
                     </div>
                 </div>
             </div>
