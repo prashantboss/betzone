@@ -11,11 +11,38 @@ use Session;
 class TransactionController extends Controller
 {
     public function half_sangam_traxn(){
-        
+        // DB::enableQueryLog(); // Enable query log
+        $data = DB::table('player_betting_data_half_sangam')
+            ->join('markets', 'player_betting_data_half_sangam.market_id', '=', 'markets.id')
+            ->join('games', 'player_betting_data_half_sangam.game_id', '=', 'games.id')
+            ->join('players', 'player_betting_data_half_sangam.player_id', '=', 'players.id')
+            ->select('players.email','players.name','players.mobile',
+            'player_betting_data_half_sangam.id','player_betting_data_half_sangam.ank_patti','player_betting_data_half_sangam.ank','player_betting_data_half_sangam.patti','player_betting_data_half_sangam.amount','player_betting_data_half_sangam.bet_date','player_betting_data_half_sangam.created_at', 
+            'games.game_name', 'markets.name as market_name')
+            ->orderBy('player_betting_data_half_sangam.created_at', 'DESC')
+            ->get();
+        // dd($data);
+        // dd(DB::getQueryLog()); // Show results of log
+        return view('vendor.multiauth.admin.half_sangam_trnxn')
+                            ->with('data', $data)
+                            ->with('title', 'Rest Transaction');
     }
 
     public function full_sangam_traxn(){
-        
+        $data = DB::table('player_betting_data_full_sangam')
+            ->join('markets', 'player_betting_data_full_sangam.market_id', '=', 'markets.id')
+            ->join('games', 'player_betting_data_full_sangam.game_id', '=', 'games.id')
+            ->join('players', 'player_betting_data_full_sangam.player_id', '=', 'players.id')
+            ->select('players.email','players.name','players.mobile',
+            'player_betting_data_full_sangam.id','player_betting_data_full_sangam.open_patti','player_betting_data_full_sangam.close_patti','player_betting_data_full_sangam.amount','player_betting_data_full_sangam.bet_date','player_betting_data_full_sangam.created_at', 
+            'games.game_name', 'markets.name as market_name')
+            ->orderBy('player_betting_data_full_sangam.created_at', 'DESC')
+            ->get();
+        // echo "<pre>";
+        // print_r($data);
+        return view('vendor.multiauth.admin.full_sangam_trnxn')
+                            ->with('data', $data)
+                            ->with('title', 'Rest Transaction');
     }
 
     public function all_rest_traxn(){
@@ -23,12 +50,13 @@ class TransactionController extends Controller
             ->join('markets', 'player_betting_data.market_id', '=', 'markets.id')
             ->join('games', 'player_betting_data.game_id', '=', 'games.id')
             ->join('players', 'player_betting_data.player_id', '=', 'players.id')
-            ->select('players.email','players.name','player_betting_data.id','player_betting_data.number','player_betting_data.amount','player_betting_data.bet_date','player_betting_data.created_at', 
+            ->select('players.mobile','players.email','players.name','player_betting_data.id','player_betting_data.number','player_betting_data.amount','player_betting_data.bet_date','player_betting_data.created_at', 
             'games.game_name', 'markets.name as market_name')
-            ->orderBy('player_betting_data.created_at', 'desc')
+            ->orderBy('player_betting_data.created_at', 'DESC')
             ->get();
         // echo "<pre>";
         // print_r($data);
+        // exit;
         return view('vendor.multiauth.admin.rest_trnxn')
                             ->with('data', $data)
                             ->with('title', 'Rest Transaction');
@@ -52,7 +80,17 @@ class TransactionController extends Controller
         DB::table('markets')
                 ->where('id', $request->id)
                 ->update(['open' => $request->open, 'jodi' => $request->jodi, 'close' => $request->close]);
-        return $this->live_result($request->id);
+        Session::flash('flash_message', 'Live result updated Successfully.');
+        Session::flash('flash_type', 'alert-success');
+        return redirect()->route('admin.live_result', [$request->id]);
+    }
+
+    public function live_result_reset(){
+        DB::table('markets')
+                ->update(['open' => null, 'jodi' => null, 'close' => null]);
+        Session::flash('flash_message', 'Live result reset Successfully.');
+        Session::flash('flash_type', 'alert-success');
+        return redirect()->route('admin.home');
     }
 
     public function holiday($game_id, $game_name){
@@ -101,6 +139,29 @@ class TransactionController extends Controller
             }
            
         }
-        return $this->holiday($request->game_id);
+        return redirect()->route('admin.holiday', [$request->game_id, $request->game_name]);
+    }
+
+    public function game_time($id){
+        $data = DB::table('markets')
+                ->where('id', $id)->first();
+        return view('vendor.multiauth.admin.game_time')
+                            ->with('data', $data)
+                            ->with('title', 'Game Timing');
+    }
+
+    public function update_game_time(Request $request){
+        print_r($request->all());
+        $request->validate([
+            'open_time' => 'required',
+            'close_time' => 'required',
+            'name' => 'required',
+        ]);
+        DB::table('markets')
+                ->where('id', $request->id)
+                ->update(['open_time' => $request->open_time, 'close_time' => $request->close_time, 'name'=>$request->name]);
+        Session::flash('flash_message', 'Game time update successfully.');
+        Session::flash('flash_type', 'alert-success');
+        return redirect()->route('admin.game_time_show', [$request->id]);
     }
 }

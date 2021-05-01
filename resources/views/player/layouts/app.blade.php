@@ -20,7 +20,7 @@
 
         <!-- Scripts -->
         <script src="{{ asset('js/app.js') }}" defer></script>
-
+        <link rel="shortcut icon" type="image/png" href="{{asset('/')}}player_assets/images/favicon.ico">
         <!-- Fonts -->
         <link rel="dns-prefetch" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,600" rel="stylesheet" type="text/css">
@@ -46,6 +46,7 @@
         <link href="{{asset('/')}}player_assets/vendor/slick/slick.css" rel="stylesheet" media="all">
         <link href="{{asset('/')}}player_assets/vendor/select2/select2.min.css" rel="stylesheet" media="all">
         <link href="{{asset('/')}}player_assets/vendor/perfect-scrollbar/perfect-scrollbar.css" rel="stylesheet" media="all">
+        <link rel="manifest" href="/manifest.json">
     </head>
     <body class="animsition">
         <div id="app">

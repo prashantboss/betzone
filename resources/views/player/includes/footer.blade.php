@@ -10,8 +10,8 @@
             </div><!-- Start in header-->
 
         </div><!-- Start in sidebar-->
-        <a href="tel:7000032998"><i class="fa fa-phone" style="font-size:30px;position: fixed;bottom: 25px;right: 25px;"></i></a>
-        <a href="https://api.whatsapp.com/send?phone=7000032998&text=Hello" title="Share on whatsapp"><i class="fa fa-envelope" aria-hidden="true" style="font-size:30px;position: fixed;bottom: 25px;right: 100px;"></i></a>
+        <a target="_blank" href="tel:{{$siteSetting['site_phone_primary']}}"><i class="fa fa-phone" style="font-size:30px;position: fixed;bottom: 25px;right: 25px;"></i></a>
+        <a target="_blank" href="https://wa.me/{{$siteSetting['site_phone_primary']}}?text=Hello" title="Share on whatsapp"><i class="fa fa-envelope" aria-hidden="true" style="font-size:30px;position: fixed;bottom: 25px;right: 100px;"></i></a>
 
         <!-- Jquery JS-->
         <script src="{{asset('/')}}player_assets/vendor/jquery-3.2.1.min.js"></script>
@@ -38,6 +38,6 @@
         <script src="{{asset('/')}}player_assets/js/main.js"></script>
 
     </body>
-
+    <script src="{{asset('/')}}homescreen_popup/service-worker.js"></script>        
 </html>
 <!-- end document-->

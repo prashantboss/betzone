@@ -27,21 +27,5 @@
             </div>
         </div>
     </div>
-    @if ( Session::has('flash_message') )
-        <section class="alert-wrap p-t-70 p-b-0">
-            <div class="container">
-                <!-- ALERT-->
-                <div class="alert {{ Session::get('flash_type') }} alert-dismissible fade show au-alert au-alert--70per" role="alert">
-                    <i class="zmdi zmdi-check-circle"></i>
-                    <span class="content">{{ Session::get('flash_message') }}</span>
-                    <button class="close" type="button" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">
-                            <i class="zmdi zmdi-close-circle"></i>
-                        </span>
-                    </button>
-                </div>
-                <!-- END ALERT-->
-            </div>
-        </section>
-    @endif
+    
     <!-- header area end -->

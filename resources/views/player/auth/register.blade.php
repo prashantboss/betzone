@@ -32,7 +32,18 @@
 
     <!-- Main CSS-->
     <link href="{{asset('/')}}player_assets/css/theme.css" rel="stylesheet" media="all">
-
+    <style>
+        .btn-outline-success {
+            color: #ffc107;
+            border-color: #ffc107;
+            background: black
+        }
+        .btn-outline-success:hover {
+            color: black;
+            background-color: #ffc107;
+            border-color: #ffc107;
+        }
+    </style>
 </head>
 
 <body class="animsition">
@@ -43,7 +54,7 @@
                     <div class="login-content">
                         <div class="login-logo">
                             <a href="#">
-                                <img src="{{asset('/')}}player_assets/images/icon/logo.png" alt="CoolAdmin">
+                                <img src="{{asset('/')}}logo/{{$siteSetting['site_logo']}}" alt="LOGO_Betzone">
                             </a>
                         </div>
                         <div class="login-form">
@@ -59,7 +70,7 @@
                                         </span>
                                     @endif
                                 </div>
-                                <div class="form-group">
+                                <!-- <div class="form-group">
                                     <label>Username</label>
                                     <input id="username" type="text" class="au-input au-input--full form-control{{ $errors->has('username') ? ' is-invalid' : '' }}" name="username" value="{{ old('username') }}" required>
                                     @if ($errors->has('username'))
@@ -67,8 +78,8 @@
                                             <strong>{{ $errors->first('username') }}</strong>
                                         </span>
                                     @endif
-                                </div>
-                                <div class="form-group">
+                                </div> -->
+                                <!-- <div class="form-group">
                                     <label>Email Address</label>
                                     <input id="email" type="email" class="au-input au-input--full form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required>
                                     @if ($errors->has('email'))
@@ -76,7 +87,7 @@
                                             <strong>{{ $errors->first('email') }}</strong>
                                         </span>
                                     @endif
-                                </div>
+                                </div> -->
                                 <div class="form-group">
                                     <label>Mobile Number</label>
                                     <input id="mobile" type="tel" class="au-input au-input--full form-control{{ $errors->has('mobile') ? ' is-invalid' : '' }}" name="mobile" value="{{ old('mobile') }}" pattern="[6-9]{1}[0-9]{9}" required>
@@ -87,7 +98,7 @@
                                     @endif
                                 </div>
                                 <div class="form-group">
-                                    <label>Password</label>
+                                    <label>Password<small style="color: #808080de;"> (minimum should be 6 character)</small></label>
                                     <input id="password" type="password" class="au-input au-input--full form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
 
                                     @if ($errors->has('password'))
@@ -105,7 +116,7 @@
                                         <input type="checkbox" name="aggree">Agree the terms and policy
                                     </label>
                                 </div> -->
-                                <button type="submit" class="au-btn au-btn--block au-btn--green m-b-20">{{ __('Register') }}</button>
+                                <button type="submit" class="btn btn-outline-success btn-lg btn-block">{{ __('Register') }}</button>
                             </form>
                             <div class="register-link">
                                 <p>

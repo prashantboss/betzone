@@ -8,14 +8,13 @@
     <div class="col-12 mt-5">
         <div class="card">
             <div class="card-body">
-                <h4 class="header-title">Data Table Dark</h4>
+                <h4 class="header-title">Players Details</h4>
                 <div class="data-tables datatable-dark">
                     <table id="dataTable3" class="text-center">
                         <thead class="text-capitalize">
                             <tr>
                                 <th>Id</th>
                                 <th>Name</th>
-                                <th>Email</th>
                                 <th>Mobile</th>
                                 <td>Account Detail</td>
                                 <th>Date</th>
@@ -24,33 +23,35 @@
                             </tr>
                         </thead>
                         <tbody>
+                            @php  $i=1; @endphp
                             @foreach($cruds as $row)
                                 <tr>
-                                    <td>{{$row->id}}</td>
+                                    <td>{{$i}}</td>
                                     <td>{{$row->name}}</td>
                                     <td>{{$row->email}}</td>
-                                    <td>{{$row->mobile}}</td>
                                     <td>
                                         @if($row->account_detail == "Bank")
-                                            <a href="" onclick="get_detail('{{$row->bank_name}}', '{{$row->bank_ifsc}}', '{{$row->bank_holder_name}}', '{{$row->account_number}}')" >Bank</a>
+                                            <a href="#" onclick="get_detail('{{$row->bank_name}}', '{{$row->bank_ifsc}}', '{{$row->bank_holder_name}}', '{{$row->account_number}}')" >Bank</a>
                                         @else
                                             {{$row->account_detail}}
                                         @endif
                                     </td>
-                                    <td>{{$row->created_at}}</td>
+                                    <td>{{date('d/m/Y,  h:i:s a', strtotime($row->created_at))}}</td>
                                     <td>
                                         <ul class="d-flex justify-content-center">
                                             <li class="mr-3">
                                                 <a href="{{route('admin.player.edit', ['id' => $row->id])}}" id="edit" class="text-secondary"><i class="fa fa-money"></i></a>
                                             </li>
                                             <li class="mr-3">
-                                                <a href="{{route('admin.player.forgot_pass', ['id' => $row->id])}}" id="forgot_pass" class="text-secondary"><span class="fa-passwd-reset fa-stack"><i class="fa fa-undo fa-stack-2x"></i>  <i class="fa fa-lock fa-stack-1x"></i></span></a>
+                                                <a href="{{route('admin.player.forgot_pass', ['id' => $row->id])}}" id="forgot_pass" class="text-secondary"><i class="fa fa-key" aria-hidden="true"></i></a>
                                             </li>
-                                            <li><a href="" onclick="delete_player({{$row->id}})" class="text-danger"><i class="ti-trash"></i></a></li>
+                                            <li class="mr-3"><a href="" onclick="delete_player({{$row->id}})" class="text-danger"><i class="ti-trash"></i></a></li>
+                                            <li class="mr-3"><a href="{{route('admin.player.wd', ['id' => $row->id])}}" class="text-secondary"><i class="fa fa-bank"></i></a></li>
                                         </ul>
                                     </td>
                                     <td>{{$row->wallet}}</td>
                                 </tr>
+                                @php  $i++; @endphp
                             @endforeach
                         </tbody>
                     </table>
@@ -59,6 +60,7 @@
         </div>
     </div>
     <!-- Dark table end -->
+
 
 
 @include('multiauth::includes.footer')

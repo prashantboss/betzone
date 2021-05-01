@@ -19,7 +19,7 @@
                         </div>
                     @endif -->
                     <div class="card-body card-block">
-                        <form action="{{ route('player.create.game.market') }}" method="POST">
+                        <form id="form_id" action="{{ route('player.create.game.market') }}" method="POST">
                             @csrf
                             <div class="row">
                                 @php if($game_name == "Single" || $game_name == "Triple Patti"){ @endphp
@@ -131,9 +131,9 @@
 
                                 @php if($game_name == "Half Sangam"){ @endphp
                                     <div class="col col-md-12 form-group">
-                                        <div class="col col-md-3">
+                                        <!-- <div class="col col-md-3">
                                             <label class=" form-control-label">Radios</label>
-                                        </div>
+                                        </div> -->
                                         <div class="col col-md-9">
                                             <div class="form-check">
                                                 <div class="radio">
@@ -253,7 +253,7 @@
                                             @enderror
                                         </div>
                                     </div>
-                                    <div class="row form-group">
+                                    <div class="col col-md-12 form-group desc">
                                         <div class="col col-md-3">
                                             <label for="text-input" class=" form-control-label">Amount</label>
                                         </div>
@@ -276,7 +276,7 @@
                                                 <option value="">Please select</option>
                                                 @php $i=0; @endphp
                                                 @foreach($game_numbers as $row)
-                                                    <option value="{{$row->number}}">{{$i}}</option>
+                                                    <!-- <option value="{{$row->number}}">{{$i}}</option> -->
                                                     @if($row->patti == 0)
                                                         @if($i == 0)
                                                             <optgroup label="-----0-----">
@@ -355,7 +355,7 @@
                                                 <option value="">Please select</option>
                                                 @php $i=0; @endphp
                                                 @foreach($game_numbers as $row)
-                                                    <option value="{{$row->number}}">{{$i}}</option>
+                                                    <!-- <option value="{{$row->number}}">{{$i}}</option> -->
                                                     @if($row->patti == 0)
                                                         @if($i == 0)
                                                             <optgroup label="-----0-----">
@@ -425,7 +425,7 @@
                                             @enderror
                                         </div>
                                     </div>
-                                    <div class="row form-group">
+                                    <div class="col col-md-12 form-group desc">
                                         <div class="col col-md-3">
                                             <label for="text-input" class=" form-control-label">Amount</label>
                                         </div>
@@ -441,34 +441,61 @@
                                 <input type="hidden" id="market" name="market" value="{{ $market }}" class="form-control">
                             </div>
                             <div class="form-actions form-group">
-                                <input type="submit" class="btn btn-success btn-sm" value="Submit" />
+                                <input id="btn_sbmt" onclick="submit_function()" class="btn btn-success btn-sm" value="Submit" />
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Total Amount</b> :  <input type="text" id='sum1' name="input" />
                             </div>
                         </form>
                     </div>
                 </div>
             </div>
         </div>
-
     </div>
 </div>
 
 @include('player.includes.footer')
 @endsection
 
-
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
     // disable alphabets on input field
     $(document).ready(function () {
         $(".num_disable").keypress(function (e) {
-            
             if (String.fromCharCode(e.keyCode).match(/[^0-9]/g)){
                 return false;
-            }
-                
+            } 
         });
     });
     
+    $(document).ready(function() {
+    //this calculates values automatically 
+    calculateSum();
+
+    $(".num_disable").on("keydown keyup", function() {
+        calculateSum();
+    });
+});
+
+function calculateSum() {
+    var sum = 0;
+    //iterate through each textboxes and add the values
+    $(".num_disable").each(function() {
+        //add only if the value is number
+        if (!isNaN(this.value) && this.value.length != 0) {
+            sum += parseFloat(this.value);
+            $(this).css("background-color", "#FEFFB0");
+        }
+        else if (this.value.length != 0){
+            $(this).css("background-color", "red");
+        }
+    });
+ 
+	$("input#sum1").val(sum.toFixed(2));
+}
+
+function submit_function(){
+        $('#btn_sbmt').prop('disabled',true)
+        $('#form_id').submit()
+    }
 </script>
 
 

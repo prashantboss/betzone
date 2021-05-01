@@ -48,6 +48,7 @@
                                 </thead>
                                 <tbody>
                                 <input type="hidden" name="game_id" value="{{$game_id}}" />
+                                <input type="hidden" name="game_name" value="{{$game_name}}" />
                                 <!-- @if(empty($data1)) -->
                                     @foreach($markets as $row)
                                         <tr>

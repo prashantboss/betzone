@@ -25,7 +25,7 @@
                                             @enderror
                                         </div>
                                     </div>
-                                    <div class="col-6">
+                                    <!-- <div class="col-6">
                                         <div class="form-group has-success">
                                             <label for="username" class="control-label mb-1">Username</label>
                                             <input id="username" value="{{Auth::guard('player')->user()->username}}" name="username" type="text" placeholder="Please enter username" class="@error('username') is-invalid @enderror num_disable form-control" required="required">
@@ -33,10 +33,10 @@
                                                 <div class="alert alert-danger">{{ $message }}</div>
                                             @enderror
                                         </div>
-                                    </div>
+                                    </div> -->
                                 </div>
                                 <div class="row">
-                                    <div class="col-6">
+                                    <!-- <div class="col-6">
                                         <div class="form-group">
                                             <label for="email" class="control-label mb-1">Email</label>
                                             <input id="email" name="email" type="email" placeholder="Please enter email" class="@error('email') is-invalid @enderror num_disable form-control email identified visa" value="{{Auth::guard('player')->user()->email}}" required="required">
@@ -44,11 +44,11 @@
                                                 <div class="alert alert-danger">{{ $message }}</div>
                                             @enderror
                                         </div>
-                                    </div>
+                                    </div> -->
                                     <div class="col-6">
                                         <div class="form-group">
                                             <label for="mobile" class="control-label mb-1">Mobile</label>
-                                            <input id="mobile" name="mobile" type="tel" class="@error('mobile') is-invalid @enderror num_disable form-control mobile" value="{{Auth::guard('player')->user()->mobile}}" placeholder="Please enter mobile" required="required">
+                                            <input id="mobile" name="mobile" type="tel" class="@error('mobile') is-invalid @enderror num_disable form-control mobile" value="{{Auth::guard('player')->user()->email}}" placeholder="Please enter mobile" required="required">
                                             @error('mobile')
                                                 <div class="alert alert-danger">{{ $message }}</div>
                                             @enderror

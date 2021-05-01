@@ -7,7 +7,8 @@
     <div class="card mt-5">
         <div class="card-body">  
             @foreach($content as $row)
-            <form action="{{route('admin.game_timing_update')}}" method='get'>
+            <form action="{{route('admin.game_timing_update')}}" method='post'>
+                <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
                         <span class="input-group-text">{{$title}}</span>

@@ -35,7 +35,9 @@ class HomeController extends Controller
     public function index() {
         // return view('player.home');
         $data = DB::table('markets')->get();
+        $home_notice_txt =DB::table('static')->where("title", "home_notice")->first()->content;
         return view('player.dashboard')
+                            ->with('home_notice', $home_notice_txt)
                             ->with('live_result', $data)
                             ->with('title', 'Dashboard');
     }

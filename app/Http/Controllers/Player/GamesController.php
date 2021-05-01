@@ -53,34 +53,42 @@ class GamesController extends Controller
     }
 
     public function create_game_market(Request $request){
-        // echo count(array_values($request->amount));
-        // echo $request->open_close;
-        // exit;
+        // dd($request->all());
+        date_default_timezone_set("Asia/Calcutta");   //India time (GMT+5:30)
         if($request->game == "Single" || $request->game == "Single Patti" || $request->game == "Double Patti" || $request->game == "Jodi" || $request->game == "Triple Patti"){
             $array = array();
             if (strlen(implode($request->amount)) == 0){
                 Session::flash('flash_message', 'Please Enter Minimum One Betting Number');
                 Session::flash('flash_type', 'alert-danger');
-                return $this->market_number($request->game, $request->market);
+                // return $this->market_number($request->game, $request->market);
+                return redirect()->route('player.market.number', [$request->game, $request->market]);
             }
             for($i=0;$i<count(array_keys($request->amount));$i++){
                 if($request->amount[array_keys($request->amount)[$i]] != ''){
                     if($request->amount[array_keys($request->amount)[$i]]<10){
                         Session::flash('flash_message', 'Minimum play amount Rs.10');
                         Session::flash('flash_type', 'alert-danger');
-                        return $this->market_number($request->game, $request->market);
+                        return redirect()->route('player.market.number', [$request->game, $request->market]);
                     }
                 }  
             }
 
+            $total_amount = 0; // not for half and full sangam
+
 
             foreach($request->amount as $key => $value){
                 if(!empty($value)){
-                    if($request->game == "Single" || $request->game == "Single Patti" || $request->game == "Double Patti" || $request->game == "Jodi"){
-                        $number = (int)$key;
-
+                    if($request->game == "Single" || $request->game == "Single Patti" || $request->game == "Double Patti"){
+                        $number = $key;
+                    }else if($request->game == "Jodi"){
+                        if($key <= 9){
+                            $number = '0'.$key;
+                        }else{
+                            $number = $key;
+                        }
+                        
                     }else if($request->game == "Triple Patti"){
-                        $number = (int)($key.$key.$key);
+                        $number = $key.$key.$key;
                     }
                     $data = array(
                         array(
@@ -90,16 +98,21 @@ class GamesController extends Controller
                             'open_close'=> $request->open_close,
                             'amount'=> $value,
                             'number'=>$number,
-                            'bet_date'=>date('Y-m-d')
+                            'bet_date'=>date('Y-m-d'),
+                            'created_at'=>date('Y-m-d H:i:s'),
+                            'updated_at'=>date('Y-m-d H:i:s')
                         ),
                     );
-                    $updated_wallet = Auth::guard('player')->user()->wallet - $value;
-                    DB::table('players')
-                        ->where('id', Auth::guard('player')->user()->id)
-                        ->update(['wallet' => $updated_wallet]);
+                    $total_amount+=$value;
                     PlayerBettingData::insert($data);
                 }
             }
+
+            //Wallet update not for half and full sangam
+            $updated_wallet = Auth::guard('player')->user()->wallet-$total_amount;
+            DB::table('players')
+                ->where('id', Auth::guard('player')->user()->id)
+                ->update(['wallet' => $updated_wallet]);
         }else if($request->game == "Half Sangam"){
             $request->validate([
                 'ank_patti' => 'required',
@@ -116,7 +129,9 @@ class GamesController extends Controller
                     'ank'=> $request->ank,
                     'patti'=> $request->patti,
                     'amount'=> $request->amount,
-                    'bet_date'=>date('Y-m-d')
+                    'bet_date'=>date('Y-m-d'),
+                    'created_at'=>date('Y-m-d H:i:s'),
+                    'updated_at'=>date('Y-m-d H:i:s')
                 ),
             );
             $updated_wallet = Auth::guard('player')->user()->wallet - $request->amount;
@@ -138,7 +153,9 @@ class GamesController extends Controller
                     'open_patti'=> $request->open_patti,
                     'close_patti'=> $request->close_patti,
                     'amount'=> $request->amount,
-                    'bet_date'=>date('Y-m-d')
+                    'bet_date'=>date('Y-m-d'),
+                    'created_at'=>date('Y-m-d H:i:s'),
+                    'updated_at'=>date('Y-m-d H:i:s')
                 ),
             );
             $updated_wallet = Auth::guard('player')->user()->wallet - $request->amount;
@@ -147,6 +164,17 @@ class GamesController extends Controller
                 ->update(['wallet' => $updated_wallet]);
             PlayerBettingDataFullSangam::insert($data);
         }
+
+        //Wallet update not for half and full sangam
+        // if($request->game != "Full Sangam" || $request->game != "Half Sangam"){
+        //     $updated_wallet = Auth::guard('player')->user()->wallet-$total_amount;
+        //     DB::table('players')
+        //         ->where('id', Auth::guard('player')->user()->id)
+        //         ->update(['wallet' => $updated_wallet]);
+
+        // }
+        
+
         Session::flash('flash_message', 'Game Play Successfull.');
         Session::flash('flash_type', 'alert-success');
         return redirect()->route('player.dashboard');
@@ -158,6 +186,8 @@ class GamesController extends Controller
         //                             'UNION ALL
         //                             select * from player_betting_data_full_sangam where player_id = '.Auth::guard('player')->user()->id
         //                         );
+        date_default_timezone_set("Asia/Calcutta");   //India time (GMT+5:30)
+        $dt = date("Y-m-d H:i:s");
         $balance_enq = DB::select('select *
                                     from (
                                         SELECT bt.open_close, bt.id, bt.table_name, bt.player_id, g.game_name, m.name as market_name, bt.amount, bt.created_at FROM player_betting_data as bt 
@@ -189,10 +219,10 @@ class GamesController extends Controller
                                         g.id = dhs.game_id
                                         where dhs.player_id = '.Auth::guard('player')->user()->id.'
                                     ) a
-                                    where created_at between date_sub(now(),INTERVAL 1 WEEK) and now()
+                                    where created_at between date_sub("'.$dt.'",INTERVAL 1 WEEK) and "'.$dt.'"
                                     order by created_at desc'
                                 );
-
+        // dd($balance_enq);
         return view('player.balance_enquiry')
                             ->with('data', $balance_enq)
                             ->with('title', 'Market List');
@@ -200,7 +230,7 @@ class GamesController extends Controller
     }
 
     public function game_ledger(){
-        $data_game_ledger = DB::table('game_ledger')->where('player_id', Auth::guard('player')->user()->id)->get();
+        $data_game_ledger = DB::table('game_ledger')->where('player_id', Auth::guard('player')->user()->id)->orderBy('created_at', 'DESC')->get();
         return view('player.game_ledger')->with('data', $data_game_ledger)
                                             ->with('title', 'Game Ledger');
     }
@@ -212,8 +242,8 @@ class GamesController extends Controller
     public function profile_update(Request $request){
         $request->validate([
             'name' => 'required',
-            'username' => 'required',
-            'email' => 'required',
+            // 'username' => 'required',
+            // 'email' => 'required',
             'mobile' => 'required',
             'account_detail' => 'required',
         ]);
@@ -221,9 +251,9 @@ class GamesController extends Controller
         // exit;
         $data = array(
                 'name'=>$request->name, 
-                'username'=>$request->username,
-                'email'=>$request->email,
-                'mobile'=> $request->mobile,
+                // 'username'=>$request->username,
+                'email'=>$request->mobile,
+                // 'mobile'=> $request->mobile,
                 'account_detail'=> $request->account_detail,
                 'bank_name'=> $request->bank_name,
                 'bank_ifsc'=>$request->bank_ifsc,

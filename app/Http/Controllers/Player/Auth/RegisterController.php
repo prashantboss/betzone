@@ -50,8 +50,8 @@ class RegisterController extends Controller
     {
         return Validator::make($data, [
             'name' => 'required|max:255',
-            'username' => 'required|unique:players|max:50',
-            'email' => 'required|email|max:255|unique:players',
+            // 'username' => 'required|unique:players|max:50',
+            // 'email' => 'required|email|max:255|unique:players',
             'password' => 'required|min:6|confirmed',
             'mobile' => 'required|min:10|numeric|unique:players',
         ]);
@@ -67,9 +67,10 @@ class RegisterController extends Controller
     {
         return Player::create([
             'name' => $data['name'],
-            'username' => $data['username'],
-            'email' => $data['email'],
-            'mobile' => $data['mobile'],
+            // 'username' => $data['username'],
+            // 'email' => $data['email'],
+            'email' => $data['mobile'],
+            'wallet' => 50,
             'password' => bcrypt($data['password']),
         ]);
     }

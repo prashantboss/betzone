@@ -3,27 +3,117 @@
 @include('player.includes.sidebar')
 @include('player.includes.header')
 
+<style>
+    blink {
+        -webkit-animation: 2s linear infinite condemned_blink_effect; /* for Safari 4.0 - 8.0 */
+        animation: 2s linear infinite condemned_blink_effect;
+    }
+    /* for Safari 4.0 - 8.0 */
+    @-webkit-keyframes condemned_blink_effect {
+        0% {
+            visibility: hidden;
+        }
+        50% {
+            visibility: hidden;
+        }
+        100% {
+            visibility: visible;
+        }
+    }
+    @keyframes condemned_blink_effect {
+        0% {
+            visibility: hidden;
+        }
+        50% {
+            visibility: hidden;
+        }
+        100% {
+            visibility: visible;
+        }
+    }
+    
+    .scroll_text {
+        overflow: hidden;
+        position: relative;
+    }
+    .scroll_text p {
+        font-size: 13px;
+        color: black;
+        font-weight: bold;
+        /* Starting position */
+        -moz-transform:translateX(100%);
+        -webkit-transform:translateX(100%);	
+        transform:translateX(100%);
+        /* Apply animation to this element */	
+        -moz-animation: scroll_text 15s linear infinite;
+        -webkit-animation: scroll_text 15s linear infinite;
+        animation: scroll_text 15s linear infinite;
+    }
+    /* Move it (define the animation) */
+    @-moz-keyframes scroll_text {
+        0%   { -moz-transform: translateX(100%); }
+        100% { -moz-transform: translateX(-100%); }
+    }
+    @-webkit-keyframes scroll_text {
+        0%   { -webkit-transform: translateX(100%); }
+        100% { -webkit-transform: translateX(-100%); }
+    }
+    @keyframes scroll_text {
+        0%   { 
+            -moz-transform: translateX(100%); /* Firefox bug fix */
+            -webkit-transform: translateX(100%); /* Firefox bug fix */
+            transform: translateX(100%); 		
+        }
+        100% { 
+            -moz-transform: translateX(-100%); /* Firefox bug fix */
+            -webkit-transform: translateX(-100%); /* Firefox bug fix */
+            transform: translateX(-100%); 
+        }
+    }
+</style>
+
 <div class="section__content section__content--p30">
     <div class="container-fluid">
         <div class="row">
-
-            <div class="col-md-6">
+            <!-- <div class="col-md-12">
+                <div class="card" >
+                    <div class="card-header" style="margin: auto;">
+                        <strong style="color:red;font-style: italic;"><blink>Download Our App</blink></strong><br/>
+                    </div>
+                    <div class="card-body" style="background: black;">
+                        <a href="{{asset('/')}}download/betzone.apk" class="btn btn-outline-warning btn-lg btn-block">Download</a>
+                    </div>
+                </div>
+            </div> -->
+            <div class="col-md-6 d-block d-sm-none">
                 <div class="card">
-                    <div class="card-body">
-                        <a href="https://wa.me/7000032998?text=Sir I want to deposite money" type="button" class="btn btn-outline-success btn-lg btn-block">Deposite</a>
-                        
+                    <div class="card-body" style="background:black">
+                        <a target="_blank" href="https://wa.me/{{$siteSetting['site_phone_primary']}}?text=Sir I want to deposite money" type="button" class="btn btn-outline-warning btn-lg ">Deposite</a>
+                        <a target="_blank" href="https://wa.me/{{$siteSetting['site_phone_primary']}}?text=Sir I want to withdrawl money" style="float:right" type="button" class="btn btn-outline-warning btn-lg ">Withdrawl</a>
                     </div>
                 </div>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-6 d-none d-sm-block d-sm-none d-md-block">
                 <div class="card">
                     <div class="card-body">
-                        
-                        <a href="https://wa.me/7000032998?text=Sir I want to withdrawl money" class="btn btn-outline-danger btn-lg btn-block">Withdrawl</a>
+                        <a target="_blank" href="https://wa.me/{{$siteSetting['site_phone_primary']}}?text=Sir I want to deposite money" type="button" class="btn btn-outline-success btn-lg btn-block">Deposite</a>
                     </div>
                 </div>
             </div>
-
+            <div class="col-md-6 d-none d-sm-block d-sm-none d-md-block">
+                <div class="card">
+                    <div class="card-body">
+                        <a target="_blank" href="https://wa.me/{{$siteSetting['site_phone_primary']}}?text=Sir I want to withdrawl money" class="btn btn-outline-danger btn-lg btn-block">Withdrawl</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="card" >
+                    <div class="card-body scroll_text" style="background:#ffc107;text-transform: uppercase;">
+                        {!! $home_notice !!}
+                    </div>
+                </div>
+            </div>
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header" style="margin: auto;">

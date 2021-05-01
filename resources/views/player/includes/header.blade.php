@@ -1,3 +1,21 @@
+<style>
+    .btn-outline-warning:hover {
+        color: #212529 !important;
+        background-color: #ffc107 !important;
+        border-color: #ffc107 o !important;
+    }
+    @media only screen and (max-width: 600px) {
+        .header-button {
+            margin-top: 0px;
+        }
+        .py-4 {
+            padding-top: 0 !important;
+        }
+        .header-desktop {
+            height: 100px;
+        }
+    }
+</style>
 <!-- PAGE CONTAINER-->
 <div class="page-container"><!-- End in footer-->
     <!-- HEADER DESKTOP-->
@@ -5,16 +23,19 @@
         <div class="section__content section__content--p30">
             <div class="container-fluid">
                 <div class="header-wrap">
-                    <form class="form-header" action="" method="POST" style="visibility: hidden;">
-                        <input class="au-input au-input--xl" type="text" name="search" placeholder="Search for datas &amp; reports..." />
-                        <button class="au-btn--submit" type="submit">
-                            <i class="zmdi zmdi-search"></i>
-                        </button>
+                    <form class="form-header" action="" method="POST">
+                        <!-- <input class="au-input au-input--xl" type="text" name="search" placeholder="Search for datas &amp; reports..." /> -->
+                        <a style="background: black;" class="btn btn-outline-warning btn-sm" href="{{ route('player.dashboard')}}">Home Page</a>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <span id="span" style="color: red;font-size: 18px;"></span>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <span style="background: black;" class="btn btn-outline-warning btn-sm" onclick="location.reload();">Refresh</span>
+                        
                     </form>
                     <div class="header-button">
                         <div class="noti-wrap">
                             <div class="noti__item js-item-menu">
-                                <strong>Balance : </strong><span>{{Auth::guard('player')->user()->wallet}}</span>
+                                <strong>Points : </strong><span>{{Auth::guard('player')->user()->wallet}}</span>
                             </div>
                             <!-- <div class="noti__item js-item-menu">
                                 <i class="zmdi zmdi-notifications"></i>
@@ -127,3 +148,12 @@
     @endif
     <div class="main-content m-content">
     <!-- HEADER DESKTOP-->
+
+    <script>
+        window.onload = displayClock();
+        function displayClock(){
+        var display = new Date().toLocaleTimeString();
+        document.getElementById('span').innerHTML = display;
+        setTimeout(displayClock, 1000); 
+        }
+    </script>

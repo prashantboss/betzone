@@ -1,0 +1,29 @@
+{
+    "short_name": "betzone.online",
+    "name": "Betzone",
+    "theme_color": "#ffc107",
+    "background_color": "#F7F8F9",
+    "display": "standalone",
+    "icons": [{
+            "src": "{{asset('/')}}logo/betzone_mobile.jpg",
+            "type": "image/jpg",
+            "sizes": "48x48"
+        },
+        {
+            "src": "{{asset('/')}}logo/betzone_mobile.jpg",
+            "type": "image/jpg",
+            "sizes": "96x96"
+        },
+        {
+            "src": "{{asset('/')}}logo/betzone_mobile.jpg",
+            "type": "image/jpg",
+            "sizes": "144x144"
+        },
+        {
+            "src": "{{asset('/')}}logo/betzone_mobile.jpg",
+            "type": "image/jpg",
+            "sizes": "192x192"
+        }
+    ],
+    "start_url": "/?utm_source=launcher"
+}
