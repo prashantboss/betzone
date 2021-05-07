@@ -1,4 +1,12 @@
 <!-- page title area start -->
+<style>
+.btn-outline-warning:hover {
+    color: black;
+    background-color: #ffc107 !important;
+    border-color: #ffc107;
+}
+</style>
+
 <div class="page-title-area">
     <div class="row align-items-center">
         <div class="col-sm-4">
@@ -11,7 +19,7 @@
             </div>
         </div>
         <div class="col-sm-4">
-            <span style="background: black;" class="btn btn-outline-warning btn-sm" onclick="location.reload();">Refresh</span>&nbsp;&nbsp;&nbsp;&nbsp;<a style="background: black;" class="btn btn-outline-warning btn-sm" href="{{ route('admin.home') }}">Home Page</a>
+            <span style="background: #343a40;" class="btn btn-outline-warning btn-sm" onclick="location.reload();">Refresh</span>&nbsp;&nbsp;&nbsp;&nbsp;<a style="background: #343a40;" class="btn btn-outline-warning btn-sm" href="{{ route('admin.home') }}">Home Page</a>
         </div>
         <div class="col-sm-4 clearfix">
             <div class="user-profile pull-right">
