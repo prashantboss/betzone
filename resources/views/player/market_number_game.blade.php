@@ -130,11 +130,11 @@
                                 @php } @endphp
 
                                 @php if($game_name == "Half Sangam"){ @endphp
-                                    <div class="col col-md-12 form-group">
+                                    <div class="col-md-12 form-group">
                                         <!-- <div class="col col-md-3">
                                             <label class=" form-control-label">Radios</label>
                                         </div> -->
-                                        <div class="col col-md-9">
+                                        <div class="col-md-9">
                                             <div class="form-check">
                                                 <div class="radio">
                                                     <label for="radio1" class="form-check-label ">
@@ -153,7 +153,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="col col-md-12 form-group desc">
+                                    <div class="col-md-12 form-group desc">
                                         <div class="col col-md-3">
                                             <label for="select" class=" form-control-label">Ank : </label>
                                         </div>
@@ -176,7 +176,7 @@
                                             @enderror
                                         </div>
                                     </div>
-                                    <div class="col col-md-12 form-group desc">
+                                    <div class="col-md-12 form-group desc">
                                         <div class="col col-md-3">
                                             <label for="select" class=" form-control-label">Patti : </label>
                                         </div>
@@ -267,7 +267,7 @@
                                 @php } @endphp
 
                                 @php if($game_name == "Full Sangam"){ @endphp
-                                    <div class="col col-md-12 form-group desc">
+                                    <div class="col-md-12 form-group desc">
                                         <div class="col col-md-3">
                                             <label for="select" class=" form-control-label">Close Patti : </label>
                                         </div>
@@ -346,7 +346,7 @@
                                             @enderror
                                         </div>
                                     </div>
-                                    <div class="col col-md-12 form-group desc">
+                                    <div class="col-md-12 form-group desc">
                                         <div class="col col-md-3">
                                             <label for="select" class=" form-control-label">Open Patti : </label>
                                         </div>
@@ -425,7 +425,7 @@
                                             @enderror
                                         </div>
                                     </div>
-                                    <div class="col col-md-12 form-group desc">
+                                    <div class="col-md-12 form-group desc">
                                         <div class="col col-md-3">
                                             <label for="text-input" class=" form-control-label">Amount</label>
                                         </div>
@@ -440,9 +440,11 @@
                                 <input type="hidden" id="game" name="game" value="{{ $game_name }}" class="form-control">
                                 <input type="hidden" id="market" name="market" value="{{ $market }}" class="form-control">
                             </div>
-                            <div class="form-actions form-group">
+                            <div class="col-md-12 form-actions form-group">
                                 <input id="btn_sbmt" onclick="submit_function()" class="btn btn-success btn-sm" value="Submit" />
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Total Amount</b> :  <input type="text" id='sum1' name="input" />
+                                <br/>
+                                <div><b>Total Amount</b> :  <div>
+                                Rs. <input type="text" id='sum1' name="input" />
                             </div>
                         </form>
                     </div>
