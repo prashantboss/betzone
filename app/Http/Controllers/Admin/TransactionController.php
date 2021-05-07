@@ -50,7 +50,7 @@ class TransactionController extends Controller
             ->join('markets', 'player_betting_data.market_id', '=', 'markets.id')
             ->join('games', 'player_betting_data.game_id', '=', 'games.id')
             ->join('players', 'player_betting_data.player_id', '=', 'players.id')
-            ->select('players.mobile','players.email','players.name','player_betting_data.id','player_betting_data.number','player_betting_data.amount','player_betting_data.bet_date','player_betting_data.created_at', 
+            ->select('players.mobile','players.email','players.name','player_betting_data.id','player_betting_data.number','player_betting_data.amount','player_betting_data.bet_date','player_betting_data.created_at','player_betting_data.open_close',
             'games.game_name', 'markets.name as market_name')
             ->orderBy('player_betting_data.created_at', 'DESC')
             ->get();
