@@ -7,7 +7,7 @@
     <div class="col-12 mt-5">
         <div class="card">
             <div class="card-body">
-                <h4 class="header-title">Half Sangam</h4>
+                <h4 class="header-title">Credit Debit</h4>
                 <div class="data-tables datatable-dark">
                     <table id="dataTable3" class="text-center">
                         <thead class="text-capitalize">
@@ -26,7 +26,7 @@
                                     <td>{{$i}}</td>
                                     <td>{{$row->amount}}</td>
                                     <td>{{$row->status}}</td>
-                                    <td>{{$row->created_at}}</td>
+                                    <td>{{date('d/m/Y,  h:i:s a', strtotime($row->created_at))}}</td>
                                 </tr>
                                 @php  $i++; @endphp
                             @endforeach
