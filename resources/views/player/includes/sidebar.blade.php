@@ -44,14 +44,20 @@
                             <a href="{{ route('player.notice_static')}}">
                                 <i class="fas fa-bell"></i>Notice</a>
                         </li>
-                        <li>
+                        <!-- <li>
                             <a target="_blank" href="https://wa.me/{{$siteSetting['site_phone_primary']}}?text=Sir I want to deposite money">
                                 <i class="fas fa-inr"></i>Deposite</a>
+                        </li> -->
+                        <li onclick="deposite()">
+                            <a href=""><i class="fas fa-inr"></i>Deposite</a>
                         </li>
-                        <li>
+                        <li onclick="withdrawl()">
+                            <a href="" ><i class="fas fa-inr"></i>Withdrawl</a>
+                        </li>
+                        <!-- <li>
                             <a target="_blank" href="https://wa.me/{{$siteSetting['site_phone_primary']}}?text=Sir I want to withdrawl money">
                                 <i class="fas fa-inr"></i>Withdrawl</a>
-                        </li>
+                        </li> -->
                         <li>
                             <a href="{{ route('player.game_timing_static')}}">
                                 <i class="fas fa-clock-o"></i>Game Timing</a>
@@ -233,3 +239,12 @@
             </div>
         </aside>
         <!-- END MENU SIDEBAR-->
+
+        <script>
+            function deposite(){
+                alert("Deposite karne ke liye 9993613331 par whatsapp kare")
+            }
+            function withdrawl(){
+                alert("Withdrawl karne ke liye 9993613331 par whatsapp kare")
+            }
+        </script>

@@ -26,9 +26,9 @@
                     <form class="form-header" action="" method="POST">
                         <!-- <input class="au-input au-input--xl" type="text" name="search" placeholder="Search for datas &amp; reports..." /> -->
                         <a style="background: black;" class="btn btn-outline-warning btn-sm" href="{{ route('player.dashboard')}}">Home Page</a>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <span id="span" style="color: red;font-size: 18px;"></span>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <span style="background: black;" class="btn btn-outline-warning btn-sm" onclick="location.reload();">Refresh</span>
                         
                     </form>

@@ -70,6 +70,10 @@
             transform: translateX(-100%); 
         }
     }
+
+    .scroll_text p{
+        margin:0;
+    }
 </style>
 
 <div class="section__content section__content--p30">
@@ -88,8 +92,10 @@
             <div class="col-md-6 d-block d-sm-none">
                 <div class="card">
                     <div class="card-body" style="background:black">
-                        <a target="_blank" href="https://wa.me/{{$siteSetting['site_phone_primary']}}?text=Sir I want to deposite money" type="button" class="btn btn-outline-warning btn-lg ">Deposite</a>
-                        <a target="_blank" href="https://wa.me/{{$siteSetting['site_phone_primary']}}?text=Sir I want to withdrawl money" style="float:right" type="button" class="btn btn-outline-warning btn-lg ">Withdrawl</a>
+                        <a onclick="deposite()" href="" type="button" class="btn btn-outline-warning btn-lg">Deposite</a>
+                        <a onclick="withdrawl()" href="" style="float:right" type="button" class="btn btn-outline-warning btn-lg">Withdrawl</a>
+                        <!-- <a target="_blank" href="https://wa.me/{{$siteSetting['site_phone_primary']}}?text=Sir I want to deposite money" type="button" class="btn btn-outline-warning btn-lg">Deposite</a>
+                        <a target="_blank" href="https://wa.me/{{$siteSetting['site_phone_primary']}}?text=Sir I want to withdrawl money" style="float:right" type="button" class="btn btn-outline-warning btn-lg">Withdrawl</a> -->
                     </div>
                 </div>
             </div>
@@ -185,5 +191,16 @@
         alert("OK");
     </script>
 @endpush
+
+
+<script>
+    function deposite(){
+        alert("Deposite karne ke liye 9993613331 par whatsapp kare")
+    }
+    function withdrawl(){
+        alert("Withdrawl karne ke liye 9993613331 par whatsapp kare")
+    }
+</script>
+
 
 
