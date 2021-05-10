@@ -40,16 +40,16 @@
                             <ul class="collapse">
                                 <li><a href="{{ route('admin.half_sangam_traxn') }}">Half Sangam</a></li>
                                 <li><a href="{{ route('admin.full_sangam_traxn') }}">Full Sangam</a></li>
-                                <li><a href="{{ route('admin.rest_trnxn') }}">All Rest</a></li>
+                                <li><a href="{{ route('admin.rest_trnxn') }}">All Betting</a></li>
                             </ul>
                         </li>
                         <li>
                             <a href="javascript:void(0)" aria-expanded="true"><i class="ti-palette"></i><span>Live Result</span></a>
                             <ul class="collapse">
-                                <li><a style="color:red;" href="{{ route('admin.live_result_reset') }}">~~All Reset~~ </a></li>
                                 @foreach($markets as $row)
                                     <li><a href="{{ route('admin.live_result', ['id'=>$row->id]) }}">{{$row->name}}</a></li>
                                 @endforeach
+                                <li><a style="color:red;" href="{{ route('admin.live_result_reset') }}">~~All Reset~~ </a></li>
                             </ul>
                         </li>
                         <li>

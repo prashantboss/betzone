@@ -7,7 +7,8 @@
     <div class="col-12 mt-5">
         <div class="card">
             <div class="card-body">
-                <h4 class="header-title">Data Table Dark</h4>
+                <h4 class="header-title">Thela Game</h4>
+                <span> {{ $open_close ?? '' }} | {!! DB::table('markets')->where("id", $market_id)->first()->name ?? '' !!} | {!! DB::table('games')->where("id", $game_id)->first()->game_name ?? '' !!}</span>
 
                 <div class="table-responsive">
                     @php $game_id_with_oc = array(1,2,3,4,5); @endphp

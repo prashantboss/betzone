@@ -44,7 +44,7 @@ class TodayGameController extends Controller
             'player_betting_data.created_at', 
             'games.game_name', 'markets.name as market_name',
             'players.id as player_id','player_betting_data.amount','player_betting_data.game_id',
-            'player_betting_data.market_id', 'player_betting_data.table_name')
+            'player_betting_data.market_id', 'player_betting_data.table_name','player_betting_data.open_close')
             ->where('bet_date', $request->date)
             ->where('market_id', $request->market_id)
             ->where('open_close', $request->oc)
@@ -68,7 +68,7 @@ class TodayGameController extends Controller
             'player_betting_data.created_at', 
             'games.game_name', 'markets.name as market_name',
             'players.id as player_id','player_betting_data.amount','player_betting_data.game_id',
-            'player_betting_data.market_id', 'player_betting_data.table_name')
+            'player_betting_data.market_id', 'player_betting_data.table_name', 'player_betting_data.open_close')
             ->where('bet_date', $request->date)
             ->where('market_id', $request->market_id)
             ->where('number', $request->number)
@@ -235,6 +235,21 @@ class TodayGameController extends Controller
             ->orderBy('number', 'ASC')
             ->groupBy('amount', 'number', 'bet_date')
             ->get();
+            
+            $arrj = [];
+            foreach($bet_data as $row){
+                if (array_key_exists($row->number,$arrj)){
+                    $amount = $arrj[$row->number]+$row->amount;
+                    $arrj[$row->number] = $amount;
+                }else{
+                    $arrj[$row->number] = $row->amount;
+                }
+            }
+            return view('vendor.multiauth.admin.thela_total')
+                            ->with('bet_data', $arrj)
+                            ->with('game_id', $request->game_id)
+                            ->with('market_id', $request->market_id)
+                            ->with('title', 'Game Thela');
         }
 
         if($request->game_id == 6){
@@ -253,6 +268,7 @@ class TodayGameController extends Controller
             return view('vendor.multiauth.admin.thela_total')
                             ->with('bet_data', $bet_data)
                             ->with('game_id', $request->game_id)
+                            ->with('market_id', $request->market_id)
                             ->with('title', 'Game Thela');
         }
 
@@ -272,6 +288,7 @@ class TodayGameController extends Controller
             return view('vendor.multiauth.admin.thela_total')
                             ->with('bet_data', $bet_data)
                             ->with('game_id', $request->game_id)
+                            ->with('market_id', $request->market_id)
                             ->with('title', 'Game Thela');
         }
         $arr = [];
@@ -288,6 +305,8 @@ class TodayGameController extends Controller
         return view('vendor.multiauth.admin.thela_total')
                             ->with('bet_data', $arr)
                             ->with('game_id', $request->game_id)
+                            ->with('market_id', $request->market_id)
+                            ->with('open_close', $request->oc)
                             ->with('title', 'Game Thela');
 
     }

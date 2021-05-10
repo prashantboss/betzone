@@ -7,7 +7,7 @@
     <div class="col-12 mt-5">
         <div class="card">
             <div class="card-body">
-                <h4 class="header-title">Data Table Dark</h4>
+                <h4 class="header-title">Today Game</h4>
                 <div class="table-responsive">
                     @php $game_id_with_oc = array(1,2,3,4,5); @endphp
                     @if(in_array($game_id,$game_id_with_oc))
@@ -18,12 +18,11 @@
                                     <tr>
                                         <th>Id</th>
                                         <th>Name</th>
-                                        <th>Email</th>
                                         <th>Mobile</th>
                                         <th>Number</th>
                                         <th>Amount</th>
                                         <th>Date</th>
-                                        <th>Market | Game Name</th>
+                                        <th>Open_Close | Market | Game Name</th>
                                         <th>Actions</th>
                                     </tr>
                                 </thead>
@@ -40,14 +39,13 @@
                                                 <td>{{$i}}</td>
                                                 <td>{{$row->name}}</td>
                                                 <td>{{$row->email}}</td>
-                                                <td>{{$row->mobile}}</td>
                                                 <td>{{$row->number}}</td>
                                                 <td>Rs. {{$row->amount}}</td>
                                                 <td>
                                                 {{ date('d/m/Y,  h:i:s a', strtotime($row->created_at)) }}
                                                 <!-- {{$row->created_at}} -->
                                                 </td>
-                                                <td>{{$row->market_name}} | {{$row->game_name}}</td>
+                                                <td>{{$row->open_close}} | {{$row->market_name}} | {{$row->game_name}}</td>
                                                 <td>
                                                     @if($row->status == 1)
                                                         <img src="{{asset('/')}}admin_assets/images/icon/paid_stamp.jpg" alt="CoolAdmin" />

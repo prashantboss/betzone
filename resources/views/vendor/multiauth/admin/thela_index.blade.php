@@ -7,7 +7,7 @@
     <div class="col-12 mt-5">
         <div class="card">
             <div class="card-body">
-                <h4 class="header-title">Watch Today Game</h4>
+                <h4 class="header-title">Watch Thela Game</h4>
                 @php $game_id_with_oc = array(1,2,3,4,5,6,7); @endphp
                 @if(in_array($game_id,$game_id_with_oc))
                     <form action = "{{route('admin.thela_search')}}" method="post">
