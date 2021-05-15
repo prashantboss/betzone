@@ -55,6 +55,14 @@ class GamesController extends Controller
     public function create_game_market(Request $request){
         // dd($request->all());
         date_default_timezone_set("Asia/Calcutta");   //India time (GMT+5:30)
+        //Reurn Null if open_close is null
+        if($request->game == "Single" || $request->game == "Single Patti" || $request->game == "Double Patti" || $request->game == "Triple Patti"){
+            if($request->open_close == null){
+                Session::flash('flash_message', 'Please try again');
+                Session::flash('flash_type', 'alert-danger');
+                return redirect()->route('player.dashboard');
+            }
+        }
         if($request->game == "Single" || $request->game == "Single Patti" || $request->game == "Double Patti" || $request->game == "Jodi" || $request->game == "Triple Patti"){
             $array = array();
             if (strlen(implode($request->amount)) == 0){
