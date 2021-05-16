@@ -15,6 +15,7 @@
                                 <th>Id</th>
                                 <th>Amount</th>
                                 <th>Status</th>
+                                <th>Msg</th>
                                 <th>Date</th>
                             </tr>
                         </thead>
@@ -26,6 +27,7 @@
                                     <td>{{$i}}</td>
                                     <td>{{$row->amount}}</td>
                                     <td>{{$row->status}}</td>
+                                    <td>{{$row->msg}}</td>
                                     <td>{{date('d/m/Y,  h:i:s a', strtotime($row->created_at))}}</td>
                                 </tr>
                                 @php  $i++; @endphp

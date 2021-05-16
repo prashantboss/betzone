@@ -68,6 +68,7 @@
     Route::get('/player/reset_pass/{id}','\App\Http\Controllers\Admin\PlayersController@forgot_pass')->name('admin.player.forgot_pass')->middleware('role:super');
     Route::get('/player/reset','\App\Http\Controllers\Admin\PlayersController@reset')->name('admin.player.reset')->middleware('role:super');
     Route::get('/player/wd/{id}','\App\Http\Controllers\Admin\PlayersController@wd_txn')->name('admin.player.wd')->middleware('role:super');
+    Route::get('/player/txns/{id}','\App\Http\Controllers\Admin\PlayersController@txns')->name('admin.player.txns')->middleware('role:super');
     /* * ****** Player Crud End ********** */
 
     // Static

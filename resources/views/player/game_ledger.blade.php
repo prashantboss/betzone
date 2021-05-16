@@ -12,6 +12,7 @@
                             <th>Id</th>
                             <th>Amount</th>
                             <th>Narretion</th>
+                            <th>Detail<th>
                             <th>dateTime</th>
                         </tr>
                     </thead>
@@ -24,6 +25,7 @@
                             <td>{{$i}}</td>
                             <td>Rs. {{$row->amount}}</td>
                             <td>{{$row->status}}</td>
+                            <td>{{$row->msg}}</td>
                             <td>{{date('d/m/Y,  h:i:s a', strtotime($row->created_at))}}</td>
                         </tr>
                         @php
