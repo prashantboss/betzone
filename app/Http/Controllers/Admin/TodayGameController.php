@@ -138,9 +138,9 @@ class TodayGameController extends Controller
 
     public function final_submit(Request $request){
         // print_r($request->all());
-
+        // exit;
         foreach($request->to_wallet as $bpagmwt){
-            list($bet_id, $player_id, $amount, $game_id, $market_id, $wallet, $table_name) = explode('-', $bpagmwt);
+            list($bet_id, $player_id, $amount, $game_id, $market_id, $wallet, $table_name, $oc, $market_name, $game_name, $number) = explode('-', $bpagmwt);
 
             //Game rates
             if($game_id == 1){
@@ -180,12 +180,24 @@ class TodayGameController extends Controller
             DB::table('players')
                 ->where('id', $player_id)
                 ->update(['wallet' => $wallet + $amount_win]);
+            
+            if($game_id == 2 || $game_id == 6 || $game_id == 7){
+                DB::table('game_ledger')->insert([
+                    'player_id' => $player_id,
+                    'amount' => $amount_win,
+                    'status' => "credit to wallet",
+                    'msg' => "Market Name - ".$market_name." | Game Name - ".$game_name." | ".$number
+                ]);
+            }else{
+                DB::table('game_ledger')->insert([
+                    'player_id' => $player_id,
+                    'amount' => $amount_win,
+                    'status' => "credit to wallet",
+                    'msg' => "Open Close - ".$oc." | Market Name - ".$market_name." | Game Name - ".$game_name." | ".$number
+                ]);
+            }
 
-            DB::table('game_ledger')->insert([
-                'player_id' => $player_id,
-                'amount' => $amount_win,
-                'status' => "credit to wallet"
-            ]);
+            
         }
         Session::flash('flash_message', 'Player amount*x updated Successfully.');
         Session::flash('flash_type', 'alert-success');

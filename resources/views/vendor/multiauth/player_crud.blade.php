@@ -47,6 +47,7 @@
                                             </li>
                                             <li class="mr-3"><a href="" onclick="delete_player({{$row->id}})" class="text-danger"><i class="ti-trash"></i></a></li>
                                             <li class="mr-3"><a href="{{route('admin.player.wd', ['id' => $row->id])}}" class="text-secondary"><i class="fa fa-bank"></i></a></li>
+                                            <li class="mr-3"><a href="{{route('admin.player.txns', ['id' => $row->id])}}" class="text-secondary"><i class="fa fa-exchange"></i></a></li>
                                         </ul>
                                     </td>
                                     <td>{{$row->wallet}}</td>

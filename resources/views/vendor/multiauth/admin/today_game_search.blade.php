@@ -51,7 +51,7 @@
                                                         <img src="{{asset('/')}}admin_assets/images/icon/paid_stamp.jpg" alt="CoolAdmin" />
                                                     @else
                                                         <!-- bet_id, player_id, amount, game_id, market_id, wallet -->
-                                                        <input type="checkbox" name="to_wallet[]" value="{{$row->id}}-{{$row->player_id}}-{{$row->amount}}-{{$row->game_id}}-{{$row->market_id}}-{{$row->wallet}}-{{$row->table_name}}">
+                                                        <input type="checkbox" name="to_wallet[]" value="{{$row->id}}-{{$row->player_id}}-{{$row->amount}}-{{$row->game_id}}-{{$row->market_id}}-{{$row->wallet}}-{{$row->table_name}}-{{$row->open_close}}-{{$row->market_name}}-{{$row->game_name}}-{{'Number : '.$row->number}}">
                                                     @endif
                                                     
                                                 </td>
@@ -116,7 +116,7 @@
                                                         <img src="{{asset('/')}}admin_assets/images/icon/paid_stamp.jpg" alt="CoolAdmin" />
                                                     @else
                                                         <!-- bet_id, player_id, amount, game_id, market_id, wallet -->
-                                                        <input type="checkbox" name="to_wallet[]" value="{{$row->id}}-{{$row->player_id}}-{{$row->amount}}-{{$row->game_id}}-{{$row->market_id}}-{{$row->wallet}}-{{$row->table_name}}">
+                                                        <input type="checkbox" name="to_wallet[]" value="{{$row->id}}-{{$row->player_id}}-{{$row->amount}}-{{$row->game_id}}-{{$row->market_id}}-{{$row->wallet}}-{{$row->table_name}}-{{'null'}}-{{$row->market_name}}-{{$row->game_name}}-{{'Ank : '.$row->ank.' Patti : '.$row->patti}}">
                                                     @endif
                                                     
                                                 </td>
@@ -179,7 +179,7 @@
                                                         <img src="{{asset('/')}}admin_assets/images/icon/paid_stamp.jpg" alt="CoolAdmin" />
                                                     @else
                                                         <!-- bet_id, player_id, amount, game_id, market_id, wallet -->
-                                                        <input type="checkbox" name="to_wallet[]" value="{{$row->id}}-{{$row->player_id}}-{{$row->amount}}-{{$row->game_id}}-{{$row->market_id}}-{{$row->wallet}}-{{$row->table_name}}">
+                                                        <input type="checkbox" name="to_wallet[]" value="{{$row->id}}-{{$row->player_id}}-{{$row->amount}}-{{$row->game_id}}-{{$row->market_id}}-{{$row->wallet}}-{{$row->table_name}}-{{'null'}}-{{$row->market_name}}-{{$row->game_name}}-{{'Close Patti : '.$row->close_patti.' Open Patti : '.$row->open_patti}}">
                                                     @endif
                                                     
                                                 </td>

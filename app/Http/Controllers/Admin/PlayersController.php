@@ -149,4 +149,46 @@ class PlayersController extends Controller
         return view('vendor.multiauth.admin.wd_txn')->with('data', $data_game_ledger)
                                             ->with('title', 'Withdrawl Deposite TXN');
     }
+
+    public function txns($id)
+    {
+        date_default_timezone_set("Asia/Calcutta");
+
+        $betting_data = DB::table('player_betting_data')
+            ->join('markets', 'player_betting_data.market_id', '=', 'markets.id')
+            ->join('games', 'player_betting_data.game_id', '=', 'games.id')
+            ->join('players', 'player_betting_data.player_id', '=', 'players.id')
+            ->select('players.mobile','players.email','players.name','player_betting_data.id','player_betting_data.number','player_betting_data.amount','player_betting_data.bet_date','player_betting_data.created_at','player_betting_data.open_close',
+            'games.game_name', 'markets.name as market_name')
+            ->where('player_betting_data.player_id',  $id)
+            ->orderBy('player_betting_data.created_at', 'DESC')
+            ->get();
+        
+        $betting_data_half = DB::table('player_betting_data_half_sangam')
+            ->join('markets', 'player_betting_data_half_sangam.market_id', '=', 'markets.id')
+            ->join('games', 'player_betting_data_half_sangam.game_id', '=', 'games.id')
+            ->join('players', 'player_betting_data_half_sangam.player_id', '=', 'players.id')
+            ->select('players.email','players.name','players.mobile',
+            'player_betting_data_half_sangam.id','player_betting_data_half_sangam.ank_patti','player_betting_data_half_sangam.ank','player_betting_data_half_sangam.patti','player_betting_data_half_sangam.amount','player_betting_data_half_sangam.bet_date','player_betting_data_half_sangam.created_at', 
+            'games.game_name', 'markets.name as market_name')
+            ->where('player_betting_data_half_sangam.player_id',  $id)
+            ->orderBy('player_betting_data_half_sangam.created_at', 'DESC')
+            ->get();
+        
+        $betting_data_full = DB::table('player_betting_data_full_sangam')
+            ->join('markets', 'player_betting_data_full_sangam.market_id', '=', 'markets.id')
+            ->join('games', 'player_betting_data_full_sangam.game_id', '=', 'games.id')
+            ->join('players', 'player_betting_data_full_sangam.player_id', '=', 'players.id')
+            ->select('players.email','players.name','players.mobile',
+            'player_betting_data_full_sangam.id','player_betting_data_full_sangam.open_patti','player_betting_data_full_sangam.close_patti','player_betting_data_full_sangam.amount','player_betting_data_full_sangam.bet_date','player_betting_data_full_sangam.created_at', 
+            'games.game_name', 'markets.name as market_name')
+            ->where('player_betting_data_full_sangam.player_id',  $id)
+            ->orderBy('player_betting_data_full_sangam.created_at', 'DESC')
+            ->get();
+            
+        return view('vendor.multiauth.admin.txns')->with('betting_data', $betting_data)
+                                                ->with('betting_data_half', $betting_data_half)
+                                                ->with('betting_data_full', $betting_data_full)
+                                                ->with('title', 'All Transactions Playing Games');
+    }
 }
