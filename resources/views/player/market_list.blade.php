@@ -35,7 +35,7 @@
                                                     $date_open = new DateTime(date("Y-m-d")." ".date("H:i", strtotime('-20 minutes', $time_open)));
                                                 
                                                     $currentTime = DateTime::createFromFormat('h:i a', $currentTime_h);
-                                                    $from = DateTime::createFromFormat('h:i a', "10:00 AM");
+                                                    $from = DateTime::createFromFormat('h:i a', "08:00 AM");
                                                     $to_open = DateTime::createFromFormat('h:i a', $date_open->format('h:i A'));
 
                                                 @endphp
@@ -88,7 +88,7 @@
                                                   
                                                 
                                                     $currentTime = DateTime::createFromFormat('h:i a', $currentTime_h);
-                                                    $from = DateTime::createFromFormat('h:i a', "10:00 AM");
+                                                    $from = DateTime::createFromFormat('h:i a', "08:00 AM");
                                                     $to_open = DateTime::createFromFormat('h:i a', $date_open->format('h:i A'));
                    
 
@@ -155,7 +155,7 @@
                                                     $date_close = new DateTime(date("Y-m-d")." ".date("H:i", strtotime('-20 minutes', $time_close)));
                                                 
                                                     $currentTime = DateTime::createFromFormat('h:i a', $currentTime_h);
-                                                    $from = DateTime::createFromFormat('h:i a', "10:00 AM");
+                                                    $from = DateTime::createFromFormat('h:i a', "08:00 AM");
                                                     $to_open = DateTime::createFromFormat('h:i a', $date_open->format('h:i A'));
                                                     $to_close = DateTime::createFromFormat('h:i a', $date_close->format('h:i A'));
 
@@ -215,7 +215,7 @@
                                                     $date_close = new DateTime(date("Y-m-d")." ".date("H:i", strtotime('-20 minutes', $time_close)));
                                                 
                                                     $currentTime = DateTime::createFromFormat('h:i a', $currentTime_h);
-                                                    $from = DateTime::createFromFormat('h:i a', "10:00 AM");
+                                                    $from = DateTime::createFromFormat('h:i a', "08:00 AM");
                                                     $to_open = DateTime::createFromFormat('h:i a', $date_open->format('h:i A'));
                                                     $to_close = DateTime::createFromFormat('h:i a', $date_close->format('h:i A'));
 

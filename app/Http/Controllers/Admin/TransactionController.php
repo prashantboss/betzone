@@ -127,7 +127,7 @@ class TransactionController extends Controller
         // echo "<pre>";
         // print_r($request->all());
         // exit;
-        for($i=1;$i<=12;$i++){
+        for($i=1;$i<=16;$i++){
             $data = DB::table('market_holiday')
                             ->where('game_id',$request->game_id)
                             ->where('market_id',$i)
