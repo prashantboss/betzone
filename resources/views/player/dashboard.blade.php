@@ -145,36 +145,65 @@
                     </div>
                     <div class="card-body" style="background: black;">
                         @foreach($live_result as $row)
-                            <button type="button" class="btn btn-outline-warning btn-lg btn-block">
-                            {{$row->name}}<br/>
-                            @if($row->open =="")  
-                                {{"XXX"}}       
+                            @if($row->open ==null && $row->jodi ==null && $row->close ==null) 
+                                <button type="button" class="btn btn-outline-warning btn-lg btn-block">
+                                {{$row->name}}<br/>
+                                @if($row->open =="")  
+                                    {{"XXX"}}       
+                                @else
+                                    {{$row->open}}      
+                                @endif
+
+                                @if($row->jodi =="")  
+                                    {{"-XX-"}}       
+                                @elseif(strlen((string)$row->jodi) == "1")
+                                    {{"-".$row->jodi."X-"}}      
+                                @else
+                                    {{"-".$row->jodi."-"}}
+                                @endif
+
+                                @if($row->close =="")  
+                                    {{"XXX"}}       
+                                @else
+                                    {{$row->close}}      
+                                @endif
+                                <br/>
+                                @php 
+                                $date_open = new DateTime(date("Y-m-d")." ".$row->open_time); 
+                                $date_close = new DateTime(date("Y-m-d")." ".$row->close_time); 
+                                @endphp
+                                {{$date_open->format('h:ia')}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{$date_close->format('h:ia')}}
+                                </button>
                             @else
-                                {{$row->open}}      
+                                <button style="background: #ffc107;color: black;" type="button" class="btn btn-outline-warning btn-lg btn-block">
+                                {{$row->name}}<br/>
+                                @if($row->open =="")  
+                                    {{"XXX"}}       
+                                @else
+                                    {{$row->open}}      
+                                @endif
+
+                                @if($row->jodi =="")  
+                                    {{"-XX-"}}       
+                                @elseif(strlen((string)$row->jodi) == "1")
+                                    {{"-".$row->jodi."X-"}}      
+                                @else
+                                    {{"-".$row->jodi."-"}}
+                                @endif
+
+                                @if($row->close =="")  
+                                    {{"XXX"}}       
+                                @else
+                                    {{$row->close}}      
+                                @endif
+                                <br/>
+                                @php 
+                                $date_open = new DateTime(date("Y-m-d")." ".$row->open_time); 
+                                $date_close = new DateTime(date("Y-m-d")." ".$row->close_time); 
+                                @endphp
+                                {{$date_open->format('h:ia')}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{$date_close->format('h:ia')}}
+                                </button>
                             @endif
-
-                            @if($row->jodi =="")  
-                                {{"-XX-"}}       
-                            @elseif(strlen((string)$row->jodi) == "1")
-                                {{"-".$row->jodi."X-"}}      
-                            @else
-                                {{"-".$row->jodi."-"}}
-                            @endif
-
-                            @if($row->close =="")  
-                                {{"XXX"}}       
-                            @else
-                                {{$row->close}}      
-                            @endif
-                            <br/>
-                            @php 
-                            $date_open = new DateTime(date("Y-m-d")." ".$row->open_time); 
-                            $date_close = new DateTime(date("Y-m-d")." ".$row->close_time); 
-                            @endphp
-                            {{$date_open->format('h:ia')}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{$date_close->format('h:ia')}}
-                            </button>
-
-
                         @endforeach
                         
                     </div>

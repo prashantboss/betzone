@@ -186,14 +186,14 @@ class TodayGameController extends Controller
                     'player_id' => $player_id,
                     'amount' => $amount_win,
                     'status' => "credit to wallet",
-                    'msg' => "Market Name - ".$market_name." | Game Name - ".$game_name." | ".$number
+                    'msg' => $market_name." | ".$game_name." | ".$number
                 ]);
             }else{
                 DB::table('game_ledger')->insert([
                     'player_id' => $player_id,
                     'amount' => $amount_win,
                     'status' => "credit to wallet",
-                    'msg' => "Open Close - ".$oc." | Market Name - ".$market_name." | Game Name - ".$game_name." | ".$number
+                    'msg' => $oc." | ".$market_name." | ".$game_name." | ".$number
                 ]);
             }
 
