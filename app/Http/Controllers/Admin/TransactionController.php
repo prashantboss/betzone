@@ -37,6 +37,7 @@ class TransactionController extends Controller
         date_default_timezone_set("Asia/Calcutta");
         $today = date('Y-m-d 10:00:00');
         $todayplusone = date('Y-m-d 10:00:00', strtotime("+1 day"));
+        echo "Today -".$today." ~~~nextDay - ".$todayplusone;
         $data = DB::table('player_betting_data_full_sangam')
             ->join('markets', 'player_betting_data_full_sangam.market_id', '=', 'markets.id')
             ->join('games', 'player_betting_data_full_sangam.game_id', '=', 'games.id')
@@ -58,7 +59,7 @@ class TransactionController extends Controller
     public function all_rest_traxn(){
         date_default_timezone_set("Asia/Calcutta");
         $today = date('Y-m-d 10:00:00');
-        $todayplusone = date('Y-m-d 10:00:00', strtotime("+1 day"));
+        $todayplusone = date('Y-m-d 10:00:00', strtotime("+2 day"));
         $data = DB::table('player_betting_data')
             ->join('markets', 'player_betting_data.market_id', '=', 'markets.id')
             ->join('games', 'player_betting_data.game_id', '=', 'games.id')
