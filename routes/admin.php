@@ -58,6 +58,8 @@
 /* * ******  SiteSetting Start ********** */
     Route::get('/edit/site/setting', '\App\Http\Controllers\Admin\SiteSettingController@editSiteSetting')->name('admin.edit.site.setting')->middleware('role:super');
     Route::put('/update/site/setting', '\App\Http\Controllers\Admin\SiteSettingController@updatesiteSetting')->name('admin.update.site.setting')->middleware('role:super');
+    Route::get('/down', '\App\Http\Controllers\Admin\SiteSettingController@artisan_down')->name('admin.artisan.down')->middleware('role:super');
+    Route::get('/up', '\App\Http\Controllers\Admin\SiteSettingController@artisan_up')->name('admin.artisan.up')->middleware('role:super');
 /* * ****** End SiteSetting ********** */
 
 /* * ****** Player Crud Start ********** */

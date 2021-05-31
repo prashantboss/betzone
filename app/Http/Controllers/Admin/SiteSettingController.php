@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\SiteSetting;
+use Artisan;
 
 class SiteSettingController extends Controller
 {
@@ -19,5 +20,15 @@ class SiteSettingController extends Controller
 
     public function updatesiteSetting(){
         
+    }
+
+    public function artisan_down(){
+        Artisan::call('down');
+        dd('Your website down successfully');
+    }
+
+    public function artisan_up(){
+        Artisan::call('up');
+        dd('Your website up successfully');
     }
 }
