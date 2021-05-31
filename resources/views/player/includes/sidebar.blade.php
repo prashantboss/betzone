@@ -78,7 +78,7 @@
                                 <i class="fas fa-info"></i>How To Play</a>
                         </li>
                         <li>
-                            <a href="{{asset('/')}}download/betzone.apk">
+                            <a href="{{asset('/')}}download/BZ.Online.app.apk">
                                 <i class="fas fa-download"></i>Download</a>
                         </li>
                         <!-- <li>
