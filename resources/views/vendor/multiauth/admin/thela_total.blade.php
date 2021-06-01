@@ -22,15 +22,19 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @php $count= count($bet_data); $i=1; $total_amount = 0; @endphp
-                                @if(!count($bet_data) == 0)
-                                    @php foreach ($bet_data as $key => $value){ @endphp
+                                @php
+                                    $count= count($bet_data); 
+                                    $i=1; 
+                                @endphp
+                                @if(!count($bet_data) == 0) 
+                                    @foreach ($bet_data as $data)
                                         <tr>
                                             <td>{{$i}}</td>
-                                            <td>{{$key}}</td>
-                                            <td>Rs.{{$value}}@php $total_amount = $total_amount+$value @endphp</td>
+                                            <td>{{$data->number}}</td>
+                                            <td>Rs.{{$data->sum}}</td>
                                         </tr>
-                                    @php $i++;} @endphp
+                                        @php $i++; @endphp
+                                    @endforeach
                                 @else
                                     <tr>
                                         <td colspan=3><p>No Record Found</p></td>
