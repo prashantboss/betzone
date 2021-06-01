@@ -13,7 +13,7 @@ class TransactionController extends Controller
     public function half_sangam_traxn(){
         // DB::enableQueryLog(); // Enable query log
         date_default_timezone_set("Asia/Calcutta");
-        $today = date('Y-m-d 10:00:00');
+        $today = date('Y-m-d 08:00:00');
         $todayplusone = date('Y-m-d 10:00:00', strtotime("+1 day"));
         $data = DB::table('player_betting_data_half_sangam')
             ->join('markets', 'player_betting_data_half_sangam.market_id', '=', 'markets.id')
@@ -35,7 +35,7 @@ class TransactionController extends Controller
 
     public function full_sangam_traxn(){
         date_default_timezone_set("Asia/Calcutta");
-        $today = date('Y-m-d 10:00:00');
+        $today = date('Y-m-d 08:00:00');
         $todayplusone = date('Y-m-d 10:00:00', strtotime("+1 day"));
         echo "Today -".$today." ~~~nextDay - ".$todayplusone;
         $data = DB::table('player_betting_data_full_sangam')
@@ -58,7 +58,7 @@ class TransactionController extends Controller
 
     public function all_rest_traxn(){
         date_default_timezone_set("Asia/Calcutta");
-        $today = date('Y-m-d 10:00:00');
+        $today = date('Y-m-d 08:00:00');
         $todayplusone = date('Y-m-d 10:00:00', strtotime("+2 day"));
         $data = DB::table('player_betting_data')
             ->join('markets', 'player_betting_data.market_id', '=', 'markets.id')
@@ -153,7 +153,6 @@ class TransactionController extends Controller
                 Session::flash('flash_message', 'Updation Successfully.');
                 Session::flash('flash_type', 'alert-success');
             }
-           
         }
         return redirect()->route('admin.holiday', [$request->game_id, $request->game_name]);
     }
