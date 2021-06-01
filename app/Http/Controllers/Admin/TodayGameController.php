@@ -217,21 +217,46 @@ class TodayGameController extends Controller
         
         $game_id_with_oc = array(1,3,4,5);
         if(in_array($request->game_id,$game_id_with_oc)){
-            // $request->validate([
-            //     'date' => 'required',
-            //     'market_id' => 'required',
-            //     'oc' => 'required',
-            // ]);
+            $request->validate([
+                'date' => 'required',
+                'market_id' => 'required',
+                'oc' => 'required',
+            ]);
 
-            $bet_data = DB::table('player_betting_data')
-            ->select('number','amount', DB::raw('SUM(amount) AS sum'), 'bet_date')
-            ->where('bet_date', $request->date)
-            ->where('market_id', $request->market_id)
-            ->where('game_id', $request->game_id)
-            ->where('open_close', $request->oc)
-            ->orderBy('number', 'ASC')
-            ->groupBy('amount', 'number', 'bet_date')
-            ->get();
+
+            $bet_data = DB::select("select id, number, amount, SUM(amount) AS sum, bet_date from player_betting_data 
+            where 
+            bet_date = '".$request->date."' and 
+            market_id = ".$request->market_id." and 
+            game_id = ".$request->game_id." and 
+            open_close = '".$request->oc."'
+            group by number order by number asc ");
+            // dd($bet_data);
+
+
+            // $bet_data = DB::table('player_betting_data')
+            // ->select('number','amount', DB::raw('SUM(amount) AS sum'), 'bet_date')
+            // ->where('bet_date', $request->date)
+            // ->where('market_id', $request->market_id)
+            // ->where('game_id', $request->game_id)
+            // ->where('open_close', $request->oc)
+            // ->orderBy('number', 'ASC')
+            // ->groupBy('number')
+            // ->get();
+
+            $total = 0;
+            foreach($bet_data as $row){
+                $total = $total + $row->sum;
+            }
+            // dd($bet_data);
+            // print_r($arr);
+            return view('vendor.multiauth.admin.thela_total')
+                                ->with('bet_data', $bet_data)
+                                ->with('game_id', $request->game_id)
+                                ->with('market_id', $request->market_id)
+                                ->with('open_close', $request->oc)
+                                ->with('total_amount', $total)
+                                ->with('title', 'Game Thela');
         }
 
         if($request->game_id == 2){
@@ -239,28 +264,31 @@ class TodayGameController extends Controller
             //     'date' => 'required',
             //     'market_id' => 'required',
             // ]);
-            $bet_data = DB::table('player_betting_data')
-            ->select('number','amount', 'bet_date',  DB::raw('SUM(amount) AS sum'))
-            ->where('bet_date', $request->date)
-            ->where('market_id', $request->market_id)
-            ->where('game_id', $request->game_id)
-            ->orderBy('number', 'ASC')
-            ->groupBy('amount', 'number', 'bet_date')
-            ->get();
+            $bet_data = DB::select("select id, number, amount, SUM(amount) AS sum, bet_date from player_betting_data 
+            where 
+            bet_date = '".$request->date."' and 
+            market_id = ".$request->market_id." and 
+            game_id = ".$request->game_id."
+            group by number order by number asc ");
             
-            $arrj = [];
+            // $bet_data = DB::table('player_betting_data')
+            // ->select('number','amount', 'bet_date',  DB::raw('SUM(amount) AS sum'))
+            // ->where('bet_date', $request->date)
+            // ->where('market_id', $request->market_id)
+            // ->where('game_id', $request->game_id)
+            // ->orderBy('number', 'ASC')
+            // ->groupBy('amount', 'number', 'bet_date')
+            // ->get();
+            
+            $total = 0;
             foreach($bet_data as $row){
-                if (array_key_exists($row->number,$arrj)){
-                    $amount = $arrj[$row->number]+$row->amount;
-                    $arrj[$row->number] = $amount;
-                }else{
-                    $arrj[$row->number] = $row->amount;
-                }
+                $total = $total + $row->sum;
             }
             return view('vendor.multiauth.admin.thela_total')
-                            ->with('bet_data', $arrj)
+                            ->with('bet_data', $bet_data)
                             ->with('game_id', $request->game_id)
                             ->with('market_id', $request->market_id)
+                            ->with('total_amount', $total)
                             ->with('title', 'Game Thela');
         }
 
@@ -303,23 +331,7 @@ class TodayGameController extends Controller
                             ->with('market_id', $request->market_id)
                             ->with('title', 'Game Thela');
         }
-        $arr = [];
-        foreach($bet_data as $row){
-            if (array_key_exists($row->number,$arr)){
-                $amount = $arr[$row->number]+$row->amount;
-                $arr[$row->number] = $amount;
-            }else{
-                $arr[$row->number] = $row->amount;
-            }
-        }
-        // dd($bet_data);
-        // print_r($arr);
-        return view('vendor.multiauth.admin.thela_total')
-                            ->with('bet_data', $arr)
-                            ->with('game_id', $request->game_id)
-                            ->with('market_id', $request->market_id)
-                            ->with('open_close', $request->oc)
-                            ->with('title', 'Game Thela');
+        
 
     }
 }
