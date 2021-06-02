@@ -22,8 +22,8 @@ class TransactionController extends Controller
             ->select('players.email','players.name','players.mobile',
             'player_betting_data_half_sangam.id','player_betting_data_half_sangam.ank_patti','player_betting_data_half_sangam.ank','player_betting_data_half_sangam.patti','player_betting_data_half_sangam.amount','player_betting_data_half_sangam.bet_date','player_betting_data_half_sangam.created_at', 
             'games.game_name', 'markets.name as market_name')
-            ->where('player_betting_data_half_sangam.created_at', '>=', $today)
-            ->where('player_betting_data_half_sangam.created_at', '<=', $todayminusone)
+            ->where('player_betting_data_half_sangam.created_at', '<=', $today)
+            ->where('player_betting_data_half_sangam.created_at', '>=', $todayminusone)
             ->orderBy('player_betting_data_half_sangam.created_at', 'DESC')
             ->get();
         // dd($data);
@@ -44,8 +44,8 @@ class TransactionController extends Controller
             ->select('players.email','players.name','players.mobile',
             'player_betting_data_full_sangam.id','player_betting_data_full_sangam.open_patti','player_betting_data_full_sangam.close_patti','player_betting_data_full_sangam.amount','player_betting_data_full_sangam.bet_date','player_betting_data_full_sangam.created_at', 
             'games.game_name', 'markets.name as market_name')
-            ->where('player_betting_data_full_sangam.created_at', '>=', $today)
-            ->where('player_betting_data_full_sangam.created_at', '<=', $todayminusone)
+            ->where('player_betting_data_full_sangam.created_at', '<=', $today)
+            ->where('player_betting_data_full_sangam.created_at', '>=', $todayminusone)
             ->orderBy('player_betting_data_full_sangam.created_at', 'DESC')
             ->get();
         // echo "<pre>";
