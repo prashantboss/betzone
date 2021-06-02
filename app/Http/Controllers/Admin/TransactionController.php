@@ -13,8 +13,8 @@ class TransactionController extends Controller
     public function half_sangam_traxn(){
         // DB::enableQueryLog(); // Enable query log
         date_default_timezone_set("Asia/Calcutta");
-        $today = date('Y-m-d 08:00:00');
-        $todayplusone = date('Y-m-d 10:00:00', strtotime("+1 day"));
+        $today = date('Y-m-d 00:00:00');
+        $todayminusone = date('Y-m-d 00:00:00', strtotime("-1 day"));
         $data = DB::table('player_betting_data_half_sangam')
             ->join('markets', 'player_betting_data_half_sangam.market_id', '=', 'markets.id')
             ->join('games', 'player_betting_data_half_sangam.game_id', '=', 'games.id')
@@ -23,7 +23,7 @@ class TransactionController extends Controller
             'player_betting_data_half_sangam.id','player_betting_data_half_sangam.ank_patti','player_betting_data_half_sangam.ank','player_betting_data_half_sangam.patti','player_betting_data_half_sangam.amount','player_betting_data_half_sangam.bet_date','player_betting_data_half_sangam.created_at', 
             'games.game_name', 'markets.name as market_name')
             ->where('player_betting_data_half_sangam.created_at', '>=', $today)
-            ->where('player_betting_data_half_sangam.created_at', '<=', $todayplusone)
+            ->where('player_betting_data_half_sangam.created_at', '<=', $todayminusone)
             ->orderBy('player_betting_data_half_sangam.created_at', 'DESC')
             ->get();
         // dd($data);
@@ -35,9 +35,8 @@ class TransactionController extends Controller
 
     public function full_sangam_traxn(){
         date_default_timezone_set("Asia/Calcutta");
-        $today = date('Y-m-d 08:00:00');
-        $todayplusone = date('Y-m-d 10:00:00', strtotime("+1 day"));
-        echo "Today -".$today." ~~~nextDay - ".$todayplusone;
+        $today = date('Y-m-d 00:00:00');
+        $todayminusone = date('Y-m-d 00:00:00', strtotime("-1 day"));
         $data = DB::table('player_betting_data_full_sangam')
             ->join('markets', 'player_betting_data_full_sangam.market_id', '=', 'markets.id')
             ->join('games', 'player_betting_data_full_sangam.game_id', '=', 'games.id')
@@ -46,7 +45,7 @@ class TransactionController extends Controller
             'player_betting_data_full_sangam.id','player_betting_data_full_sangam.open_patti','player_betting_data_full_sangam.close_patti','player_betting_data_full_sangam.amount','player_betting_data_full_sangam.bet_date','player_betting_data_full_sangam.created_at', 
             'games.game_name', 'markets.name as market_name')
             ->where('player_betting_data_full_sangam.created_at', '>=', $today)
-            ->where('player_betting_data_full_sangam.created_at', '<=', $todayplusone)
+            ->where('player_betting_data_full_sangam.created_at', '<=', $todayminusone)
             ->orderBy('player_betting_data_full_sangam.created_at', 'DESC')
             ->get();
         // echo "<pre>";
@@ -58,16 +57,16 @@ class TransactionController extends Controller
 
     public function all_rest_traxn(){
         date_default_timezone_set("Asia/Calcutta");
-        $today = date('Y-m-d 08:00:00');
-        $todayplusone = date('Y-m-d 10:00:00', strtotime("+2 day"));
+        $today = date('Y-m-d 00:00:00');
+        $todayminusone = date('Y-m-d 00:00:00', strtotime("-1 day"));
         $data = DB::table('player_betting_data')
             ->join('markets', 'player_betting_data.market_id', '=', 'markets.id')
             ->join('games', 'player_betting_data.game_id', '=', 'games.id')
             ->join('players', 'player_betting_data.player_id', '=', 'players.id')
             ->select('players.mobile','players.email','players.name','player_betting_data.id','player_betting_data.number','player_betting_data.amount','player_betting_data.bet_date','player_betting_data.created_at','player_betting_data.open_close',
             'games.game_name', 'markets.name as market_name')
-            ->where('player_betting_data.created_at', '>=', $today)
-            ->where('player_betting_data.created_at', '<=', $todayplusone)
+            ->where('player_betting_data.created_at', '<=', $today)
+            ->where('player_betting_data.created_at', '>=', $todayminusone)
             ->orderBy('player_betting_data.created_at', 'DESC')
             ->get();
         // echo "<pre>";
