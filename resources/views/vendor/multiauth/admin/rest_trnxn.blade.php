@@ -15,11 +15,10 @@
                                 <th>Id</th>
                                 <th>Name</th>
                                 <th>Mobile</th>
-                                <th>Number</th>
                                 <th>Amount</th>
                                 <th>Date</th>
-                                <th>Open/Close | Market | Game Name</th>
-                                <!-- <th>Actions</th> -->
+                                <th>OC | Market | Game Name | Number</th>
+                                <th>Actions<th>
                             </tr>
                         </thead>
                         <tbody>
@@ -29,11 +28,9 @@
                                     <td>{{$i}}</td>
                                     <td>{{$row->name}}</td>
                                     <td>{{$row->email}}</td>
-                                    <td>{{$row->number}}</td>
                                     <td>Rs. {{$row->amount}}</td>
                                     <td>
-                                    {{ date('d/m/Y,  h:i:s a', strtotime($row->created_at)) }}
-                                    <!-- {{$row->created_at}} -->
+                                        {{ date('d/m/Y,  h:i:s a', strtotime($row->created_at)) }}
                                     </td>
                                     <td>
                                         @if($row->open_close == null)         
@@ -42,18 +39,15 @@
                                             {{$row->open_close. " |"}}      
                                         @endif 
                                         
-                                        {{$row->market_name}} | {{$row->game_name}}</td>
-                                    <!-- <td>
-                                        <ul class="d-flex justify-content-center">
-                                            <li class="mr-3"><a href="#" id="edit" class="text-secondary" data-toggle="modal" data-id="{{$row->id}}" data-wallet="{{$row->market_name}}" data-target="#edit-modal"><i class="fa fa-edit"></i></a></li>
-                                        </ul>
-                                    </td> -->
+                                        {{$row->market_name}} | {{$row->game_name}} | {{$row->number}}
+                                    </td>
+                                    <td>Edit/delete</td>
                                 </tr>
                                 @php  $i++; @endphp
                             @endforeach
                         </tbody>
                     </table>
-                </div>
+                
             </div>
         </div>
     </div>

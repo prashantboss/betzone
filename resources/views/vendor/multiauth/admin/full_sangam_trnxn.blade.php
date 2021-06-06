@@ -20,7 +20,7 @@
                                 <th>Amount</th>
                                 <th>Date</th>
                                 <th>Market | Game Name</th>
-                                <!-- <th>Actions</th> -->
+                                <th>Actions</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -35,14 +35,9 @@
                                     <td>Rs. {{$row->amount}}</td>
                                     <td>
                                     {{ date('d/m/Y,  h:i:s a', strtotime($row->created_at)) }}
-                                    <!-- {{$row->created_at}} -->
                                     </td>
                                     <td>{{$row->market_name}} | {{$row->game_name}}</td>
-                                    <!-- <td>
-                                        <ul class="d-flex justify-content-center">
-                                            <li class="mr-3"><a href="#" id="edit" class="text-secondary" data-toggle="modal" data-id="{{$row->id}}" data-wallet="{{$row->market_name}}" data-target="#edit-modal"><i class="fa fa-edit"></i></a></li>
-                                        </ul>
-                                    </td> -->
+                                    <td>Edit/delete</td>
                                 </tr>
                                 @php  $i++; @endphp
                             @endforeach
