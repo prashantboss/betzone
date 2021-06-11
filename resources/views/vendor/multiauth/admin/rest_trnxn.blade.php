@@ -15,9 +15,9 @@
                                 <th>Id</th>
                                 <th>Name</th>
                                 <th>Mobile</th>
+                                <th>OC | Market | Game Name | Number</th>
                                 <th>Amount</th>
                                 <th>Date</th>
-                                <th>OC | Market | Game Name | Number</th>
                                 <th>Actions<th>
                             </tr>
                         </thead>
@@ -28,19 +28,20 @@
                                     <td>{{$i}}</td>
                                     <td>{{$row->name}}</td>
                                     <td>{{$row->email}}</td>
-                                    <td>Rs. {{$row->amount}}</td>
-                                    <td>
-                                        {{ date('d/m/Y,  h:i:s a', strtotime($row->created_at)) }}
-                                    </td>
                                     <td>
                                         @if($row->open_close == null)         
-                                                     
+
                                         @else
                                             {{$row->open_close. " |"}}      
                                         @endif 
                                         
                                         {{$row->market_name}} | {{$row->game_name}} | {{$row->number}}
                                     </td>
+                                    <td>Rs. {{$row->amount}}</td>
+                                    <td>
+                                        {{ date('d/m/Y,  h:i:s a', strtotime($row->created_at)) }}
+                                    </td>
+                                    
                                     <td>Edit/delete</td>
                                 </tr>
                                 @php  $i++; @endphp
