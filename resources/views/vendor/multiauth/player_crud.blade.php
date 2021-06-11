@@ -20,6 +20,7 @@
                                 <th>Date</th>
                                 <th>Actions</th>
                                 <th>Wallet</th>
+                                <th>Other</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -51,6 +52,7 @@
                                         </ul>
                                     </td>
                                     <td>{{$row->wallet}}</td>
+                                    <td>...</td>
                                 </tr>
                                 @php  $i++; @endphp
                             @endforeach
