@@ -13,6 +13,7 @@
                     <table id="dataTable3" class="text-center">
                         <thead class="text-capitalize">
                             <tr>
+                                <th>S.No.</th>
                                 <th>Id</th>
                                 <th>Name</th>
                                 <th>Mobile</th>
@@ -28,6 +29,7 @@
                             @foreach($cruds as $row)
                                 <tr>
                                     <td>{{$i}}</td>
+                                    <td>{{$row->id}}</td>
                                     <td>{{$row->name}}</td>
                                     <td>{{$row->email}}</td>
                                     <td>
