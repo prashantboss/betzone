@@ -88,11 +88,11 @@
                                         </label>
                                     </label> -->
 
-                                    <!-- <label>
-                                    <a class="btn btn-link" href="{{ route('player.password.request') }}">
+                                    <label>
+                                    <a class="btn btn-link" href='' onclick="forgot_msg()">
                                         {{ __('Forgot Your Password?') }}
                                     </a>
-                                    </label> -->
+                                    </label>
                                 </div>
                                 <button type="submit" class="btn btn-outline-success btn-lg btn-block">
                                                 {{ __('Login') }}
@@ -111,7 +111,11 @@
         </div>
 
     </div>
-
+    <script>
+        function forgot_msg(){
+            alert('Password Reset Karne Ke Liye {{$siteSetting['site_phone_primary']}} WhatsApp Kare.');
+        }
+    </script>
     <!-- Jquery JS-->
     <script src="{{asset('/')}}player_assets/vendor/jquery-3.2.1.min.js"></script>
     <!-- Bootstrap JS-->

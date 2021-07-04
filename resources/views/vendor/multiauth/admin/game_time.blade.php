@@ -31,7 +31,7 @@
                                 <div class="input-group-prepend">
                                     <div class="input-group-text">Open Time</div>
                                 </div>
-                                <input type="time" name="open_time" value="{{$data->open_time}}" class="@error('open_time') is-invalid @enderror num_disable form-control" id="inlineFormInputGroupUsername" placeholder="Open Time">
+                                <input type="time" step="any" name="open_time" value="{{$data->open_time}}" class="@error('open_time') is-invalid @enderror num_disable form-control" id="inlineFormInputGroupUsername" placeholder="Open Time">
                                 @error('open_time')
                                     <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror
@@ -43,7 +43,7 @@
                                 <div class="input-group-prepend">
                                     <div class="input-group-text">Close Time</div>
                                 </div>
-                                <input type="time" name="close_time" value="{{$data->close_time}}" class="@error('close_time') is-invalid @enderror num_disable form-control" id="inlineFormInputGroupUsername" placeholder="Close Time">
+                                <input type="time" step="any" name="close_time" value="{{$data->close_time}}" class="@error('close_time') is-invalid @enderror num_disable form-control" id="inlineFormInputGroupUsername" placeholder="Close Time">
                                 @error('close_time')
                                     <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror
