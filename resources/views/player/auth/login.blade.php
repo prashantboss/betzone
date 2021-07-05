@@ -113,7 +113,7 @@
     </div>
     <script>
         function forgot_msg(){
-            alert('Password Reset Karne Ke Liye {{$siteSetting['site_phone_primary']}} WhatsApp Kare.');
+            alert('Password Reset Karne Ke Liye {{$siteSetting['site_phone_secondary']}} WhatsApp Kare.');
         }
     </script>
     <!-- Jquery JS-->
