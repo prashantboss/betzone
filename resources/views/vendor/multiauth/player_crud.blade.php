@@ -14,13 +14,13 @@
                         <thead class="text-capitalize">
                             <tr>
                                 <th>S.No.</th>
-                                <th>Id</th>
                                 <th>Name</th>
                                 <th>Mobile</th>
                                 <td>Account Detail</td>
                                 <th>Date</th>
                                 <th>Actions</th>
                                 <th>Wallet</th>
+                                <th>Id</th>
                                 <th>Other</th>
                             </tr>
                         </thead>
@@ -29,7 +29,6 @@
                             @foreach($cruds as $row)
                                 <tr>
                                     <td>{{$i}}</td>
-                                    <td>{{$row->id}}</td>
                                     <td>{{$row->name}}</td>
                                     <td>{{$row->email}}</td>
                                     <td>
@@ -54,6 +53,7 @@
                                         </ul>
                                     </td>
                                     <td>{{$row->wallet}}</td>
+                                    <td>{{$row->id}}</td>
                                     <td>...</td>
                                 </tr>
                                 @php  $i++; @endphp

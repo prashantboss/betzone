@@ -242,9 +242,9 @@
 
         <script>
             function deposite(){
-                alert("Deposite karne ke liye 9993613331 par whatsapp kare")
+                alert("Deposite karne ke liye {{$siteSetting['site_phone_secondary']}} par whatsapp kare")
             }
             function withdrawl(){
-                alert("Withdrawl karne ke liye 9993613331 par whatsapp kare")
+                alert("Withdrawl karne ke liye {{$siteSetting['site_phone_secondary']}} par whatsapp kare")
             }
         </script>
