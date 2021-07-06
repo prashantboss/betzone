@@ -17,9 +17,9 @@
                                 <th>Name</th>
                                 <th>Mobile</th>
                                 <td>Account Detail</td>
-                                <th>Date</th>
-                                <th>Actions</th>
                                 <th>Wallet</th>
+                                <th>Actions</th>
+                                <th>Date</th>
                                 <th>Id</th>
                             </tr>
                         </thead>
@@ -37,7 +37,7 @@
                                             {{$row->account_detail}}
                                         @endif
                                     </td>
-                                    <td>{{date('d/m/Y,  h:i:s a', strtotime($row->created_at))}}</td>
+                                    <td>{{$row->wallet}}</td>
                                     <td>
                                         <ul class="d-flex justify-content-center">
                                             <li class="mr-3">
@@ -51,7 +51,7 @@
                                             <li class="mr-3"><a href="{{route('admin.player.txns', ['id' => $row->id])}}" class="text-secondary"><i class="fa fa-exchange"></i></a></li>
                                         </ul>
                                     </td>
-                                    <td>{{$row->wallet}}</td>
+                                    <td>{{date('d/m/Y,  h:i:s a', strtotime($row->created_at))}}</td>
                                     <td>{{$row->id}}</td>
                                 </tr>
                                 @php  $i++; @endphp
