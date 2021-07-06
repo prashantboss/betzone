@@ -8,8 +8,8 @@
         <div class="card">
             <div class="card-body">
                 <h4 class="header-title">Single | Jodi | Single Patti | Double Patti | Triple Patti</h4>
-                <div class="data-tables datatable-dark">
-                    <table id="dataTable3" class="text-center">
+                <div class="data-tables">
+                    <table id="dataTable" class="text-center">
                         <thead class="text-capitalize">
                             <tr>
                                 <th>Id</th>
@@ -18,7 +18,6 @@
                                 <th>OC | Market | Game Name | Number</th>
                                 <th>Amount</th>
                                 <th>Date</th>
-                                <th>Actions<th>
                             </tr>
                         </thead>
                         <tbody>
@@ -42,7 +41,6 @@
                                         {{ date('d/m/Y,  h:i:s a', strtotime($row->created_at)) }}
                                     </td>
                                     
-                                    <td>Edit/delete</td>
                                 </tr>
                                 @php  $i++; @endphp
                             @endforeach

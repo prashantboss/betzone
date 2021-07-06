@@ -8,8 +8,8 @@
         <div class="card">
             <div class="card-body">
                 <h4 class="header-title">Full Sangam</h4>
-                <div class="data-tables datatable-dark">
-                    <table id="dataTable3" class="text-center">
+                <div class="data-tables">
+                    <table id="dataTable" class="text-center">
                         <thead class="text-capitalize">
                             <tr>
                                 <th>Id</th>
@@ -20,7 +20,6 @@
                                 <th>Amount</th>
                                 <th>Date</th>
                                 <th>Market | Game Name</th>
-                                <th>Actions</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -37,7 +36,6 @@
                                     {{ date('d/m/Y,  h:i:s a', strtotime($row->created_at)) }}
                                     </td>
                                     <td>{{$row->market_name}} | {{$row->game_name}}</td>
-                                    <td>Edit/delete</td>
                                 </tr>
                                 @php  $i++; @endphp
                             @endforeach
