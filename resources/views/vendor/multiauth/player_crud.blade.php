@@ -9,8 +9,8 @@
         <div class="card">
             <div class="card-body">
                 <h4 class="header-title">Players Details</h4>
-                <div class="data-tables datatable-dark">
-                    <table id="dataTable3" class="text-center">
+                <div class="data-tables">
+                    <table id="dataTable" class="text-center">
                         <thead class="text-capitalize">
                             <tr>
                                 <th>S.No.</th>
@@ -21,7 +21,6 @@
                                 <th>Actions</th>
                                 <th>Wallet</th>
                                 <th>Id</th>
-                                <th>Other</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -54,7 +53,6 @@
                                     </td>
                                     <td>{{$row->wallet}}</td>
                                     <td>{{$row->id}}</td>
-                                    <td>...</td>
                                 </tr>
                                 @php  $i++; @endphp
                             @endforeach
@@ -65,7 +63,7 @@
         </div>
     </div>
     <!-- Dark table end -->
-
+</div>
 
 
 @include('multiauth::includes.footer')

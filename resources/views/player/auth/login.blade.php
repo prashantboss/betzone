@@ -90,7 +90,7 @@
 
                                     <label>
                                     <a class="btn btn-link" href='' onclick="forgot_msg()">
-                                        {{ __('Forgot Your Password?') }}
+                                        {{ __('Reset Your New Password?') }}
                                     </a>
                                     </label>
                                 </div>
@@ -101,7 +101,7 @@
                             <div class="register-link">
                                 <p>
                                     Don't you have account?
-                                    <a href="{{ route('player.register') }}">Sign Up Here</a>
+                                    <a href="{{ route('player.register') }}">Open Your New Account</a>
                                 </p>
                             </div>
                         </div>
