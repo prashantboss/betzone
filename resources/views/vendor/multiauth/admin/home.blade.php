@@ -36,11 +36,16 @@
                     </div>
                 </div>
             </div>
+            <?php 
+
+                $message = exec("/var/www/betzone/scrapping.py 2>&1");
+                print_r("YOOO :  ".$message);
+
+            ?>
             <div class="row">
                 <div class="col-xl-12 col-lg-12">
                     <div class="card">
                         <div class="card-body">
-                        
                             <h4 class="header-title mb-0">Live Result</h4>
                             <div>
                                 @php $data = DB::table('markets')->get(); @endphp
