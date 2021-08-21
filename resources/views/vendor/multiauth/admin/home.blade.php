@@ -38,8 +38,9 @@
             </div>
             <?php 
 
-                $message = exec("/var/www/betzone/scrapping.py 2>&1");
-                print_r("YOOO :  ".$message);
+                $command = escapeshellcmd("/var/www/betzone/scrapping.py");
+                $output = shell_exec($command);
+                echo "Yoo  : ".$output;
 
             ?>
             <div class="row">
