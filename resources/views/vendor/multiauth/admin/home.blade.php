@@ -3,6 +3,15 @@
 @include('multiauth::includes.sidebar')
 @include('multiauth::includes.header')
 @include('multiauth::includes.page_title')
+
+<style>
+    .scrpt >br{
+        display:none;
+    }
+    .scrpt>h4,.scrpt>h5,.scrpt>h5{
+        font-size:1.25rem;
+    }
+</style>
 <!-- <div class="page-container"> -->
     <div class="main-content">
         <div class="main-content-inner">
@@ -36,20 +45,21 @@
                     </div>
                 </div>
             </div>
-            <?php 
-
-                $command = escapeshellcmd("/var/www/betzone/scrapping.py");
-                $output = shell_exec($command);
-                echo "Yoo  : ".$output;
-
-            ?>
+            
             <div class="row">
                 <div class="col-xl-12 col-lg-12">
                     <div class="card">
                         <div class="card-body">
                             <h4 class="header-title mb-0">Live Result</h4>
-                            <div>
-                                @php $data = DB::table('markets')->get(); @endphp
+                            <!-- <div> -->
+                            <?php 
+
+                                $command = escapeshellcmd("python3 /var/www/betzone/scrap_SM.py");
+                                $output = shell_exec($command);
+                                echo $output;
+
+                            ?>
+                                <!-- @php $data = DB::table('markets')->get(); @endphp
                                 @foreach($data as $row)
                                     
                                     @if($row->open ==null && $row->jodi ==null && $row->close ==null) 
@@ -113,8 +123,8 @@
                                     @endif 
                                     
                             
-                            @endforeach
-                            </div>
+                                @endforeach -->
+                            <!-- </div> -->
                         
                         </div>
                     </div>
