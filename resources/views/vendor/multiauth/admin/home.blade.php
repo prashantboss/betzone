@@ -54,7 +54,7 @@
                             <!-- <div> -->
                             <?php 
 
-                                $command = escapeshellcmd("python3 /var/www/betzone/scrap_SM.py");
+                                $command = escapeshellcmd("python3 /var/www/betzone/demo.py");
                                 $output = shell_exec($command);
                                 echo $output;
 
