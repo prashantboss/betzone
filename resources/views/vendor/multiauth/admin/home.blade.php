@@ -54,12 +54,12 @@
                             <!-- <div> -->
                             <?php 
 
-                                $command = escapeshellcmd("python3 /var/www/betzone/demo.py");
-                                $output = shell_exec($command);
-                                echo $output;
+                                // $command = escapeshellcmd("python3 /var/www/betzone/demo.py");
+                                // $output = shell_exec($command);
+                                // echo $output;
 
                             ?>
-                                <!-- @php $data = DB::table('markets')->get(); @endphp
+                                @php $data = DB::table('markets')->get(); @endphp
                                 @foreach($data as $row)
                                     
                                     @if($row->open ==null && $row->jodi ==null && $row->close ==null) 
@@ -124,7 +124,7 @@
                                     
                             
                                 @endforeach -->
-                            <!-- </div> -->
+                            <!-- </div>
                         
                         </div>
                     </div>
