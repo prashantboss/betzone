@@ -19,11 +19,12 @@ for div in mydivs:
                      if str(row.find("h4")) in lst:
                             print("""
                                    <div>  
-                                        <button type="button" class="scrpt btn btn-outline-warning btn-lg btn-block" >%s%s%s</button>
+                                          <button type="button" class="scrpt btn btn-flat btn-dark btn-lg btn-block">
+                                                 %s%s%s
+                                          </button>
                                    </div>
                                    <br/>
                                    """% (row.find("h4"), row.find("h5"), row.find("h6")))
-
 
 
 RD_URL = "https://dpboss.mobi/"
@@ -36,7 +37,7 @@ for rd_div in rd_mydivs:
                      if str(rd_row.find("h4")) == "<h4> RAJDHANI DAY </h4>":
                             print("""
                                    <div>  
-                                        <button type="button" class="scrpt btn btn-outline-warning btn-lg btn-block" >%s%s%s</button>
+                                        <button type="button" class="scrpt btn btn-flat btn-dark btn-lg btn-block" >%s%s%s</button>
                                    </div>
                                    <br/>
                                    """% (rd_row.find("h4"), rd_row.find("h5"), rd_row.find("h6")))

@@ -4,6 +4,12 @@
 @include('player.includes.header')
 
 <style>
+    .scrpt > br{
+        display:none;
+    }
+    .scrpt>h4,.scrpt>h5,.scrpt>h5{
+        font-size:1.25rem;
+    }
     blink {
         -webkit-animation: 2s linear infinite condemned_blink_effect; /* for Safari 4.0 - 8.0 */
         animation: 2s linear infinite condemned_blink_effect;
@@ -144,7 +150,14 @@
                         </small> -->
                     </div>
                     <div class="card-body" style="background: black;">
-                        @foreach($live_result as $row)
+                        <?php 
+
+                            $command = escapeshellcmd("python3 /var/www/betzone/scrapping.py");
+                            $output = shell_exec($command);
+                            echo $output;
+
+                        ?>
+                        <!-- @foreach($live_result as $row)
                             @if($row->open ==null && $row->jodi ==null && $row->close ==null) 
                                 <button type="button" class="btn btn-outline-warning btn-lg btn-block">
                                 {{$row->name}}<br/>
@@ -204,7 +217,7 @@
                                 {{$date_open->format('h:ia')}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{$date_close->format('h:ia')}}
                                 </button>
                             @endif
-                        @endforeach
+                        @endforeach -->
                         
                     </div>
                 </div>
