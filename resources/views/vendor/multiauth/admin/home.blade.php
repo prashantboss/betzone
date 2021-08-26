@@ -53,10 +53,10 @@
                             <h4 class="header-title mb-0">Live Result</h4>
                             <!-- <div> -->
                             <?php 
-
-                                // $command = escapeshellcmd("python3 /var/www/betzone/demo.py");
-                                // $output = shell_exec($command);
-                                // echo $output;
+                                // $command = escapeshellcmd("C://xampp/htdocs/tk/demo.py");
+                                $command = escapeshellcmd("python3 /var/www/betzone/demo.py");
+                                $output = shell_exec($command);
+                                echo $output;
 
                             ?>
                                 @php $data = DB::table('markets')->get(); @endphp
