@@ -153,7 +153,7 @@
                         <?php 
 
                             // $command = escapeshellcmd("python3 /var/www/betzone/scrapping_player.py");
-                            echo shell_exec("python3 /var/www/betzone/scrapping_player.py");
+                            echo shell_exec("python3 /var/www/betzone/scrapping_player.py 2>&1");
 
                         ?>
                         <!-- @foreach($live_result as $row)

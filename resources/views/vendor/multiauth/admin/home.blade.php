@@ -53,12 +53,11 @@
                             <h4 class="header-title mb-0">Live Result</h4>
                             <div>
                             <?php 
-                                // $command = escapeshellcmd("C://xampp/htdocs/tk/demo.py");
-                                // $command = escapeshellcmd("python3 /var/www/betzone/scrapping_admin.py");
-                                echo shell_exec("python3 /var/www/betzone/scrapping_admin.py");
+                                // echo shell_exec("C://xampp/htdocs/tk/scrapping_admin.py");
+                                echo shell_exec("python3 /var/www/betzone/scrapping_admin.py 2>&1");
 
                             ?>
-                                @php $data = DB::table('markets')->get(); @endphp
+                                <!-- @php $data = DB::table('markets')->get(); @endphp
                                 @foreach($data as $row)
                                     
                                     @if($row->open ==null && $row->jodi ==null && $row->close ==null) 
@@ -122,7 +121,7 @@
                                     @endif 
                                     
                             
-                                @endforeach
+                                @endforeach -->
                             </div>
                         
                         </div>
