@@ -22,7 +22,7 @@ for div in mydivs:
                                         <button type="button" class="scrpt btn btn-outline-warning btn-lg btn-block" >%s%s%s</button>
                                    </div>
                                    <br/>
-                                   """% (str(row.find("h4").encode("utf-8"),'utf-8'), str(row.find("h5").encode("utf-8"),'utf-8'), str(row.find("h6").encode("utf-8"),'utf-8')))
+                                   """% (row.find("h4"), row.find("h5"), row.find("h6").encode("utf-8")))
 
 
 
@@ -39,4 +39,4 @@ for rd_div in rd_mydivs:
                                         <button type="button" class="scrpt btn btn-outline-warning btn-lg btn-block" >%s%s%s</button>
                                    </div>
                                    <br/>
-                                   """% (str(rd_row.find("h4").encode("utf-8"),'utf-8'), str(rd_row.find("h5").encode("utf-8"),'utf-8'), str(rd_row.find("h6").encode("utf-8"),'utf-8')))
+                                   """% (rd_row.find("h4"), rd_row.find("h5"), rd_row.find("h6")))
