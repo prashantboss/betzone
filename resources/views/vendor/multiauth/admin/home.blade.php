@@ -51,10 +51,10 @@
                     <div class="card">
                         <div class="card-body">
                             <h4 class="header-title mb-0">Live Result</h4>
-                            <!-- <div> -->
+                            <div>
                             <?php 
                                 // $command = escapeshellcmd("C://xampp/htdocs/tk/demo.py");
-                                $command = escapeshellcmd("python3 /var/www/betzone/demo.py");
+                                $command = escapeshellcmd("python3 /var/www/betzone/scrapping_admin.py");
                                 $output = shell_exec($command);
                                 echo $output;
 
@@ -123,8 +123,8 @@
                                     @endif 
                                     
                             
-                                @endforeach -->
-                            <!-- </div>
+                                @endforeach
+                            </div>
                         
                         </div>
                     </div>
@@ -132,6 +132,6 @@
             </div>
         </div>
     </div>
-<!-- </div> -->
+</div>
 @include('multiauth::includes.footer')
 @endsection

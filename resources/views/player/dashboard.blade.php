@@ -152,12 +152,12 @@
                     <div class="card-body" style="background: black;">
                         <?php 
 
-                            // $command = escapeshellcmd("python3 /var/www/betzone/scrapping.py");
-                            // $output = shell_exec($command);
-                            // echo "Yoooo : ".$output;
+                            $command = escapeshellcmd("python3 /var/www/betzone/scrapping_player.py");
+                            $output = shell_exec($command);
+                            echo "Yoooo : ".$output;
 
                         ?>
-                        @foreach($live_result as $row)
+                        <!-- @foreach($live_result as $row)
                             @if($row->open ==null && $row->jodi ==null && $row->close ==null) 
                                 <button type="button" class="btn btn-outline-warning btn-lg btn-block">
                                 {{$row->name}}<br/>
@@ -217,7 +217,7 @@
                                 {{$date_open->format('h:ia')}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{$date_close->format('h:ia')}}
                                 </button>
                             @endif
-                        @endforeach
+                        @endforeach -->
                         
                     </div>
                 </div>
