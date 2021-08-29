@@ -152,9 +152,8 @@
                     <div class="card-body" style="background: black;">
                         <?php 
 
-                            $command = escapeshellcmd("python3 /var/www/betzone/scrapping_player.py");
-                            $output = shell_exec($command);
-                            echo "Yoooo : ".$output;
+                            // $command = escapeshellcmd("python3 /var/www/betzone/scrapping_player.py");
+                            echo shell_exec("python3 /var/www/betzone/scrapping_player.py");
 
                         ?>
                         <!-- @foreach($live_result as $row)

@@ -54,9 +54,8 @@
                             <div>
                             <?php 
                                 // $command = escapeshellcmd("C://xampp/htdocs/tk/demo.py");
-                                $command = escapeshellcmd("python3 /var/www/betzone/scrapping_admin.py");
-                                $output = shell_exec($command);
-                                echo $output;
+                                // $command = escapeshellcmd("python3 /var/www/betzone/scrapping_admin.py");
+                                echo shell_exec("python3 /var/www/betzone/scrapping_admin.py");
 
                             ?>
                                 @php $data = DB::table('markets')->get(); @endphp
