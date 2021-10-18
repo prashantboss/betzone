@@ -152,7 +152,7 @@
                     <div class="card-body" style="background: black;">
                         <?php 
 
-                            // $command = escapeshellcmd("python3 /var/www/betzone/scrapping_player.py");
+                            // echo shell_exec("C://xampp/htdocs/tk/scrapping_player.py 2>&1");
                             echo shell_exec("python3 /var/www/betzone/scrapping_player.py 2>&1");
 
                         ?>
