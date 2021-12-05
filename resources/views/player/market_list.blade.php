@@ -32,7 +32,7 @@
                                                 <span style="color:red">-</span>
                                                 @php 
                                                     $time_open = strtotime($row->open_time); 
-                                                    $date_open = new DateTime(date("Y-m-d")." ".date("H:i", strtotime('-20 minutes', $time_open)));
+                                                    $date_open = new DateTime(date("Y-m-d")." ".date("H:i", strtotime('-10 minutes', $time_open)));
                                                 
                                                     $currentTime = DateTime::createFromFormat('h:i a', $currentTime_h);
                                                     $from = DateTime::createFromFormat('h:i a', "08:00 AM");
@@ -84,7 +84,7 @@
                                                 <span style="color:red">Market Holiday</span>
                                                 @php 
                                                     $time_open = strtotime($row->open_time); 
-                                                    $date_open = new DateTime(date("Y-m-d")." ".date("H:i", strtotime('-20 minutes', $time_open)));
+                                                    $date_open = new DateTime(date("Y-m-d")." ".date("H:i", strtotime('-10 minutes', $time_open)));
                                                   
                                                 
                                                     $currentTime = DateTime::createFromFormat('h:i a', $currentTime_h);
@@ -149,10 +149,10 @@
                                                 <span style="color:red">-</span>
                                                 @php 
                                                     $time_open = strtotime($row->open_time); 
-                                                    $date_open = new DateTime(date("Y-m-d")." ".date("H:i", strtotime('-20 minutes', $time_open)));
+                                                    $date_open = new DateTime(date("Y-m-d")." ".date("H:i", strtotime('-10 minutes', $time_open)));
                                                 
                                                     $time_close = strtotime($row->close_time); 
-                                                    $date_close = new DateTime(date("Y-m-d")." ".date("H:i", strtotime('-20 minutes', $time_close)));
+                                                    $date_close = new DateTime(date("Y-m-d")." ".date("H:i", strtotime('-10 minutes', $time_close)));
                                                 
                                                     $currentTime = DateTime::createFromFormat('h:i a', $currentTime_h);
                                                     $from = DateTime::createFromFormat('h:i a', "08:00 AM");
@@ -209,10 +209,10 @@
                                                 <span style="color:red">Market Holiday</span>
                                                 @php 
                                                     $time_open = strtotime($row->open_time); 
-                                                    $date_open = new DateTime(date("Y-m-d")." ".date("H:i", strtotime('-20 minutes', $time_open)));
+                                                    $date_open = new DateTime(date("Y-m-d")." ".date("H:i", strtotime('-10 minutes', $time_open)));
                                                 
                                                     $time_close = strtotime($row->close_time); 
-                                                    $date_close = new DateTime(date("Y-m-d")." ".date("H:i", strtotime('-20 minutes', $time_close)));
+                                                    $date_close = new DateTime(date("Y-m-d")." ".date("H:i", strtotime('-10 minutes', $time_close)));
                                                 
                                                     $currentTime = DateTime::createFromFormat('h:i a', $currentTime_h);
                                                     $from = DateTime::createFromFormat('h:i a', "08:00 AM");
