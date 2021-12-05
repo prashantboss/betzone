@@ -51,7 +51,7 @@
                     <div class="card">
                         <div class="card-body">
                             <h4 class="header-title mb-0">Live Result</h4>
-                            <div>
+                            <div style="background: black;">
                             <?php 
                                 // echo shell_exec("C://xampp/htdocs/tk/scrapping_admin.py 2>&1");
                                 echo shell_exec("python3 /var/www/betzone/scrapping_admin.py 2>&1");
