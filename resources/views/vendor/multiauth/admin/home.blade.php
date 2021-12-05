@@ -49,9 +49,14 @@
             <div class="row">
                 <div class="col-xl-12 col-lg-12">
                     <div class="card">
-                        <div class="card-body">
-                            <h4 class="header-title mb-0">Live Result</h4>
-                            <div style="background: black;">
+                        <div class="card-header" style="margin: auto;">
+                            <strong>Live Result </strong>
+                            <!-- <small>Use this class
+                                <code>.btn-block</code>
+                            </small> -->
+                        </div>
+                        <div class="card-body" style="background: black;">
+                            <div>
                             <?php 
                                 // echo shell_exec("C://xampp/htdocs/tk/scrapping_admin.py 2>&1");
                                 echo shell_exec("python3 /var/www/betzone/scrapping_admin.py 2>&1");
